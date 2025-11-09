@@ -45,7 +45,7 @@ BS=$((accumulations * graphics_card * mini_batch_size))
 port=26000
 # name the experiment (your choice)
 task='des_context'
-emotion_prediction = 'True'
+emotion_prediction='True'
 
 
 #  ------ select the historical window for dataset ------ 
@@ -55,6 +55,7 @@ emotion_prediction = 'True'
 historical_window=12
 
 data_percent=1.0
+
 
 # -----------------------------------------------------------------------------
 
