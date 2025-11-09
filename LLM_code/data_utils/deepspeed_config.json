@@ -5,7 +5,7 @@
   "gradient_clipping": 1.0,
   "steps_per_print": 100,
   "fp16": {
-    "enabled": false,
+    "enabled": true,
     "auto_cast": "auto",
     "loss_scale": 0,
     "initial_scale_power": 16,
@@ -18,7 +18,7 @@
     "opt_level": "O2"
   },
   "bfloat16": {
-    "enabled": true
+    "enabled": false
   },
  "zero_optimization": {
         "stage": 2,

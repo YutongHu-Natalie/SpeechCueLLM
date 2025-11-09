@@ -4,16 +4,16 @@ FLAG=1
 # Please adjust the following parameters according to your needs. Rememeber to update the MODELPATH for each LLM model.
 
 # ------  select basemodel ----------
-# MODEL_NAME='LLaMA2'
+MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
 # MODEL_NAME='LLaMA3-instruct-70b'
-MODEL_NAME='LLaMA3-instruct'
+#MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
-Experiments_setting='zero_shot'
-# Experiments_setting='few_shot'
+# Experiments_setting='lora'
+Experiments_setting='few_shot'
 # Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
@@ -22,7 +22,7 @@ dataset='iemocap'
 # dataset='meld'
 
 # ------  prompt input format setting ------ 
-audio_description='False'
+audio_description='True'
 audio_impression='False'
 audio_context='False' # add audio description for the last three utterances of the context
 audio_only='False' # do not use text input
@@ -134,7 +134,7 @@ then
         MODEL_PATH='LLaMA MODELPATH'
     elif [ ${MODEL_NAME} = 'LLaMA2' ]
     then
-        MODEL_PATH='LLaMA2 MODELPATH'
+        MODEL_PATH='/local/scratch/yhu383/models/llama2-7b'
     elif [ ${MODEL_NAME} = 'LLaMA3' ]
     then
         MODEL_PATH='LLaMA3 MODELPATH'

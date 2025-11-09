@@ -578,7 +578,7 @@ else:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
             model.resize_token_embeddings(len(tokenizer))
             model.generation_config.pad_token_id = tokenizer.pad_token_id
-        deepspeed_config["bfloat16"]["enabled"] = True
+        deepspeed_config["bfloat16"]["enabled"] = False
         deepspeed_config["fp16"]["enabled"] = False
 
 if tokenizer.pad_token is None:
@@ -773,7 +773,8 @@ if __name__ == "__main__":
                             max_length=args.max_length,
                             length_penalty=0.1,
                             repetition_penalty=1.0,
-                            num_return_sequences=1
+                            num_return_sequences=1,
+                        do_sample=False
                             # stopping_criteria=StoppingCriteriaList([stop_criteria]
                         )
                 outputs[outputs[:, :] < 0] = tokenizer.pad_token_id
@@ -891,10 +892,11 @@ if __name__ == "__main__":
                         top_p=args.top_p,
                         # early_stopping=True,
                         # max_length=max_length_this_batch + args.max_length,
-                        max_new_tokens=5,
+                        max_new_tokens=10,
                         #length_penalty=0.1,
                         repetition_penalty=1.0,
-                        num_return_sequences=1
+                        num_return_sequences=1,
+                        do_sample=False
                         # stopping_criteria=StoppingCriteriaList([stop_criteria])
                     )
             outputs[outputs[:, :] < 0] = tokenizer.pad_token_id
