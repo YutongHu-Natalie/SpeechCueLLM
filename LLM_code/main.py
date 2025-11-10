@@ -647,8 +647,12 @@ if args.do_train:
 
     optimizer_grouped_parameters = getOptimizerGroup(model=model)
 
-    optimizer_class = DeepSpeedCPUAdam if deepspeed_config["zero_optimization"]\
-        ["offload_optimizer"]["device"] == "cpu" else FusedAdam
+    if deepspeed_config["zero_optimization"]["offload_optimizer"]["device"] == "cpu":
+        optimizer_class = DeepSpeedCPUAdam
+    else:
+        # Use standard AdamW instead of FusedAdam to avoid CUDA compilation issues
+        from torch.optim import AdamW
+        optimizer_class = AdamW
     optimizer = optimizer_class(optimizer_grouped_parameters, lr=args.learning_rate, betas=[0.9, 0.95])
     lr_scheduler = get_linear_schedule_with_warmup(optimizer=optimizer, num_training_steps=t_total, num_warmup_steps=warmup_steps)
 
