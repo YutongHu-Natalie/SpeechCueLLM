@@ -45,6 +45,8 @@ BS=$((accumulations * graphics_card * mini_batch_size))
 port=26000
 # name the experiment (your choice)
 task='des_context'
+emotion_prediction='True'
+
 
 #  ------ select the historical window for dataset ------ 
 # LLaMA 's context = 1024 is enough for almost dataset, except for iemocap.
@@ -53,6 +55,8 @@ task='des_context'
 historical_window=12
 
 data_percent=1.0
+
+
 # -----------------------------------------------------------------------------
 
 
@@ -69,6 +73,7 @@ case ${MODEL_NAME} in
             echo "The dataset you have selected is: ${dataset} !"
             echo "The base model you have selected is ${MODEL_NAME}!"
             echo "The model's SFT method you have selected: ${Experiments_setting}!"
+            echo "If predict emotions: ${emotion_prediction}" 
             echo "******************************************************************************************"
             ;;
         *)
@@ -214,7 +219,8 @@ then
         --seed ${SEED} \
         --freeze_llm ${freeze_llm} \
         --freeze_encoder ${freeze_encoder}\
-        --projector ${projector}
+        --projector ${projector}\
+        --emotion_prediction True
     else
         echo "Processed Data_Path: $DATA_PATH"
         deepspeed --master_port=${port} main.py \
@@ -235,6 +241,7 @@ then
         --do_train ${DO_TRAIN} \
         --statistic_mode True \
         --data_percent ${data_percent} \
-        --seed ${SEED}
+        --seed ${SEED}\
+        --emotion_prediction ${emotion_prediction}
     fi  
 fi
