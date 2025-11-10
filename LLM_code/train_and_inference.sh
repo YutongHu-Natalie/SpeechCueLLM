@@ -4,17 +4,17 @@ FLAG=1
 # Please adjust the following parameters according to your needs. Rememeber to update the MODELPATH for each LLM model.
 
 # ------  select basemodel ----------
-MODEL_NAME='LLaMA2'
+# MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
 # MODEL_NAME='LLaMA3-instruct-70b'
-#MODEL_NAME='LLaMA3-instruct'
+MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
-# Experiments_setting='lora'
-Experiments_setting='few_shot'
-# Experiments_setting='lora'
+# Experiments_setting='zero_shot'
+# Experiments_setting='few_shot'
+Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
 #  ------ select the dataset ------ 
@@ -28,7 +28,7 @@ audio_context='False' # add audio description for the last three utterances of t
 audio_only='False' # do not use text input
 
 # ------  training setting ------ 
-SEED=11
+SEED=42
 num_train_epochs=15
 LORA_LR=3e-4
 # training setting for projection-based model
@@ -45,7 +45,7 @@ BS=$((accumulations * graphics_card * mini_batch_size))
 port=26000
 # name the experiment (your choice)
 task='des_context'
-emotion_prediction='True'
+emotion_prediction='False'
 
 
 #  ------ select the historical window for dataset ------ 
@@ -145,10 +145,10 @@ then
         MODEL_PATH='LLaMA3 MODELPATH'
     elif [ ${MODEL_NAME} = 'LLaMA3-instruct' ]
     then
-        MODEL_PATH='LLaMA3-instruct MODELPATH'
+        MODEL_PATH='/local/scratch/yhu383/models/llama3.1-8b'
     elif [ ${MODEL_NAME} = 'LLaMA3-instruct-70b' ]
     then
-        MODEL_PATH='LLaMA3-instruct-70b MODELPATH'
+        MODEL_PATH='/local/scratch/yhu383/models/llama3.3-70b'
     elif [ ${MODEL_NAME} = 'Phi3-medium' ]    
     then
         MODEL_PATH='Phi3-medium MODELPATH'

@@ -1,0 +1,42 @@
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:11,  3.74s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:07,  3.76s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:11<00:03,  3.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.59s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  3.00s/it]
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+Traceback (most recent call last):
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2597, in _run_ninja_build
+    subprocess.run(
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['ninja', '-v']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/local/scratch/yhu383/SpeechCueLLM/LLM_code/main.py", line 652, in <module>
+    optimizer = optimizer_class(optimizer_grouped_parameters, lr=args.learning_rate, betas=[0.9, 0.95])
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/ops/adam/fused_adam.py", line 71, in __init__
+    fused_adam_cuda = FusedAdamBuilder().load()
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/ops/op_builder/builder.py", line 445, in load
+    return self.jit_load(verbose)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/ops/op_builder/builder.py", line 480, in jit_load
+    op_module = load(name=self.name,
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 1692, in load
+    return _jit_compile(
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2134, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2286, in _write_ninja_file_and_build_library
+    _run_ninja_build(
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2614, in _run_ninja_build
+    raise RuntimeError(message) from e
+RuntimeError: Error building extension 'fused_adam'
