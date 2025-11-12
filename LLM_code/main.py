@@ -572,14 +572,33 @@ else:
     else:
         ## for llama, vicuna, belle
         config = AutoConfig.from_pretrained(args.model_name_or_path)
-        # LLaMA 3.3 tokenizer - use LlamaTokenizerFast directly to avoid slow tokenizer issues
+        # LLaMA 3.3 tokenizer - patch to avoid slow tokenizer loading
         from transformers import LlamaTokenizerFast
+        import json
+        import os
+        from huggingface_hub import hf_hub_download
+
+        # Try to load tokenizer.json directly for LLaMA 3.3
         try:
-            tokenizer = LlamaTokenizerFast.from_pretrained(args.model_name_or_path)
+            # Download tokenizer files
+            tokenizer_file = hf_hub_download(repo_id=args.model_name_or_path, filename="tokenizer.json")
+            tokenizer_config_file = hf_hub_download(repo_id=args.model_name_or_path, filename="tokenizer_config.json")
+
+            # Load tokenizer directly from tokenizer.json without slow tokenizer
+            from tokenizers import Tokenizer
+            fast_tokenizer = Tokenizer.from_file(tokenizer_file)
+
+            # Load config
+            with open(tokenizer_config_file, 'r') as f:
+                tokenizer_config = json.load(f)
+
+            # Create fast tokenizer instance
+            tokenizer = LlamaTokenizerFast(tokenizer_object=fast_tokenizer, **tokenizer_config)
         except Exception as e:
-            print(f"Failed to load LlamaTokenizerFast: {e}")
-            print("Trying AutoTokenizer with from_slow=False...")
-            tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, from_slow=False)
+            print(f"Failed to load tokenizer directly: {e}")
+            print("Falling back to standard loading...")
+            tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+
         model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
         if tokenizer.pad_token is None:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
