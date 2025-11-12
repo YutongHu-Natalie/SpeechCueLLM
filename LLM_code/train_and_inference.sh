@@ -12,8 +12,9 @@ MODEL_NAME='LLaMA2'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
-# Experiments_setting='lora'
-Experiments_setting='few_shot'
+Experiments_setting='lora'
+# Experiments_setting='few_shot'
+# Experiments_setting='zero_shot'
 # Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
