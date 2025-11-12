@@ -6,8 +6,8 @@ FLAG=1
 # ------  select basemodel ----------
 # MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
-# MODEL_NAME='LLaMA3-instruct-70b'
-MODEL_NAME='LLaMA3-instruct'
+MODEL_NAME='LLaMA3-instruct-70b'
+# MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
 
 # ------ select the experiment ------------
