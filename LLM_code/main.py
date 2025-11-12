@@ -573,7 +573,9 @@ else:
         ## for llama, vicuna, belle
         config = AutoConfig.from_pretrained(args.model_name_or_path)
         # LLaMA 3.3 uses fast tokenizer without sentencepiece
-        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=True)
+        # Setting tokenizer_type to prevent slow tokenizer fallback
+        from transformers import PreTrainedTokenizerFast
+        tokenizer = PreTrainedTokenizerFast.from_pretrained(args.model_name_or_path)
         model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
         if tokenizer.pad_token is None:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
