@@ -572,17 +572,16 @@ else:
     else:
         ## for llama, vicuna, belle
         config = AutoConfig.from_pretrained(args.model_name_or_path)
-        # LLaMA 3.3 tokenizer - patch to avoid slow tokenizer loading
+        # LLaMA 3.3 tokenizer - load directly from tokenizer.json to avoid slow tokenizer
         from transformers import LlamaTokenizerFast
         import json
         import os
-        from huggingface_hub import hf_hub_download
 
         # Try to load tokenizer.json directly for LLaMA 3.3
         try:
-            # Download tokenizer files
-            tokenizer_file = hf_hub_download(repo_id=args.model_name_or_path, filename="tokenizer.json")
-            tokenizer_config_file = hf_hub_download(repo_id=args.model_name_or_path, filename="tokenizer_config.json")
+            if os.path.isdir(args.model_name_or_path):
+                tokenizer_file = os.path.join(args.model_name_or_path, "tokenizer.json")
+                tokenizer_config_file = os.path.join(args.model_name_or_path, "tokenizer_config.json")
 
             # Load tokenizer directly from tokenizer.json without slow tokenizer
             from tokenizers import Tokenizer
@@ -592,7 +591,7 @@ else:
             with open(tokenizer_config_file, 'r') as f:
                 tokenizer_config = json.load(f)
 
-            # Create fast tokenizer instance
+            # Create fast tokenizer instance without triggering slow tokenizer
             tokenizer = LlamaTokenizerFast(tokenizer_object=fast_tokenizer, **tokenizer_config)
         except Exception as e:
             print(f"Failed to load tokenizer directly: {e}")
