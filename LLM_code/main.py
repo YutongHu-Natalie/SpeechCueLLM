@@ -572,8 +572,14 @@ else:
     else:
         ## for llama, vicuna, belle
         config = AutoConfig.from_pretrained(args.model_name_or_path)
-        # LLaMA 3.3 requires special handling - load tokenizer with legacy=False
-        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, legacy=False)
+        # LLaMA 3.3 tokenizer - use LlamaTokenizerFast directly to avoid slow tokenizer issues
+        from transformers import LlamaTokenizerFast
+        try:
+            tokenizer = LlamaTokenizerFast.from_pretrained(args.model_name_or_path)
+        except Exception as e:
+            print(f"Failed to load LlamaTokenizerFast: {e}")
+            print("Trying AutoTokenizer with from_slow=False...")
+            tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, from_slow=False)
         model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
         if tokenizer.pad_token is None:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
