@@ -4,7 +4,7 @@
 #SBATCH --error=../logs/speechcue_%j.err
 #SBATCH --gres=gpu:1
 #SBATCH --time=12:00:00
-#SBATCH --mem=45G
+#SBATCH --mem=100G
 echo "Job started at $(date)"
 echo "Running on host: $(hostname)"
 echo "Job ID: $SLURM_JOB_ID"
