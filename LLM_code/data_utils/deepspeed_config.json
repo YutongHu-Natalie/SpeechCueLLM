@@ -21,24 +21,26 @@
     "enabled": false
   },
  "zero_optimization": {
-        "stage": 2,
+        "stage": 3,
        "allgather_partitions": true,
-        "allgather_bucket_size": 1e8,
+        "allgather_bucket_size": 5e7,
         "overlap_comm": true,
         "reduce_scatter": true,
-        "reduce_bucket_size": 1e8,
+        "reduce_bucket_size": 5e7,
         "contiguous_gradients": true,
-        "sub_group_size": "auto",
-        "stage3_prefetch_bucket_size": "auto",
-        "stage3_param_persistence_threshold": "auto",
-        "stage3_max_live_parameters": 1e9,
-        "stage3_max_reuse_distance": 1e9,
+        "sub_group_size": 1e9,
+        "stage3_prefetch_bucket_size": 5e7,
+        "stage3_param_persistence_threshold": 1e5,
+        "stage3_max_live_parameters": 1e8,
+        "stage3_max_reuse_distance": 1e8,
         "stage3_gather_fp16_weights_on_model_save": true,
         "offload_optimizer": {
-          "device": "none"
+          "device": "cpu",
+          "pin_memory": true
         },
         "offload_param":{
-          "device": "none"
+          "device": "cpu",
+          "pin_memory": true
         }
     },
   "zero_allow_untested_optimizer": true,

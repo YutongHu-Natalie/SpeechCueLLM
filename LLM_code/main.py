@@ -572,9 +572,51 @@ else:
     else:
         ## for llama, vicuna, belle
         config = AutoConfig.from_pretrained(args.model_name_or_path)
-        # LLaMA 3.3 uses fast tokenizer without sentencepiece
-        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=True)
-        model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
+        # LLaMA 3.3 tokenizer - load directly from tokenizer.json to avoid slow tokenizer
+        from transformers import LlamaTokenizerFast
+        import json
+        import os
+
+        # Try to load tokenizer for LLaMA 3.3
+        # Check if tokenizer files exist locally, otherwise load from HuggingFace
+        tokenizer_path = args.model_name_or_path
+        tokenizer_file = os.path.join(args.model_name_or_path, "tokenizer.json") if os.path.isdir(args.model_name_or_path) else None
+
+        # If local directory doesn't have tokenizer files, use HuggingFace model ID
+        if tokenizer_file and not os.path.exists(tokenizer_file):
+            print(f"Tokenizer files not found in {args.model_name_or_path}")
+            print("Loading tokenizer from HuggingFace: meta-llama/Llama-3.3-70B-Instruct")
+            tokenizer_path = "meta-llama/Llama-3.3-70B-Instruct"
+
+        try:
+            # Load with from_slow=False to prevent loading the slow tokenizer
+            tokenizer = LlamaTokenizerFast.from_pretrained(
+                tokenizer_path,
+                from_slow=False
+            )
+        except Exception as e:
+            print(f"Failed to load LlamaTokenizerFast with from_slow=False: {e}")
+            print("Trying AutoTokenizer...")
+            try:
+                # Try AutoTokenizer with from_slow=False
+                tokenizer = AutoTokenizer.from_pretrained(
+                    tokenizer_path,
+                    use_fast=True,
+                    from_slow=False
+                )
+            except Exception as e2:
+                print(f"Failed with from_slow=False: {e2}")
+                print("Final fallback: loading without slow tokenizer constraint...")
+                # Last resort - let it try to build fast tokenizer from slow one
+                tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+
+        # Load model with memory optimization for 70B models
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model_name_or_path,
+            torch_dtype=torch.float16,
+            low_cpu_mem_usage=True,
+            device_map=None  # Let DeepSpeed handle device placement
+        )
         if tokenizer.pad_token is None:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
             model.resize_token_embeddings(len(tokenizer))

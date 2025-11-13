@@ -28,7 +28,7 @@ audio_context='False' # add audio description for the last three utterances of t
 audio_only='False' # do not use text input
 
 # ------  training setting ------ 
-SEED=42
+SEED=11
 num_train_epochs=15
 LORA_LR=3e-4
 # training setting for projection-based model
