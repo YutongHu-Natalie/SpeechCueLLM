@@ -583,20 +583,26 @@ else:
                 tokenizer_file = os.path.join(args.model_name_or_path, "tokenizer.json")
                 tokenizer_config_file = os.path.join(args.model_name_or_path, "tokenizer_config.json")
 
-            # Load tokenizer directly from tokenizer.json without slow tokenizer
-            from tokenizers import Tokenizer
-            fast_tokenizer = Tokenizer.from_file(tokenizer_file)
+                # Only proceed if tokenizer.json exists
+                if os.path.exists(tokenizer_file):
+                    # Load tokenizer directly from tokenizer.json without slow tokenizer
+                    from tokenizers import Tokenizer
+                    fast_tokenizer = Tokenizer.from_file(tokenizer_file)
 
-            # Load config
-            with open(tokenizer_config_file, 'r') as f:
-                tokenizer_config = json.load(f)
+                    # Load config
+                    with open(tokenizer_config_file, 'r') as f:
+                        tokenizer_config = json.load(f)
 
-            # Create fast tokenizer instance without triggering slow tokenizer
-            tokenizer = LlamaTokenizerFast(tokenizer_object=fast_tokenizer, **tokenizer_config)
+                    # Create fast tokenizer instance without triggering slow tokenizer
+                    tokenizer = LlamaTokenizerFast(tokenizer_object=fast_tokenizer, **tokenizer_config)
+                else:
+                    raise FileNotFoundError(f"tokenizer.json not found at {tokenizer_file}")
+            else:
+                raise ValueError(f"model_name_or_path is not a directory: {args.model_name_or_path}")
         except Exception as e:
             print(f"Failed to load tokenizer directly: {e}")
             print("Falling back to standard loading...")
-            tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
+            tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=True)
 
         model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
         if tokenizer.pad_token is None:
