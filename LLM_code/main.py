@@ -577,32 +577,38 @@ else:
         import json
         import os
 
-        # Try to load tokenizer.json directly for LLaMA 3.3
+        # Try to load tokenizer for LLaMA 3.3
+        # Check if tokenizer files exist locally, otherwise load from HuggingFace
+        tokenizer_path = args.model_name_or_path
+        tokenizer_file = os.path.join(args.model_name_or_path, "tokenizer.json") if os.path.isdir(args.model_name_or_path) else None
+
+        # If local directory doesn't have tokenizer files, use HuggingFace model ID
+        if tokenizer_file and not os.path.exists(tokenizer_file):
+            print(f"Tokenizer files not found in {args.model_name_or_path}")
+            print("Loading tokenizer from HuggingFace: meta-llama/Llama-3.3-70B-Instruct")
+            tokenizer_path = "meta-llama/Llama-3.3-70B-Instruct"
+
         try:
-            if os.path.isdir(args.model_name_or_path):
-                tokenizer_file = os.path.join(args.model_name_or_path, "tokenizer.json")
-                tokenizer_config_file = os.path.join(args.model_name_or_path, "tokenizer_config.json")
-
-                # Only proceed if tokenizer.json exists
-                if os.path.exists(tokenizer_file):
-                    # Load tokenizer directly from tokenizer.json without slow tokenizer
-                    from tokenizers import Tokenizer
-                    fast_tokenizer = Tokenizer.from_file(tokenizer_file)
-
-                    # Load config
-                    with open(tokenizer_config_file, 'r') as f:
-                        tokenizer_config = json.load(f)
-
-                    # Create fast tokenizer instance without triggering slow tokenizer
-                    tokenizer = LlamaTokenizerFast(tokenizer_object=fast_tokenizer, **tokenizer_config)
-                else:
-                    raise FileNotFoundError(f"tokenizer.json not found at {tokenizer_file}")
-            else:
-                raise ValueError(f"model_name_or_path is not a directory: {args.model_name_or_path}")
+            # Load with from_slow=False to prevent loading the slow tokenizer
+            tokenizer = LlamaTokenizerFast.from_pretrained(
+                tokenizer_path,
+                from_slow=False
+            )
         except Exception as e:
-            print(f"Failed to load tokenizer directly: {e}")
-            print("Falling back to standard loading...")
-            tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=True)
+            print(f"Failed to load LlamaTokenizerFast with from_slow=False: {e}")
+            print("Trying AutoTokenizer...")
+            try:
+                # Try AutoTokenizer with from_slow=False
+                tokenizer = AutoTokenizer.from_pretrained(
+                    tokenizer_path,
+                    use_fast=True,
+                    from_slow=False
+                )
+            except Exception as e2:
+                print(f"Failed with from_slow=False: {e2}")
+                print("Final fallback: loading without slow tokenizer constraint...")
+                # Last resort - let it try to build fast tokenizer from slow one
+                tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
 
         model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
         if tokenizer.pad_token is None:
