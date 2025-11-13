@@ -610,7 +610,13 @@ else:
                 # Last resort - let it try to build fast tokenizer from slow one
                 tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
 
-        model =AutoModelForCausalLM.from_pretrained(args.model_name_or_path).half()
+        # Load model with memory optimization for 70B models
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model_name_or_path,
+            torch_dtype=torch.float16,
+            low_cpu_mem_usage=True,
+            device_map=None  # Let DeepSpeed handle device placement
+        )
         if tokenizer.pad_token is None:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
             model.resize_token_embeddings(len(tokenizer))
