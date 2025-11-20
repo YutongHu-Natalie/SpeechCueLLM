@@ -5,7 +5,7 @@
 #SBATCH --qos=gpu02
 #SBATCH --gres=gpu:2
 #SBATCH --time=8:00:00
-#SBATCH --mem=200G
+#SBATCH --mem=250G
 #SBATCH --cpus-per-task=8
 echo "Job started at $(date)"
 echo "Running on host: $(hostname)"
