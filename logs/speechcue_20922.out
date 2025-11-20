@@ -1,0 +1,24 @@
+Job started at Thu Nov 20 09:52:33 AM EST 2025
+Running on host: h200server
+Job ID: 20922
+SLURM allocated GPUs: 
+No devices were found
+******************************************************************************************
+All parameters are valid.
+The dataset you have selected is: iemocap !
+The base model you have selected is LLaMA3-instruct-70b!
+The model's SFT method you have selected: zero_shot!
+If predict emotions: False
+******************************************************************************************
+******************************************************************************************
+Data procession has executed successfully !
+******************************************************************************************
+******************************************************************************************
+Your choose iemocap! The max_context_length will be set as 2500!
+******************************************************************************************
+Your choose LLaMA3-instruct-70b! Model Parameters should be initialized in the path 
+ /local/scratch/yhu383/models/llama3.3-70b
+Your choose zero_shot! The experiment will be set as ZERO_SHOT model
+Processed Data_Path: ../PROCESSED_DATASET/iemocap/window/True_False
+[2025-11-20 09:52:52,371] [WARNING] [runner.py:191:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Job finished at Thu Nov 20 09:52:52 AM EST 2025

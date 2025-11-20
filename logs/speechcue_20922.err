@@ -1,0 +1,10 @@
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+Traceback (most recent call last):
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/bin/deepspeed", line 6, in <module>
+    main()
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/launcher/runner.py", line 407, in main
+    raise RuntimeError("Unable to proceed, no GPU resources available")
+RuntimeError: Unable to proceed, no GPU resources available

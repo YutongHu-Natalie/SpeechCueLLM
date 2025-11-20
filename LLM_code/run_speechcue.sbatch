@@ -2,9 +2,9 @@
 #SBATCH --job-name=speechcue_llm
 #SBATCH --output=../logs/speechcue_%j.out
 #SBATCH --error=../logs/speechcue_%j.err
-#SBATCH --gres=gpu:2
-#SBATCH --time=12:00:00
-#SBATCH --mem=250G
+#SBATCH --qos=gpu02
+#SBATCH --time=8:00:00
+#SBATCH --mem=200G
 #SBATCH --cpus-per-task=8
 echo "Job started at $(date)"
 echo "Running on host: $(hostname)"

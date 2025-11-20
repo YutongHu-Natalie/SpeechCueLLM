@@ -12,9 +12,9 @@ MODEL_NAME='LLaMA3-instruct-70b'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
-# Experiments_setting='zero_shot'
+Experiments_setting='zero_shot'
 # Experiments_setting='few_shot'
-Experiments_setting='lora'
+# Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
 #  ------ select the dataset ------ 
