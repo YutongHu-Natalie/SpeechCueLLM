@@ -4,8 +4,8 @@
 #SBATCH --error=../logs/speechcue_%j.err
 #SBATCH --qos=gpu02
 #SBATCH --gres=gpu:2
-#SBATCH --time=8:00:00
-#SBATCH --mem=250G
+#SBATCH --time=12:00:00
+#SBATCH --mem=500G
 #SBATCH --cpus-per-task=8
 echo "Job started at $(date)"
 echo "Running on host: $(hostname)"
