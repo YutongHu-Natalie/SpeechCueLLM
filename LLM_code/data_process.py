@@ -1,10 +1,59 @@
 import argparse
 import pickle
 import json
-import os 
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+def get_few_shot_examples(dataset):
+    """
+    Returns few-shot examples for each dataset.
+    These are manually curated examples to help the model understand the task.
+    """
+    if dataset == 'iemocap':
+        examples = [
+            {
+                'context': 'Speaker_0:"Did you hear the good news?" Speaker_1:"What news?" Speaker_0:"I got the promotion!"',
+                'target_utterance': 'Speaker_0:"I got the promotion!"',
+                'audio_features': 'high pitch with moderate variation, moderate speaking rate',
+                'label': 'excited'
+            },
+            {
+                'context': 'Speaker_0:"I can\'t believe this happened." Speaker_1:"What\'s wrong?" Speaker_0:"I lost my job today."',
+                'target_utterance': 'Speaker_0:"I lost my job today."',
+                'audio_features': 'low pitch with low variation, slow speaking rate',
+                'label': 'sad'
+            },
+            {
+                'context': 'Speaker_0:"This is ridiculous!" Speaker_1:"Calm down." Speaker_0:"No! I\'ve been waiting for two hours!"',
+                'target_utterance': 'Speaker_0:"No! I\'ve been waiting for two hours!"',
+                'audio_features': 'very high volume with high variation, high pitch',
+                'label': 'angry'
+            }
+        ]
+    elif dataset == 'meld':
+        examples = [
+            {
+                'context': 'Speaker_0:"Guess what happened today!" Speaker_1:"What?" Speaker_0:"I won the lottery!"',
+                'target_utterance': 'Speaker_0:"I won the lottery!"',
+                'audio_features': 'high volume with high variation, very high pitch',
+                'label': 'joyful'
+            },
+            {
+                'context': 'Speaker_0:"Oh no..." Speaker_1:"What happened?" Speaker_0:"My dog passed away."',
+                'target_utterance': 'Speaker_0:"My dog passed away."',
+                'audio_features': 'very low volume with low variation, low pitch',
+                'label': 'sad'
+            },
+            {
+                'context': 'Speaker_0:"I\'m done with this!" Speaker_1:"Please, just listen." Speaker_0:"I don\'t want to hear it anymore!"',
+                'target_utterance': 'Speaker_0:"I don\'t want to hear it anymore!"',
+                'audio_features': 'high volume with moderate variation, moderate pitch',
+                'label': 'angry'
+            }
+        ]
+    return examples
 
 
 def process_dataset(dataset, window=110, audio_description='True', audio_impression='False', audio_only='False', audio_context='False',experiments_setting='lora'):
@@ -188,22 +237,45 @@ def process_dataset(dataset, window=110, audio_description='True', audio_impress
                 if audio_impression == 'True':
                     temp_content_str += f' {impression}'
             ##-------------------------------------------------------
-            if experiments_setting != 'zero_shot':
+            # Construct the instruction prompt based on experiment setting
+            if experiments_setting == 'few_shot':
+                # Add few-shot examples before the main question
+                few_shot_examples = get_few_shot_examples(dataset)
+                temp_content_str += '\n\nHere are some examples:\n'
+                for idx, example in enumerate(few_shot_examples, 1):
+                    temp_content_str += f'\nExample {idx}:\n'
+                    temp_content_str += f'Conversation: {example["context"]}\n'
+                    temp_content_str += f'Target: {example["target_utterance"]}\n'
+                    if audio_description == 'True' or audio_impression == 'True':
+                        temp_content_str += f'Audio features: {example["audio_features"]}\n'
+                    temp_content_str += f'Answer: {example["label"]}\n'
+
+                temp_content_str += '\n\nNow analyze this conversation:\n'
+                # Add clear instruction for few-shot
                 if audio_only == 'True':
-                    temp_content_str += f' Please select the emotional label from <{label_text_set[dataset]}> based on the audio features. Respond with just one label:'
+                    temp_content_str += f'Based on the audio features, select one emotion from [{label_text_set[dataset]}].\nAnswer:'
                 elif audio_description == 'True' or audio_impression == 'True':
-                    temp_content_str += f' Please select the emotional label of <{target_utterance}> from <{label_text_set[dataset]}> based on both the context and audio features. Respond with just one label:'
+                    temp_content_str += f'For {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}].\nAnswer:'
                 else:
-                    temp_content_str += f' Please select the emotional label of <{target_utterance}> from <{label_text_set[dataset]}> based on the context. Respond with just one label:'
+                    temp_content_str += f'For {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}].\nAnswer:'
+
+            elif experiments_setting == 'zero_shot':
+                # Zero-shot: Direct and clear instruction without examples
+                if audio_only == 'True':
+                    temp_content_str += f'\n\nBased on the audio features, select one emotion from [{label_text_set[dataset]}]. Output only the label.\nAnswer:'
+                elif audio_description == 'True' or audio_impression == 'True':
+                    temp_content_str += f'\n\nFor {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}]. Output only the label.\nAnswer:'
+                else:
+                    temp_content_str += f'\n\nFor {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}]. Output only the label.\nAnswer:'
+
             else:
+                # LoRA/fine-tuning: Shorter prompt for trained model
                 if audio_only == 'True':
-                    temp_content_str += f' Please select the emotional label based on the audio features. Please ONLY output only one label from <{label_text_set[dataset]}> without any other words: '
+                    temp_content_str += f' Select the emotion from [{label_text_set[dataset]}] based on audio features:'
                 elif audio_description == 'True' or audio_impression == 'True':
-                    temp_content_str += f' Please select the emotional label of <{target_utterance}> based on both the context and audio features. Please output ONLY ONE label from <{label_text_set[dataset]}> as the first word without any other words: '
-                    temp_content_str += f' Please select the emotional label of <{target_utterance}> based on both the context and audio features. Please output ONLY ONE label from <{label_text_set[dataset]}> as the first word without any other words: '
+                    temp_content_str += f' Select the emotion of <{target_utterance}> from [{label_text_set[dataset]}] based on context and audio:'
                 else:
-                    temp_content_str += f' Please select the emotional label of <{target_utterance}> based on the context. Please output ONLY ONE label from <{label_text_set[dataset]}> as the first word without any other words: '
-                    temp_content_str += f' Please select the emotional label of <{target_utterance}> based on the context. Please output ONLY ONE label from <{label_text_set[dataset]}> as the first word without any other words:'
+                    temp_content_str += f' Select the emotion of <{target_utterance}> from [{label_text_set[dataset]}] based on context:'
             length.append(len(temp_content_str))
             
             content_task_dict[f'{conv_id}_{conv_turn}'] = temp_content_str

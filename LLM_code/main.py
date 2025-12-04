@@ -936,7 +936,7 @@ if __name__ == "__main__":
                         top_p=args.top_p,
                         # early_stopping=True,
                         # max_length=max_length_this_batch + args.max_length,
-                        max_new_tokens=10,
+                        max_new_tokens=50,
                         #length_penalty=0.1,
                         repetition_penalty=1.0,
                         num_return_sequences=1,
