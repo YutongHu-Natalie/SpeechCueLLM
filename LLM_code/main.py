@@ -935,16 +935,27 @@ if __name__ == "__main__":
                 # confuse_index = len(emotional_label_dict)
                 # bad_case = []
                 confuse_case = []
+                failed_extraction_case = []
                 for index, answer in enumerate(all_answers):
                     golds += [emotional_label_dict[targets[index]]]
-                    match_res = match_text(answer, list(emotional_label_dict.keys()))
-                    if match_res:
-                        preds += [emotional_label_dict[match_res[0]]]
+
+                    # Use new JSON extraction function with multi-layer fallback
+                    extracted_label = extract_emotion_from_json(answer, list(emotional_label_dict.keys()))
+
+                    if extracted_label:
+                        preds += [emotional_label_dict[extracted_label]]
                     else:
-                        preds += [emotional_label_dict[optimize_output(answer, list(emotional_label_dict.keys()))]]
-                        # preds += [confuse_index]
+                        # This should rarely happen due to fallback strategies, but handle it gracefully
+                        # Use edit distance as ultimate fallback
+                        fallback_label = optimize_output(answer, list(emotional_label_dict.keys()))
+                        extracted_label = fallback_label
+                        preds += [emotional_label_dict[fallback_label]]
                         confuse_case += [index]
-                
+                        failed_extraction_case += [index]
+
+                    # Add extracted label to the evaluation record
+                    preds_for_eval[index]["extracted_label"] = extracted_label
+
                 if len(preds) == len(all_answers):
                     score, res_matrix = report_score(dataset=args.dataset, golds=golds, preds=preds)
 
@@ -952,7 +963,10 @@ if __name__ == "__main__":
                 with open(preds_for_eval_path, 'w', encoding='utf-8') as f:
                     f.write(json.dumps(score))
                     f.write(f'\n{res_matrix}')
-                    f.write(f'\nconfuse_case:{confuse_case} \n\n')
+                    f.write(f'\nconfuse_case: {confuse_case}  \n')
+                    f.write(f'\nThe num of confuse_case is : {len(confuse_case)} \n')
+                    f.write(f'\nfailed_extraction_case (used ultimate fallback): {failed_extraction_case}  \n')
+                    f.write(f'\nThe num of failed_extraction_case is : {len(failed_extraction_case)} \n')
                     f.write(json.dumps(preds_for_eval, indent=5, ensure_ascii=False))
 
                 if best_f1_score < score['F1_SA']:
@@ -1070,10 +1084,14 @@ if __name__ == "__main__":
                 # This should rarely happen due to fallback strategies, but handle it gracefully
                 # Use edit distance as ultimate fallback
                 fallback_label = optimize_output(answer, list(emotional_label_dict.keys()))
+                extracted_label = fallback_label
                 preds += [emotional_label_dict[fallback_label]]
                 confuse_case += [index]
                 failed_extraction_case += [index]
-        
+
+            # Add extracted label to the evaluation record
+            preds_for_eval[index]["extracted_label"] = extracted_label
+
         if len(preds) == len(all_answers):
             score, res_matrix = report_score(dataset=args.dataset, golds=golds, preds=preds)
             eval_score_list.append(score)

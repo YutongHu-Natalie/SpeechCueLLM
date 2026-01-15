@@ -1000,9 +1000,13 @@ if __name__ == "__main__":
                         # This should rarely happen due to fallback strategies, but handle it gracefully
                         # Use edit distance as ultimate fallback
                         fallback_label = optimize_output(answer, list(emotional_label_dict.keys()))
+                        extracted_label = fallback_label
                         preds += [emotional_label_dict[fallback_label]]
                         confuse_case += [index]
                         failed_extraction_case += [index]
+
+                    # Add extracted label to the evaluation record
+                    preds_for_eval[index]["extracted_label"] = extracted_label
 
                 if len(preds) == len(all_answers):
                     score, res_matrix = report_score(dataset=args.dataset, golds=golds, preds=preds)
@@ -1137,9 +1141,13 @@ if __name__ == "__main__":
                     # This should rarely happen due to fallback strategies, but handle it gracefully
                     # Use edit distance as ultimate fallback
                     fallback_label = optimize_output(answer, list(emotional_label_dict.keys()))
+                    extracted_label = fallback_label
                     preds += [emotional_label_dict[fallback_label]]
                     confuse_case += [index]
                     failed_extraction_case += [index]
+
+                # Add extracted label to the evaluation record
+                preds_for_eval[index]["extracted_label"] = extracted_label
 
             if len(preds) == len(all_answers):
                 score, res_matrix = report_score(dataset=args.dataset, golds=golds, preds=preds)
