@@ -253,11 +253,11 @@ def process_dataset(dataset, window=110, audio_description='True', audio_impress
                 temp_content_str += '\n\nNow analyze this conversation:\n'
                 # Add clear instruction for few-shot
                 if audio_only == 'True':
-                    temp_content_str += f'Based on the audio features, select one emotion from [{label_text_set[dataset]}].\nAnswer:'
+                    temp_content_str += f'Based on the audio features, select one emotion from [{label_text_set[dataset]}].Output only the label.\nAnswer:'
                 elif audio_description == 'True' or audio_impression == 'True':
-                    temp_content_str += f'For {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}].\nAnswer:'
+                    temp_content_str += f'For {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}].Output only the label.\nAnswer:'
                 else:
-                    temp_content_str += f'For {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}].\nAnswer:'
+                    temp_content_str += f'For {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}].Output only the label.\nAnswer:'
 
             elif experiments_setting == 'zero_shot':
                 # Zero-shot: Direct and clear instruction without examples
