@@ -499,7 +499,7 @@ parser.add_argument(
 parser.add_argument(
     "--use_chat_template",
     type=str,
-    default='auto',
+    default='False',
     choices=['auto', 'True', 'False'],
     help='Whether to use chat template formatting. "auto" detects based on model name, "True" forces it, "False" disables it.'
 )
@@ -950,7 +950,7 @@ if __name__ == "__main__":
                             num_beams=1,  # Use greedy decoding for more deterministic output
                             top_k=args.top_k,
                             top_p=0.9,  # Slightly lower to reduce randomness
-                            max_new_tokens=80,  # Reduced from 120 to limit verbose output - enough for JSON with emotion and reason
+                            max_new_tokens=120,  # Allow enough tokens for JSON output
                             repetition_penalty=1.0,  # Set to 1.0 to avoid interfering with JSON structure
                             num_return_sequences=1,
                             do_sample=False,
@@ -1093,7 +1093,7 @@ if __name__ == "__main__":
                         num_beams=1,  # Use greedy decoding for more deterministic output
                         top_k=args.top_k,
                         top_p=0.9,  # Slightly lower to reduce randomness
-                        max_new_tokens=80,  # Reduced from 120 to limit verbose output - enough for JSON with emotion and reason
+                        max_new_tokens=120,  # Allow enough tokens for JSON output
                         repetition_penalty=1.0,  # Set to 1.0 to avoid interfering with JSON structure
                         num_return_sequences=1,
                         do_sample=False,
