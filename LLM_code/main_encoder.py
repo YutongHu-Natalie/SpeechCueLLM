@@ -149,6 +149,87 @@ def optimize_output(output, label_set):
     return optimized_output
 
 
+def extract_emotion_from_json(output, label_set):
+    """
+    Extract emotion label from JSON-formatted output with multiple fallback strategies.
+
+    Strategy 1: Parse as valid JSON and extract "detected_emotion_label" field
+    Strategy 2: Use regex to find "detected_emotion_label": "emotion" pattern
+    Strategy 3: Use regex to find any valid emotion label from the output
+    Strategy 4: Fall back to match_text (greedy matching)
+    Strategy 5: Fall back to optimize_output (edit distance)
+
+    Args:
+        output: Raw model output string
+        label_set: List of valid emotion labels
+
+    Returns:
+        Extracted emotion label (string) or None if all strategies fail
+    """
+    if not output or output.strip() == '':
+        return None
+
+    # Strategy 1: Try to parse as valid JSON
+    try:
+        # Find JSON object in the output (handles cases where there's extra text)
+        json_match = re.search(r'\{[^{}]*"detected_emotion_label"[^{}]*\}', output)
+        if json_match:
+            json_str = json_match.group(0)
+            parsed = json.loads(json_str)
+            if 'detected_emotion_label' in parsed:
+                detected_label = parsed['detected_emotion_label'].strip().lower()
+                # Validate it's in the label set
+                if detected_label in label_set:
+                    return detected_label
+                # Try to find closest match if not exact
+                for label in label_set:
+                    if label in detected_label or detected_label in label:
+                        return label
+    except (json.JSONDecodeError, AttributeError, KeyError):
+        pass
+
+    # Strategy 2: Use regex to extract from JSON-like structure
+    regex_patterns = [
+        r'"detected_emotion_label"\s*:\s*"([^"]+)"',
+        r'"detected_emotion_label"\s*:\s*\'([^\']+)\'',
+        r'detected_emotion_label["\s:]+([a-zA-Z]+)',
+    ]
+
+    for pattern in regex_patterns:
+        match = re.search(pattern, output, re.IGNORECASE)
+        if match:
+            detected_label = match.group(1).strip().lower()
+            # Check if it's a valid label
+            if detected_label in label_set:
+                return detected_label
+            # Try partial matching
+            for label in label_set:
+                if label in detected_label or detected_label in label:
+                    return label
+
+    # Strategy 3: Search for any valid emotion label appearing first in output
+    output_lower = output.lower()
+    # Find all valid labels and their positions
+    label_positions = []
+    for label in label_set:
+        pos = output_lower.find(label)
+        if pos != -1:
+            label_positions.append((pos, label))
+
+    # Return the label that appears first
+    if label_positions:
+        label_positions.sort(key=lambda x: x[0])
+        return label_positions[0][1]
+
+    # Strategy 4: Fall back to match_text (greedy span matching)
+    match_res = match_text(output_lower, label_set)
+    if match_res:
+        return match_res[0]
+
+    # Strategy 5: Fall back to edit distance
+    return optimize_output(output_lower, label_set)
+
+
 device = torch.device("cuda")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -855,7 +936,16 @@ if __name__ == "__main__":
                     else:
                         if "token_type_ids" in eval_batch:
                             token_type_ids = eval_batch.pop("token_type_ids")
-                        outputs = model.generate(**eval_batch)
+                        outputs = model.generate(
+                            **eval_batch,
+                            num_beams=args.num_beams,
+                            top_k=args.top_k,
+                            top_p=args.top_p,
+                            max_new_tokens=120,  # Increased to 120 to accommodate JSON output with detected_emotion_label, reason, and reference fields
+                            repetition_penalty=1.0,
+                            num_return_sequences=1,
+                            do_sample=False
+                        )
                 outputs[outputs[:, :] < 0] = tokenizer.pad_token_id
                 all_outputs.extend(outputs)
 
@@ -897,16 +987,23 @@ if __name__ == "__main__":
                 # confuse_index = len(emotional_label_dict)
                 # bad_case = []
                 confuse_case = []
+                failed_extraction_case = []
                 for index, answer in enumerate(all_answers):
                     golds += [emotional_label_dict[targets[index]]]
-                    match_res = match_text(answer, list(emotional_label_dict.keys()))
-                    if match_res:
-                        preds += [emotional_label_dict[match_res[0]]]
+
+                    # Use new JSON extraction function with multi-layer fallback
+                    extracted_label = extract_emotion_from_json(answer, list(emotional_label_dict.keys()))
+
+                    if extracted_label:
+                        preds += [emotional_label_dict[extracted_label]]
                     else:
-                        preds += [emotional_label_dict[optimize_output(answer, list(emotional_label_dict.keys()))]]
-                        # preds += [confuse_index]
+                        # This should rarely happen due to fallback strategies, but handle it gracefully
+                        # Use edit distance as ultimate fallback
+                        fallback_label = optimize_output(answer, list(emotional_label_dict.keys()))
+                        preds += [emotional_label_dict[fallback_label]]
                         confuse_case += [index]
-                
+                        failed_extraction_case += [index]
+
                 if len(preds) == len(all_answers):
                     score, res_matrix = report_score(dataset=args.dataset, golds=golds, preds=preds)
 
@@ -914,7 +1011,10 @@ if __name__ == "__main__":
                 with open(preds_for_eval_path, 'w', encoding='utf-8') as f:
                     f.write(json.dumps(score))
                     f.write(f'\n{res_matrix}')
-                    f.write(f'\nconfuse_case:{confuse_case} \n\n')
+                    f.write(f'\nconfuse_case: {confuse_case}  \n')
+                    f.write(f'\nThe num of confuse_case is : {len(confuse_case)} \n')
+                    f.write(f'\nfailed_extraction_case (used ultimate fallback): {failed_extraction_case}  \n')
+                    f.write(f'\nThe num of failed_extraction_case is : {len(failed_extraction_case)} \n')
                     f.write(json.dumps(preds_for_eval, indent=5, ensure_ascii=False))
 
                 if best_f1_score < score['F1_SA']:
@@ -973,7 +1073,16 @@ if __name__ == "__main__":
                 else:
                     if "token_type_ids" in eval_batch:
                         token_type_ids = eval_batch.pop("token_type_ids")
-                    outputs = model.generate(**eval_batch)
+                    outputs = model.generate(
+                        **eval_batch,
+                        num_beams=args.num_beams,
+                        top_k=args.top_k,
+                        top_p=args.top_p,
+                        max_new_tokens=120,  # Increased to 120 to accommodate JSON output with detected_emotion_label, reason, and reference fields
+                        repetition_penalty=1.0,
+                        num_return_sequences=1,
+                        do_sample=False
+                    )
             outputs[outputs[:, :] < 0] = tokenizer.pad_token_id
             all_outputs.extend(outputs)
 
@@ -1015,16 +1124,23 @@ if __name__ == "__main__":
             # confuse_index = len(emotional_label_dict)
             # bad_case = []
             confuse_case = []
+            failed_extraction_case = []
             for index, answer in enumerate(all_answers):
                 golds += [emotional_label_dict[targets[index]]]
-                match_res = match_text(answer, list(emotional_label_dict.keys()))
-                if match_res:
-                    preds += [emotional_label_dict[match_res[0]]]
+
+                # Use new JSON extraction function with multi-layer fallback
+                extracted_label = extract_emotion_from_json(answer, list(emotional_label_dict.keys()))
+
+                if extracted_label:
+                    preds += [emotional_label_dict[extracted_label]]
                 else:
-                    preds += [emotional_label_dict[optimize_output(answer, list(emotional_label_dict.keys()))]]
-                    # preds += [confuse_index]
+                    # This should rarely happen due to fallback strategies, but handle it gracefully
+                    # Use edit distance as ultimate fallback
+                    fallback_label = optimize_output(answer, list(emotional_label_dict.keys()))
+                    preds += [emotional_label_dict[fallback_label]]
                     confuse_case += [index]
-            
+                    failed_extraction_case += [index]
+
             if len(preds) == len(all_answers):
                 score, res_matrix = report_score(dataset=args.dataset, golds=golds, preds=preds)
 
@@ -1032,7 +1148,10 @@ if __name__ == "__main__":
             with open(preds_for_eval_path, 'w', encoding='utf-8') as f:
                 f.write(json.dumps(score))
                 f.write(f'\n{res_matrix}')
-                f.write(f'\nconfuse_case:{confuse_case} \n\n')
+                f.write(f'\nconfuse_case: {confuse_case}  \n')
+                f.write(f'\nThe num of confuse_case is : {len(confuse_case)} \n')
+                f.write(f'\nfailed_extraction_case (used ultimate fallback): {failed_extraction_case}  \n')
+                f.write(f'\nThe num of failed_extraction_case is : {len(failed_extraction_case)} \n')
                 f.write(json.dumps(preds_for_eval, indent=5, ensure_ascii=False))
 
             if best_f1_score < score['F1_SA']:

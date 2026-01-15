@@ -10,6 +10,7 @@ def get_few_shot_examples(dataset):
     """
     Returns few-shot examples for each dataset.
     These are manually curated examples to help the model understand the task.
+    Examples now use JSON format to encourage structured output and prevent verbose responses.
     """
     if dataset == 'iemocap':
         examples = [
@@ -17,19 +18,19 @@ def get_few_shot_examples(dataset):
                 'context': 'Speaker_0:"Did you hear the good news?" Speaker_1:"What news?" Speaker_0:"I got the promotion!"',
                 'target_utterance': 'Speaker_0:"I got the promotion!"',
                 'audio_features': 'high pitch with moderate variation, moderate speaking rate',
-                'label': 'excited'
+                'output': '{"detected_emotion_label": "excited", "reason": "High pitch and positive news about promotion"}'
             },
             {
                 'context': 'Speaker_0:"I can\'t believe this happened." Speaker_1:"What\'s wrong?" Speaker_0:"I lost my job today."',
                 'target_utterance': 'Speaker_0:"I lost my job today."',
                 'audio_features': 'low pitch with low variation, slow speaking rate',
-                'label': 'sad'
+                'output': '{"detected_emotion_label": "sad", "reason": "Low pitch, slow rate, and negative event"}'
             },
             {
                 'context': 'Speaker_0:"This is ridiculous!" Speaker_1:"Calm down." Speaker_0:"No! I\'ve been waiting for two hours!"',
                 'target_utterance': 'Speaker_0:"No! I\'ve been waiting for two hours!"',
                 'audio_features': 'very high volume with high variation, high pitch',
-                'label': 'angry'
+                'output': '{"detected_emotion_label": "angry", "reason": "Very high volume, high pitch variation, and frustrated waiting"}'
             }
         ]
     elif dataset == 'meld':
@@ -38,19 +39,19 @@ def get_few_shot_examples(dataset):
                 'context': 'Speaker_0:"Guess what happened today!" Speaker_1:"What?" Speaker_0:"I won the lottery!"',
                 'target_utterance': 'Speaker_0:"I won the lottery!"',
                 'audio_features': 'high volume with high variation, very high pitch',
-                'label': 'joyful'
+                'output': '{"detected_emotion_label": "joyful", "reason": "High volume, pitch variation, and lottery win"}'
             },
             {
                 'context': 'Speaker_0:"Oh no..." Speaker_1:"What happened?" Speaker_0:"My dog passed away."',
                 'target_utterance': 'Speaker_0:"My dog passed away."',
                 'audio_features': 'very low volume with low variation, low pitch',
-                'label': 'sad'
+                'output': '{"detected_emotion_label": "sad", "reason": "Very low volume, low pitch, and loss of pet"}'
             },
             {
                 'context': 'Speaker_0:"I\'m done with this!" Speaker_1:"Please, just listen." Speaker_0:"I don\'t want to hear it anymore!"',
                 'target_utterance': 'Speaker_0:"I don\'t want to hear it anymore!"',
                 'audio_features': 'high volume with moderate variation, moderate pitch',
-                'label': 'angry'
+                'output': '{"detected_emotion_label": "angry", "reason": "High volume and dismissive language"}'
             }
         ]
     return examples
@@ -251,22 +252,22 @@ def process_dataset(dataset, window=110, audio_description='True', audio_impress
                     temp_content_str += f'Answer: {example["label"]}\n'
 
                 temp_content_str += '\n\nNow analyze this conversation:\n'
-                # Add clear instruction for few-shot
+                # Add clear JSON instruction for few-shot
                 if audio_only == 'True':
-                    temp_content_str += f'Based on the audio features, select one emotion from [{label_text_set[dataset]}].Output only the label.\nAnswer:'
+                    temp_content_str += f'Based on the audio features, select one emotion from [{label_text_set[dataset]}]. Output your answer in the following JSON format:\n{{"detected_emotion_label": "ONE_WORD_EMOTION_ONLY", "reason": "brief explanation"}}\nIMPORTANT: The detected_emotion_label field must contain ONLY one emotion word from the list above, without any additional text or explanation.'
                 elif audio_description == 'True' or audio_impression == 'True':
-                    temp_content_str += f'For {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}].Output only the label.\nAnswer:'
+                    temp_content_str += f'For {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}]. Output your answer in the following JSON format:\n{{"detected_emotion_label": "ONE_WORD_EMOTION_ONLY", "reason": "brief explanation"}}\nIMPORTANT: The detected_emotion_label field must contain ONLY one emotion word from the list above, without any additional text or explanation.'
                 else:
-                    temp_content_str += f'For {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}].Output only the label.\nAnswer:'
+                    temp_content_str += f'For {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}]. Output your answer in the following JSON format:\n{{"detected_emotion_label": "ONE_WORD_EMOTION_ONLY", "reason": "brief explanation"}}\nIMPORTANT: The detected_emotion_label field must contain ONLY one emotion word from the list above, without any additional text or explanation.:'
 
             elif experiments_setting == 'zero_shot':
-                # Zero-shot: Direct and clear instruction without examples
+                # Zero-shot: Direct and clear JSON instruction without examples
                 if audio_only == 'True':
-                    temp_content_str += f'\n\nBased on the audio features, select one emotion from [{label_text_set[dataset]}]. Output only the label.\nAnswer:'
+                    temp_content_str += f'\n\nBased on the audio features, select one emotion from [{label_text_set[dataset]}]. Output your answer in the following JSON format:\n{{"detected_emotion_label": "ONE_WORD_EMOTION_ONLY", "reason": "brief explanation"}}\nIMPORTANT: The detected_emotion_label field must contain ONLY one emotion word from the list above, without any additional text or explanation.:'
                 elif audio_description == 'True' or audio_impression == 'True':
-                    temp_content_str += f'\n\nFor {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}]. Output only the label.\nAnswer:'
+                    temp_content_str += f'\n\nFor {target_utterance}, based on the context and audio features, select one emotion from [{label_text_set[dataset]}]. Output your answer in the following JSON format:\n{{"detected_emotion_label": "ONE_WORD_EMOTION_ONLY", "reason": "brief explanation"}}\nIMPORTANT: The detected_emotion_label field must contain ONLY one emotion word from the list above, without any additional text or explanation.:'
                 else:
-                    temp_content_str += f'\n\nFor {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}]. Output only the label.\nAnswer:'
+                    temp_content_str += f'\n\nFor {target_utterance}, based on the context, select one emotion from [{label_text_set[dataset]}]. Output your answer in the following JSON format:\n{{"detected_emotion_label": "ONE_WORD_EMOTION_ONLY", "reason": "brief explanation"}}\nIMPORTANT: The detected_emotion_label field must contain ONLY one emotion word from the list above, without any additional text or explanation.:'
 
             else:
                 # LoRA/fine-tuning: Shorter prompt for trained model
