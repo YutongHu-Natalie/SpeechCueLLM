@@ -496,6 +496,14 @@ parser.add_argument(
     default='encoder'
 )
 
+parser.add_argument(
+    "--use_chat_template",
+    type=str,
+    default='auto',
+    choices=['auto', 'True', 'False'],
+    help='Whether to use chat template formatting. "auto" detects based on model name, "True" forces it, "False" disables it.'
+)
+
 args = parser.parse_args()
 do_sample = args.top_k is not None or args.top_p is not None or args.num_beams > 1 or args.temp is not None
 '''
@@ -578,7 +586,8 @@ model_args = {
     "freeze_llm": args.freeze_llm,
     "freeze_encoder": args.freeze_encoder,
     "encoder_size": args.encoder_size,
-    "feature": args.feature
+    "feature": args.feature,
+    "use_chat_template": args.use_chat_template
 }
 args = ModelArgs()
 # pdb.set_trace()
@@ -941,8 +950,8 @@ if __name__ == "__main__":
                             num_beams=1,  # Use greedy decoding for more deterministic output
                             top_k=args.top_k,
                             top_p=0.9,  # Slightly lower to reduce randomness
-                            max_new_tokens=120,  # Increased to 120 to accommodate JSON output with detected_emotion_label, reason, and reference fields
-                            repetition_penalty=1.2,  # Increased from 1.0 to penalize repetition
+                            max_new_tokens=80,  # Reduced from 120 to limit verbose output - enough for JSON with emotion and reason
+                            repetition_penalty=1.0,  # Set to 1.0 to avoid interfering with JSON structure
                             num_return_sequences=1,
                             do_sample=False,
                             pad_token_id=tokenizer.pad_token_id,
@@ -1084,8 +1093,8 @@ if __name__ == "__main__":
                         num_beams=1,  # Use greedy decoding for more deterministic output
                         top_k=args.top_k,
                         top_p=0.9,  # Slightly lower to reduce randomness
-                        max_new_tokens=120,  # Increased to 120 to accommodate JSON output with detected_emotion_label, reason, and reference fields
-                        repetition_penalty=1.2,  # Increased from 1.0 to penalize repetition
+                        max_new_tokens=80,  # Reduced from 120 to limit verbose output - enough for JSON with emotion and reason
+                        repetition_penalty=1.0,  # Set to 1.0 to avoid interfering with JSON structure
                         num_return_sequences=1,
                         do_sample=False,
                         pad_token_id=tokenizer.pad_token_id,
