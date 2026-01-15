@@ -202,7 +202,7 @@ then
         --dataset ${dataset} \
         --model_name_or_path ${MODEL_PATH} \
         --data_dir ${DATA_PATH} \
-        --output_dir ../experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/LR_${LR}_BS_${BS}_per_${data_percent}_${task}_class5_${SEED} \
+        --output_dir ../new_experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/LR_${LR}_BS_${BS}_per_${data_percent}_${task}_class5_${SEED} \
         --max_length ${MAX_LENGTH} \
         --batch_size ${BS} \
         --deepspeed_config ../LLM_code/data_utils/deepspeed_config.json \
@@ -227,7 +227,7 @@ then
         --dataset ${dataset} \
         --model_name_or_path ${MODEL_PATH} \
         --data_dir ${DATA_PATH} \
-        --output_dir ../experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/LR_${LR}_BS_${BS}_per_${data_percent}_${task}_class5_${SEED} \
+        --output_dir ../new_experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/LR_${LR}_BS_${BS}_per_${data_percent}_${task}_class5_${SEED} \
         --max_length ${MAX_LENGTH} \
         --batch_size ${BS} \
         --deepspeed_config ../LLM_code/data_utils/deepspeed_config.json \
