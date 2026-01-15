@@ -4,10 +4,10 @@ FLAG=1
 # Please adjust the following parameters according to your needs. Rememeber to update the MODELPATH for each LLM model.
 
 # ------  select basemodel ----------
-# MODEL_NAME='LLaMA2'
+MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
-# MODEL_NAME='LLaMA3-instruct-70b'
-MODEL_NAME='LLaMA3-instruct'
+MODEL_NAME='LLaMA3-instruct-70b'
+# MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
 
 # ------ select the experiment ------------
