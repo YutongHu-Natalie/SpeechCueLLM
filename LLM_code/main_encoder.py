@@ -938,13 +938,15 @@ if __name__ == "__main__":
                             token_type_ids = eval_batch.pop("token_type_ids")
                         outputs = model.generate(
                             **eval_batch,
-                            num_beams=args.num_beams,
+                            num_beams=1,  # Use greedy decoding for more deterministic output
                             top_k=args.top_k,
-                            top_p=args.top_p,
+                            top_p=0.9,  # Slightly lower to reduce randomness
                             max_new_tokens=120,  # Increased to 120 to accommodate JSON output with detected_emotion_label, reason, and reference fields
-                            repetition_penalty=1.0,
+                            repetition_penalty=1.2,  # Increased from 1.0 to penalize repetition
                             num_return_sequences=1,
-                            do_sample=False
+                            do_sample=False,
+                            pad_token_id=tokenizer.pad_token_id,
+                            eos_token_id=tokenizer.eos_token_id
                         )
                 outputs[outputs[:, :] < 0] = tokenizer.pad_token_id
                 all_outputs.extend(outputs)
@@ -1079,13 +1081,15 @@ if __name__ == "__main__":
                         token_type_ids = eval_batch.pop("token_type_ids")
                     outputs = model.generate(
                         **eval_batch,
-                        num_beams=args.num_beams,
+                        num_beams=1,  # Use greedy decoding for more deterministic output
                         top_k=args.top_k,
-                        top_p=args.top_p,
+                        top_p=0.9,  # Slightly lower to reduce randomness
                         max_new_tokens=120,  # Increased to 120 to accommodate JSON output with detected_emotion_label, reason, and reference fields
-                        repetition_penalty=1.0,
+                        repetition_penalty=1.2,  # Increased from 1.0 to penalize repetition
                         num_return_sequences=1,
-                        do_sample=False
+                        do_sample=False,
+                        pad_token_id=tokenizer.pad_token_id,
+                        eos_token_id=tokenizer.eos_token_id
                     )
             outputs[outputs[:, :] < 0] = tokenizer.pad_token_id
             all_outputs.extend(outputs)
