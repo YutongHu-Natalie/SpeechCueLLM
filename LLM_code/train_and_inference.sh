@@ -6,15 +6,15 @@ FLAG=1
 # ------  select basemodel ----------
 # MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
-MODEL_NAME='LLaMA3-instruct-70b'
-# MODEL_NAME='LLaMA3-instruct'
+# MODEL_NAME='LLaMA3-instruct-70b'
+MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
 # Experiments_setting='zero_shot'
-# Experiments_setting='few_shot'
-Experiments_setting='lora'
+Experiments_setting='few_shot'
+# Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
 #  ------ select the dataset ------ 
