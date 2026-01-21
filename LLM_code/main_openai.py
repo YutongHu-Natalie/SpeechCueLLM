@@ -226,6 +226,9 @@ def parse_input_for_openai(input_text, dataset):
     """
     Parse the processed input text to extract conversation_history, target_utterance, and audio_features
     for the OpenAI prompt format.
+
+    Input format example:
+    "Now you are expert... ### \t Speaker_0:"text" ### Target speech characteristics: ... For Speaker_0:"text", ..."
     """
     # Extract the conversation between ### ###
     conv_match = re.search(r'###(.+?)###', input_text, re.DOTALL)
@@ -233,25 +236,43 @@ def parse_input_for_openai(input_text, dataset):
     if conv_match:
         conversation_history = conv_match.group(1).strip()
 
-    # Extract target utterance (the last speaker utterance in the conversation)
-    target_match = re.search(r'For (Speaker_\d+:"[^"]+"|<Speaker_\d+:"[^"]+">)', input_text)
+    # Extract target utterance (from "For Speaker_X:..." pattern)
+    target_match = re.search(r'For\s+(Speaker_\d+:["\'][^"\']+["\'])', input_text)
     target_utterance = ""
     if target_match:
         target_utterance = target_match.group(1).replace('<', '').replace('>', '')
     else:
         # Try to get the last utterance from conversation
-        speaker_utterances = re.findall(r'Speaker_\d+:"[^"]+"', conversation_history)
+        speaker_utterances = re.findall(r'Speaker_\d+:["\'][^"\']+["\']', conversation_history)
         if speaker_utterances:
             target_utterance = speaker_utterances[-1]
 
-    # Extract audio features if present
+    # Extract audio features - try multiple patterns
     audio_features = ""
-    audio_match = re.search(r'Audio description of target utterance:(.+?)(?:Select|For|$)', input_text, re.DOTALL)
+
+    # Pattern 1: "Target speech characteristics: ..."
+    audio_match = re.search(r'Target speech characteristics:\s*([^.]+\.)', input_text, re.IGNORECASE)
     if audio_match:
         audio_features = audio_match.group(1).strip()
-    else:
-        # Check for audio features in parentheses after utterances
-        audio_in_parens = re.findall(r'\(([^)]+pitch[^)]+|[^)]+volume[^)]+)\)', input_text)
+
+    # Pattern 2: "Audio description of target utterance: ..."
+    if not audio_features:
+        audio_match = re.search(r'Audio description of target utterance:\s*([^.]+\.)', input_text, re.IGNORECASE)
+        if audio_match:
+            audio_features = audio_match.group(1).strip()
+
+    # Pattern 3: Check for features between ### and "For" or newline
+    if not audio_features:
+        after_conv_match = re.search(r'###\s*([^#]+?)(?:\n\n|For\s+Speaker)', input_text, re.DOTALL)
+        if after_conv_match:
+            potential_features = after_conv_match.group(1).strip()
+            # Check if it contains audio-related keywords
+            if any(kw in potential_features.lower() for kw in ['volume', 'pitch', 'speaking rate', 'variation']):
+                audio_features = potential_features
+
+    # Pattern 4: Check for audio features in parentheses after utterances
+    if not audio_features:
+        audio_in_parens = re.findall(r'\(([^)]*(?:pitch|volume|speaking rate)[^)]*)\)', input_text, re.IGNORECASE)
         if audio_in_parens:
             audio_features = "; ".join(audio_in_parens)
 
