@@ -563,7 +563,7 @@ lora_config = LoraConfig(
 )
 with open(args.deepspeed_config, 'r', encoding='utf-8') as f:
     deepspeed_config = json.load(f)
-deepspeed_config["train_batch_size"] = args.batch_size
+deepspeed_config["train_batch_size"] = args.batch_size * args.gradient_accumulation_steps * world_size
 deepspeed_config["gradient_accumulation_steps"] = args.gradient_accumulation_steps
 if deepspeed_config["zero_optimization"]["stage"] == 3:
     deepspeed_config["zero_optimization"]['mics_shard_size'] = world_size
