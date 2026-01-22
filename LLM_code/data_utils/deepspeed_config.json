@@ -38,7 +38,8 @@
           "device": "none"
         },
         "offload_param":{
-          "device": "none"
+          "device": "cpu",
+          "pin_memory": true
         }
     },
   "zero_allow_untested_optimizer": true,
