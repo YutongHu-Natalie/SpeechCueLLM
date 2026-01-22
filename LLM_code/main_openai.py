@@ -228,10 +228,15 @@ def parse_input_for_openai(input_text, dataset):
     for the OpenAI prompt format.
 
     Input format example:
-    "Now you are expert... ### \t Speaker_0:"text" ### Target speech characteristics: ... For Speaker_0:"text", ..."
+    "Now you are expert... speakers. ### \t Speaker_0:"text" ### Target speech characteristics: ... For Speaker_0:"text", ..."
     """
-    # Extract the conversation between ### ###
-    conv_match = re.search(r'###(.+?)###', input_text, re.DOTALL)
+    # Extract the conversation between ### ### markers
+    # Note: The text contains "'### ###'" as description, so we need to find the ACTUAL markers
+    # The actual conversation starts after "speakers." followed by ### and Speaker_
+    conv_match = re.search(r'speakers\.\s*###(.+?)###', input_text, re.DOTALL)
+    if not conv_match:
+        # Fallback: find ### followed by Speaker content
+        conv_match = re.search(r'###\s*(\t?\s*Speaker_.+?)###', input_text, re.DOTALL)
     conversation_history = ""
     if conv_match:
         conversation_history = conv_match.group(1).strip()
