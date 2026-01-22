@@ -1,0 +1,65 @@
+Job started at Thu Jan 15 12:42:12 EST 2026
+Running on host: tebuna
+Job ID: 12913
+SLURM allocated GPUs: 0
+Thu Jan 15 12:42:12 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 565.57.01              Driver Version: 565.57.01      CUDA Version: 12.7     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   32C    P8             27W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B5:00.0 Off |                  Off |
+| 30%   32C    P8             25W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+******************************************************************************************
+All parameters are valid.
+The dataset you have selected is: iemocap !
+The base model you have selected is LLaMA2!
+The model's SFT method you have selected: zero_shot!
+If predict emotions: False
+******************************************************************************************
+******************************************************************************************
+Data procession has executed successfully !
+******************************************************************************************
+******************************************************************************************
+Your choose iemocap! The max_context_length will be set as 2500!
+******************************************************************************************
+Your choose LLaMA2! Model Parameters should be initialized in the path 
+ /local/scratch/yhu383/models/llama2-7b
+Your choose zero_shot! The experiment will be set as ZERO_SHOT model
+Processed Data_Path: ../PROCESSED_DATASET/iemocap/window/True_False
+[2026-01-15 12:42:35,156] [WARNING] [runner.py:191:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=0: setting --include=localhost:0
+[2026-01-15 12:42:35,203] [INFO] [runner.py:541:main] cmd = /local/scratch/yhu383/SpeechCueLLM/venv/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=26000 --enable_each_rank_log=None main.py --dataset iemocap --model_name_or_path /local/scratch/yhu383/models/llama2-7b --data_dir ../PROCESSED_DATASET/iemocap/window/True_False --output_dir ../new_experiments/LLaMA2/zero_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11 --max_length 2500 --batch_size 8 --deepspeed_config ../LLM_code/data_utils/deepspeed_config.json --gradient_accumulation_steps 8 --eval_batch_size 8 --num_train_epochs 15 --save_steps 100000 --lora False --learning_rate 0 --do_eval True --do_train False --statistic_mode True --data_percent 1.0 --seed 11 --emotion_prediction False
+[2026-01-15 12:42:36,832] [INFO] [launch.py:229:main] WORLD INFO DICT: {'localhost': [0]}
+[2026-01-15 12:42:36,832] [INFO] [launch.py:235:main] nnodes=1, num_local_procs=1, node_rank=0
+[2026-01-15 12:42:36,832] [INFO] [launch.py:246:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2026-01-15 12:42:36,832] [INFO] [launch.py:247:main] dist_world_size=1
+[2026-01-15 12:42:36,832] [INFO] [launch.py:249:main] Setting CUDA_VISIBLE_DEVICES=0
+ModelArgs(model_type='decoder', model_name_or_path='/local/scratch/yhu383/models/llama2-7b', checkpoint_dir=None, output_dir='../new_experiments/LLaMA2/zero_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11', data_dir='../PROCESSED_DATASET/iemocap/window/True_False', do_train=False, do_eval=True, warmup_ratio=0.1, warmup_steps=None, save_steps=100000, weight_decay=0.0, max_seq_length=256, max_length=2500, num_beams=1, do_sample=False, top_k=None, top_p=None, learning_rate=0.0, preprocess_inputs=True, clip_norm=1.0, open_ended=False, batch_size=8, eval_batch_size=8, gradient_accumulation_steps=8, lora=False, lora_dim=16, lora_alpha=16, lora_dropout=0.05, lora_module_name='q_proj,k_proj,v_proj,query_key_value', seed=11, offload_optimizer=False, deepspeed_config='../LLM_code/data_utils/deepspeed_config.json', zero_shot=True, mode='sft', gradient_checkpointing=False)
+the number of num_samples is 1623
+the number of num_samples is 1623
+[2026-01-15 12:43:02,307] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.9.2, git-hash=unknown, git-branch=unknown
+[2026-01-15 12:43:02,308] [WARNING] [config_utils.py:69:_process_deprecated_field] Config parameter mp_size is deprecated use tensor_parallel.tp_size instead
+[2026-01-15 12:43:02,308] [INFO] [logging.py:96:log_dist] [Rank -1] quantize_bits = 8 mlp_extra_grouping = False, quantize_groups = 1
+
+*****    Evaluating  *****
+
+{'Acc_SA': 18.977, 'F1_SA': 16.78, 'mode': 'test'}
+[2026-01-15 13:01:48,086] [INFO] [launch.py:460:main] Process 3216449 exits successfully.
+Job finished at Thu Jan 15 13:01:49 EST 2026
