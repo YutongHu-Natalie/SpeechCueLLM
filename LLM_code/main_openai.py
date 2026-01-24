@@ -17,8 +17,8 @@ import re
 import time
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file (override=True to override existing env vars)
+load_dotenv(override=True)
 
 
 def get_labels_attr(dataset):
