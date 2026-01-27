@@ -489,6 +489,18 @@ def main():
             "extracted_label": extracted_label
         })
 
+        # Log every 50 samples for real-time monitoring
+        if (idx + 1) % 50 == 0 or idx == 0:
+            current_acc = sum(1 for g, p in zip(golds, preds) if g == p) / len(golds) * 100
+            print(f"\n{'='*80}")
+            print(f"Sample {idx + 1}/{len(test_data)} | Running Accuracy: {current_acc:.2f}%")
+            print(f"{'='*80}")
+            print(f"Target Sentence: {target_utterance}")
+            print(f"Target Emotion: {target}")
+            print(f"Predicted Emotion: {extracted_label}")
+            print(f"LLM Output: {output}")
+            print(f"{'='*80}\n")
+
         # Add delay to avoid rate limits
         if args.batch_delay > 0:
             time.sleep(args.batch_delay)
