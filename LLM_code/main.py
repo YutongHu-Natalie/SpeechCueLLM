@@ -563,7 +563,9 @@ lora_config = LoraConfig(
 )
 
 # Auto-select DeepSpeed config based on model size if using default or "auto"
-if args.deepspeed_config == "./data_utils/deepspeed_config.json" or args.deepspeed_config == "auto":
+# Trigger auto-selection if: path is "auto" OR ends with generic "deepspeed_config.json" (not model-specific)
+config_basename = os.path.basename(args.deepspeed_config) if args.deepspeed_config else ""
+if args.deepspeed_config == "auto" or config_basename == "deepspeed_config.json":
     args.deepspeed_config = get_deepspeed_config_path(
         args.model_name_or_path,
         base_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_utils")
