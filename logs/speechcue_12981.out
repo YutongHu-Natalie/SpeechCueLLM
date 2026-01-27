@@ -1,0 +1,504 @@
+Job started at Tue Jan 27 10:17:43 EST 2026
+Running on host: tebuna
+Job ID: 12981
+SLURM allocated GPUs: 0
+Tue Jan 27 10:17:43 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 565.57.01              Driver Version: 565.57.01      CUDA Version: 12.7     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   32C    P8             27W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B5:00.0 Off |                  Off |
+| 30%   32C    P8             25W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+******************************************************************************************
+All parameters are valid.
+The dataset you have selected is: iemocap !
+The base model you have selected is OpenAI-gpt-5-mini!
+The model's SFT method you have selected: few_shot!
+If predict emotions: False
+******************************************************************************************
+******************************************************************************************
+Data procession has executed successfully !
+******************************************************************************************
+******************************************************************************************
+Your choose iemocap! The max_context_length will be set as 2500!
+******************************************************************************************
+Your choose is not in MY candidations! Please check your Model name!
+Your choose OpenAI-gpt-5-mini! Model Parameters should be initialized in the path 
+ 
+Your choose few_shot! The experiment will be set as FEW_SHOT model
+******************************************************************************************
+Using OpenAI API with model: gpt-5-mini
+Processed Data_Path: ../PROCESSED_DATASET/iemocap/window/True_False
+******************************************************************************************
+Loaded 1623 test samples
+Using few-shot prompting with examples
+
+***** Running inference with gpt-5-mini (few_shot) *****
+
+
+================================================================================
+Sample 1/1623 | Running Accuracy: 0.00%
+================================================================================
+Target Sentence: Speaker_0:"Guess what?"
+Target Emotion: excited
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The utterance is a simple prompt ('Guess what?') with no clear positive or negative content. Audio features—very low speaking rate and very low pitch variation with only moderate volume—indicate low arousal and a matter-of-fact, non-emotional delivery. Taken together, the dominant emotion is neutral."
+}
+================================================================================
+
+
+================================================================================
+Sample 50/1623 | Running Accuracy: 46.00%
+================================================================================
+Target Sentence: Speaker_1:"Are you going to start right away?"
+Target Emotion: neutral
+Predicted Emotion: excited
+LLM Output: {
+  "emotion_label": "excited",
+  "reasoning": "The conversation is about an engagement and plans for kids, and Speaker_1 previously said \"I'm so excited for you,\" so this question expresses eager anticipation about starting family plans. The moderate volume/pitch/rate indicate engaged but controlled enthusiasm rather than neutral curiosity, supporting an excited (anticipatory) tone."
+}
+================================================================================
+
+
+================================================================================
+Sample 100/1623 | Running Accuracy: 52.00%
+================================================================================
+Target Sentence: Speaker_1:"You'
+Target Emotion: sad
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "Context shows the speakers discussing separation and missing a child's first words, expressing fear and loss. The target utterance is a fragment of a pleading statement tied to that sadness. Audio features (moderate volume with high pitch variation and moderate rate) indicate emotional, vulnerable delivery rather than anger or excitement, consistent with sadness/longing rather than neutral or frustrated."
+}
+================================================================================
+
+
+================================================================================
+Sample 150/1623 | Running Accuracy: 63.33%
+================================================================================
+Target Sentence: Speaker_0:"I completely understand."
+Target Emotion: neutral
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "In context this is a tech-support agent offering brief empathy after the customer describes repeated problems; the content is an acknowledgement rather than an emotional reaction. Audio shows moderate volume and pitch with very high speaking rate, indicating a brisk, matter-of-fact reassurance rather than strong joy, anger, or sadness. Overall the utterance is neutral (informative/empathetic but low emotional valence)."
+}
+================================================================================
+
+
+================================================================================
+Sample 200/1623 | Running Accuracy: 65.00%
+================================================================================
+Target Sentence: Speaker_0:"It'
+Target Emotion: neutral
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "In context the speaker is responding to three years of repeated complaints and is admonishing the other person for negativity; the truncated utterance continues a corrective point. The audio shows moderate volume/pitch but a high speaking rate, which signals impatience and exasperation rather than calm neutrality or outright anger. Together these indicate frustration (irritation and exasperation) as the dominant emotion."
+}
+================================================================================
+
+
+================================================================================
+Sample 250/1623 | Running Accuracy: 62.40%
+================================================================================
+Target Sentence: Speaker_0:"No.  I figured it was best to leave him alone."
+Target Emotion: sad
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "The speaker describes someone who ran back inside and started crying and explains a quiet, compassionate choice to leave him alone. The low-volume, low-pitch, low-variation audio with a subdued delivery signals low arousal and resignation rather than neutrality; together with the sympathetic context this indicates sadness."
+}
+================================================================================
+
+
+================================================================================
+Sample 300/1623 | Running Accuracy: 61.33%
+================================================================================
+Target Sentence: Speaker_0:"How do you know why she'
+Target Emotion: frustrated
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The utterance challenges another's claim and pushes back on assumptions about the woman's motives, indicating skepticism and irritation. The audio (moderate volume with very high variation and moderate pitch variation) suggests emphatic, exasperated delivery rather than calm neutrality or outright anger, so frustrated best captures the dominant emotion."
+}
+================================================================================
+
+
+================================================================================
+Sample 350/1623 | Running Accuracy: 60.57%
+================================================================================
+Target Sentence: Speaker_1:"Well, the trouble is you never saw enough women."
+Target Emotion: neutral
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The line is a critical, exasperated remark aimed at the other speaker's shortcomings within an argumentative context—not sorrowful or celebratory. The high speaking rate signals impatience and urgency, while moderate volume and low pitch variation indicate controlled annoyance rather than outright anger. Together these context and audio cues point to frustration."
+}
+================================================================================
+
+
+================================================================================
+Sample 400/1623 | Running Accuracy: 61.50%
+================================================================================
+Target Sentence: Speaker_1:"Okay, I do see that on here, and it says that um, it had some trouble clearing for some reason.  And I think that was the problem on our end.  So um-"
+Target Emotion: neutral
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The agent is providing an explanatory update and admitting a system error rather than expressing strong feeling. The wording is factual and conciliatory, and the audio features (moderate volume/variation, low pitch with moderate variation, and a high speaking rate) indicate a matter-of-fact, efficient delivery rather than anger, excitement, or sadness."
+}
+================================================================================
+
+
+================================================================================
+Sample 450/1623 | Running Accuracy: 61.56%
+================================================================================
+Target Sentence: Speaker_1:"Whoa, this is going to be so much fun."
+Target Emotion: excited
+Predicted Emotion: excited
+LLM Output: {
+  "emotion_label": "excited",
+  "reasoning": "The utterance expresses enthusiastic anticipation about upcoming fun (planning parties and living arrangements), and the high volume with moderate pitch/variation and moderate speaking rate indicate elevated arousal and energetic delivery. These content and audio cues point to excitement rather than calm happiness."
+}
+================================================================================
+
+
+================================================================================
+Sample 500/1623 | Running Accuracy: 61.60%
+================================================================================
+Target Sentence: Speaker_1:"metastasized and it was old and they knew that it wasn'
+Target Emotion: sad
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "The content describes a friend's death from metastatic cancer and the speaker's resignation about the prognosis, which conveys loss and sorrow. Audio cues (low volume, very low pitch, low variation) indicate subdued, low-arousal affect consistent with sadness rather than anger, frustration, or neutrality."
+}
+================================================================================
+
+
+================================================================================
+Sample 550/1623 | Running Accuracy: 63.27%
+================================================================================
+Target Sentence: Speaker_0:"I know it'
+Target Emotion: sad
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "The speaker is delivering bad news (being deployed to Iraq) and expresses regret/apology about timing, indicating sorrow and resignation. The audio — moderate volume with high and very variable pitch but moderate rate — suggests emotional strain and distress rather than anger or excitement, supporting a dominant sad emotion."
+}
+================================================================================
+
+
+================================================================================
+Sample 600/1623 | Running Accuracy: 63.33%
+================================================================================
+Target Sentence: Speaker_1:"And I remember thinking to myself, finally.  I am as happy as I am supposed to be."
+Target Emotion: sad
+Predicted Emotion: happy
+LLM Output: {
+  "emotion_label": "happy",
+  "reasoning": "The content is a joyful, satisfied recollection of an intimate moment (“finally. I am as happy as I am supposed to be”), indicating positive emotion. The audio (very low, steady volume with pitch variation and moderate rate) signals a quiet, reflective, low-arousal happiness rather than high-energy excitement or sadness, so 'happy' best captures the dominant emotion."
+}
+================================================================================
+
+
+================================================================================
+Sample 650/1623 | Running Accuracy: 62.92%
+================================================================================
+Target Sentence: Speaker_1:"Twice is every time we tried, that'
+Target Emotion: frustrated
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The line expresses exasperation about repeated failures (“Twice is every time we tried”), building on prior complaint and annoyance in the context. The audio (moderate volume, moderate rate, but high pitch variation) signals emphasized irritation rather than calmness or outright anger, matching frustration."
+}
+================================================================================
+
+
+================================================================================
+Sample 700/1623 | Running Accuracy: 62.14%
+================================================================================
+Target Sentence: Speaker_1:"He'
+Target Emotion: neutral
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The utterance is a brief, matter-of-fact comment in a skeptical exchange about someone's motives. The content lacks clear emotional valence (no overt anger, sadness, or joy). Audio features—very low volume and very low pitch variation with a monotone delivery, despite a fast rate—indicate low arousal and a quick, dismissive statement rather than strong feeling. Taken together this best fits neutral."
+}
+================================================================================
+
+
+================================================================================
+Sample 750/1623 | Running Accuracy: 61.60%
+================================================================================
+Target Sentence: Speaker_0:"It was and then I went home.  And it was incredible.  It didn'
+Target Emotion: sad
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "The speaker is describing loss and meaninglessness after friends' deaths and suicide, expressing numbness and sorrow. The subdued audio (moderate volume, low pitch variation, moderate rate) supports a low-arousal, melancholic delivery rather than anger, excitement, or neutrality, so the dominant emotion is sad."
+}
+================================================================================
+
+
+================================================================================
+Sample 800/1623 | Running Accuracy: 61.62%
+================================================================================
+Target Sentence: Speaker_0:"I don'
+Target Emotion: frustrated
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "In context the speaker is repeatedly enforcing rules and responding to a complaining customer, which suggests exasperation rather than joy or sorrow. The audio features (high volume and pitch with very high variation and very fast speaking rate) indicate high arousal and irritation consistent with frustration—an emphatic, annoyed attempt to restate the rule—rather than calm neutrality or outright anger."
+}
+================================================================================
+
+
+================================================================================
+Sample 850/1623 | Running Accuracy: 60.24%
+================================================================================
+Target Sentence: Speaker_1:"Right, but this is the wrong form.  Somebody gave you the wrong form."
+Target Emotion: neutral
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The speaker is correcting and repeating that the person has the wrong form, which signals irritation with the situation (someone gave the wrong form). The delivery is controlled (low pitch variation, moderate rate) rather than high-arousal anger, matching a restrained exasperation—frustrated rather than neutral or angry."
+}
+================================================================================
+
+
+================================================================================
+Sample 900/1623 | Running Accuracy: 59.89%
+================================================================================
+Target Sentence: Speaker_0:"Oh"
+Target Emotion: frustrated
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "In context the speaker has been self-critical and disappointed about forgetting the flashlight and other oversights; the single-word 'Oh' follows that realization and reads as resigned disappointment. The audio features (very low volume and pitch with very low variation and a slow rate) indicate low arousal and subdued negative affect, consistent with sadness rather than neutral or frustrated."
+}
+================================================================================
+
+
+================================================================================
+Sample 950/1623 | Running Accuracy: 59.37%
+================================================================================
+Target Sentence: Speaker_0:"Did you see much of Peter Burden after the divorce?"
+Target Emotion: angry
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The line is a straightforward follow-up question amid light, teasing banter and carries informational curiosity rather than strong feeling. The audio (moderate volume/variation and speaking rate with only elevated pitch) indicates mild engagement but not high-arousal emotion, so the dominant label is neutral."
+}
+================================================================================
+
+
+================================================================================
+Sample 1000/1623 | Running Accuracy: 60.50%
+================================================================================
+Target Sentence: Speaker_1:"I'
+Target Emotion: sad
+Predicted Emotion: sad
+LLM Output: {
+  "emotion_label": "sad",
+  "reasoning": "In context the speaker is responding to someone describing the death of a close, talented friend; their brief, incomplete utterance ('I'') follows apologetic lines and functions as consolation. The audio features—low volume with very low variation, moderate pitch with very low variation, and moderate rate—indicate a subdued, low-arousal, sympathetic tone consistent with sadness rather than neutral or other emotions."
+}
+================================================================================
+
+
+================================================================================
+Sample 1050/1623 | Running Accuracy: 60.86%
+================================================================================
+Target Sentence: Speaker_1:"No, I don'
+Target Emotion: frustrated
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The utterance is a brief factual refusal ('No, I don'...') delivered with moderate volume, pitch, and speaking rate, showing no strong arousal or valence. In context it functions as a matter-of-fact response to a suggestion rather than an emotionally charged retort, so neutral best fits."
+}
+================================================================================
+
+
+================================================================================
+Sample 1100/1623 | Running Accuracy: 60.64%
+================================================================================
+Target Sentence: Speaker_0:"I am sorry, ma'
+Target Emotion: frustrated
+Predicted Emotion: sad
+LLM Output: 
+================================================================================
+
+
+================================================================================
+Sample 1150/1623 | Running Accuracy: 60.26%
+================================================================================
+Target Sentence: Speaker_0:"Okay, just fill out these three forms, and um- you'
+Target Emotion: neutral
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The agent's line is procedural and informational (asking the customer to fill out forms) rather than expressing anger or sympathy. In context the customer is upset, but the speaker remains measured and businesslike. Audio features show moderate pitch and volume with very high speaking rate, indicating a brisk, efficient delivery rather than high-valence emotion—so the dominant affect is neutral."
+}
+================================================================================
+
+
+================================================================================
+Sample 1200/1623 | Running Accuracy: 60.00%
+================================================================================
+Target Sentence: Speaker_0:"Turn it off!"
+Target Emotion: angry
+Predicted Emotion: angry
+LLM Output: {
+  "emotion_label": "angry",
+  "reasoning": "The utterance is a forceful imperative in a context of mutual insults and prior complaints (“It's driving me mad”), signaling strong irritation. The audio — very high volume and very high pitch with low speaking rate — matches an intense, loud, deliberate shout rather than calm frustration or sadness. Taken together this indicates anger as the dominant emotion."
+}
+================================================================================
+
+
+================================================================================
+Sample 1250/1623 | Running Accuracy: 61.04%
+================================================================================
+Target Sentence: Speaker_0:"They don'
+Target Emotion: excited
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The speaker is dismissing others' opinions about the neighborhood (“They don't live here. They don't know…”), which expresses irritation and exasperation with outsiders. The audio profile—moderate volume but high pitch variation and moderate rate—supports a tense, agitated delivery rather than calm neutrality or full-blown anger, consistent with frustration."
+}
+================================================================================
+
+
+================================================================================
+Sample 1300/1623 | Running Accuracy: 60.62%
+================================================================================
+Target Sentence: Speaker_0:"Good God."
+Target Emotion: excited
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The utterance \"Good God.\" expresses dismay or exasperation with no positive valence. The very high speaking rate signals agitation/urgency, while moderate volume and low pitch variation point to a hurried, exasperated delivery rather than calm neutrality or overt anger. Taken together the content and audio profile best match frustration."
+}
+================================================================================
+
+
+================================================================================
+Sample 1350/1623 | Running Accuracy: 59.78%
+================================================================================
+Target Sentence: Speaker_0:"You feel it'
+Target Emotion: excited
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "In context the speaker is nervously pressing about the listener's feelings after a clumsy, emotional confession; he sounds flustered and uneasy rather than joyful or angry. The high speaking rate and variable volume indicate urgent, anxious emphasis—consistent with irritation at the awkward situation and unsuccessful communication. This combination of content and aroused, pressured delivery best matches 'frustrated.'"
+}
+================================================================================
+
+API call failed (attempt 1): Error code: 400 - {'error': {'message': 'Could not finish the message because max_tokens or model output limit was reached. Please try again with higher max_tokens.', 'type': 'invalid_request_error', 'param': None, 'code': None}}
+
+================================================================================
+Sample 1400/1623 | Running Accuracy: 59.57%
+================================================================================
+Target Sentence: Speaker_0:"I go in for these interviews, and they'
+Target Emotion: frustrated
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "The speaker is complaining about repeatedly failing to get jobs and expresses exasperation about interviews and lack of offers. The moderate-but-variable audio features (moderate volume, pitch, and rate with some variation) match a controlled yet emphatic delivery typical of frustration—irritation at obstacles rather than calm neutrality or outright anger."
+}
+================================================================================
+
+
+================================================================================
+Sample 1450/1623 | Running Accuracy: 60.00%
+================================================================================
+Target Sentence: Speaker_1:"Okay.  Well, that'
+Target Emotion: neutral
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The phrase is a brief conversational transition continuing a supportive comment rather than expressing strong feeling. Audio features (low volume, moderate pitch variation, moderate speaking rate) indicate a subdued, matter-of-fact delivery. Taken with the context of conciliatory, explanatory dialogue, the dominant emotion is neutral rather than a strongly positive or negative state."
+}
+================================================================================
+
+API call failed (attempt 1): Error code: 400 - {'error': {'message': 'Could not finish the message because max_tokens or model output limit was reached. Please try again with higher max_tokens.', 'type': 'invalid_request_error', 'param': None, 'code': None}}
+
+================================================================================
+Sample 1500/1623 | Running Accuracy: 59.80%
+================================================================================
+Target Sentence: Speaker_0:"Of course, of course she will ... of course she will.  Yeah, don'
+Target Emotion: excited
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "Although the overall conversation is celebratory, the target utterance is a corrective warning about people disappearing after marriage. The content expresses irritation ('That'll make me mad. You don't want to make me mad'), and the audio features—very high speaking rate with only moderate volume/pitch variation—point to agitated, exasperated delivery rather than calm anger or joyful excitement. This combination best fits frustrated (mild annoyance/exasperation) rather than full-blown angry."
+}
+================================================================================
+
+
+================================================================================
+Sample 1550/1623 | Running Accuracy: 59.48%
+================================================================================
+Target Sentence: Speaker_1:"Yeah, well the chances of it being lost forever, you know, are slight because -- -- you were in the --"
+Target Emotion: neutral
+Predicted Emotion: neutral
+LLM Output: {
+  "emotion_label": "neutral",
+  "reasoning": "The agent's line is informational/reassuring about the low likelihood of permanent loss rather than expressing strong feeling. The content is matter-of-fact and the audio (moderate volume and rate, low pitch with moderate variation) indicates a calm, explanatory delivery rather than excitement, anger, or sadness."
+}
+================================================================================
+
+
+================================================================================
+Sample 1600/1623 | Running Accuracy: 59.56%
+================================================================================
+Target Sentence: Speaker_0:"Right."
+Target Emotion: excited
+Predicted Emotion: frustrated
+LLM Output: {
+  "emotion_label": "frustrated",
+  "reasoning": "In context the partner declares it's late and pointless to stay, and Speaker_0 replies briefly with 'Right.'—a resigned, agreement after earlier fumbling and missed preparations. The very high speaking rate combined with moderate pitch/volume suggests impatience or exasperation rather than calm neutrality, so the dominant emotion is frustrated."
+}
+================================================================================
+
+
+***** Results *****
+Accuracy: 59.827%
+Weighted F1: 59.599%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         hap   0.423841  0.444444  0.433898       144
+         sad   0.622581  0.787755  0.695495       245
+         neu   0.744275  0.507812  0.603715       384
+         ang   0.581560  0.482353  0.527331       170
+         exc   0.711712  0.528428  0.606526       299
+         fru   0.519553  0.732283  0.607843       381
+
+    accuracy                       0.598275      1623
+   macro avg   0.600587  0.580513  0.579135      1623
+weighted avg   0.621678  0.598275  0.595989      1623
+
+
+Results saved to: ../experiments/OpenAI-gpt-5-mini/few_shot/iemocap/window_12/per_1.0_des_context_class5_11/preds_for_eval.text
+Job finished at Tue Jan 27 14:12:21 EST 2026

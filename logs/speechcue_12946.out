@@ -1,0 +1,76 @@
+Job started at Wed Jan 21 17:29:17 EST 2026
+Running on host: tebuna
+Job ID: 12946
+SLURM allocated GPUs: 0
+Wed Jan 21 17:29:17 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 565.57.01              Driver Version: 565.57.01      CUDA Version: 12.7     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   32C    P8             27W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B5:00.0 Off |                  Off |
+| 30%   32C    P8             25W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+******************************************************************************************
+All parameters are valid.
+The dataset you have selected is: iemocap !
+The base model you have selected is OpenAI-gpt-4o-mini!
+The model's SFT method you have selected: zero_shot!
+If predict emotions: False
+******************************************************************************************
+******************************************************************************************
+Data procession has executed successfully !
+******************************************************************************************
+******************************************************************************************
+Your choose iemocap! The max_context_length will be set as 2500!
+******************************************************************************************
+Your choose is not in MY candidations! Please check your Model name!
+Your choose OpenAI-gpt-4o-mini! Model Parameters should be initialized in the path 
+ 
+Your choose zero_shot! The experiment will be set as ZERO_SHOT model
+******************************************************************************************
+Using OpenAI API with model: gpt-4o-mini
+Processed Data_Path: ../PROCESSED_DATASET/iemocap/window/True_False
+******************************************************************************************
+Loaded 1623 test samples
+Using zero-shot prompting
+
+***** Running inference with gpt-4o-mini (zero_shot) *****
+
+
+***** Results *****
+Accuracy: 23.66%
+Weighted F1: 9.054%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         hap   0.000000  0.000000  0.000000       144
+         sad   0.000000  0.000000  0.000000       245
+         neu   0.236599  1.000000  0.382661       384
+         ang   0.000000  0.000000  0.000000       170
+         exc   0.000000  0.000000  0.000000       299
+         fru   0.000000  0.000000  0.000000       381
+
+    accuracy                       0.236599      1623
+   macro avg   0.039433  0.166667  0.063777      1623
+weighted avg   0.055979  0.236599  0.090537      1623
+
+
+Results saved to: ../experiments/OpenAI-gpt-4o-mini/zero_shot/iemocap/window_12/per_1.0_des_context_class5_11/preds_for_eval.text
+Job finished at Wed Jan 21 18:17:12 EST 2026
