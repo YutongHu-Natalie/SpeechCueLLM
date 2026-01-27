@@ -9,7 +9,7 @@ import re
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()
+load_dotenv(override=True)
 
 def parse_input_for_openai(input_text, dataset):
     """
@@ -95,7 +95,8 @@ def test_openai_api(test_inputs):
     if not api_key:
         print("ERROR: OPENAI_API_KEY not set in environment or .env file")
         return
-
+    print("checking error:")
+    print(api_key)
     client = OpenAI(api_key=api_key)
     label_str = '"happy", "sad", "neutral", "angry", "excited", "frustrated"'
 
@@ -143,6 +144,7 @@ Provide your answer in this JSON format:
         print(f"  Audio: {audio}")
 
         try:
+            
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=messages,
@@ -150,6 +152,14 @@ Provide your answer in this JSON format:
                 max_tokens=200,
                 response_format={"type": "json_object"}
             )
+            '''
+            response = client.chat.completions.create(
+                model="gpt-5-mini",
+                messages=messages,
+                max_completion_tokens=200,
+                response_format={"type": "json_object"}
+            )
+            '''
             output = response.choices[0].message.content
             print(f"\nAPI Response:\n{output}")
         except Exception as e:
