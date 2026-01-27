@@ -281,8 +281,8 @@ parser.add_argument(
 parser.add_argument(
     "--deepspeed_config",
     type=str,
-    default="./data_utils/deepspeed_config.json",
-    help="Path to save trained model.",
+    default="auto",
+    help="Path to DeepSpeed config. Use 'auto' to automatically select based on model size (70B vs 7B/8B).",
 )
 
 parser.add_argument(
@@ -561,6 +561,15 @@ lora_config = LoraConfig(
     target_modules=args.lora_module_name.split(","),
     bias='none',
 )
+
+# Auto-select DeepSpeed config based on model size if using default or "auto"
+if args.deepspeed_config == "./data_utils/deepspeed_config.json" or args.deepspeed_config == "auto":
+    args.deepspeed_config = get_deepspeed_config_path(
+        args.model_name_or_path,
+        base_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_utils")
+    )
+    print(f"Auto-selected DeepSpeed config: {args.deepspeed_config}")
+
 with open(args.deepspeed_config, 'r', encoding='utf-8') as f:
     deepspeed_config = json.load(f)
 deepspeed_config["train_batch_size"] = args.batch_size * args.gradient_accumulation_steps * world_size
