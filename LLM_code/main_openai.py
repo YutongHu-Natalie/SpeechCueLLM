@@ -17,8 +17,8 @@ import re
 import time
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file (override=True to override existing env vars)
+load_dotenv(override=True)
 
 
 def get_labels_attr(dataset):
@@ -373,7 +373,15 @@ def run_openai_inference(client, model_name, messages, max_retries=3):
     """
     for attempt in range(max_retries):
         try:
-            response = client.chat.completions.create(
+            if model_name == "gpt-5-mini":
+                response = client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                max_completion_tokens=800,
+                response_format={"type": "json_object"}  # Force JSON output
+            )
+            else:
+                response = client.chat.completions.create(
                 model=model_name,
                 messages=messages,
                 temperature=0.1,  # Low temperature for more deterministic output
@@ -488,6 +496,18 @@ def main():
             "target": target,
             "extracted_label": extracted_label
         })
+
+        # Log every 50 samples for real-time monitoring
+        if (idx + 1) % 50 == 0 or idx == 0:
+            current_acc = sum(1 for g, p in zip(golds, preds) if g == p) / len(golds) * 100
+            print(f"\n{'='*80}")
+            print(f"Sample {idx + 1}/{len(test_data)} | Running Accuracy: {current_acc:.2f}%")
+            print(f"{'='*80}")
+            print(f"Target Sentence: {target_utterance}")
+            print(f"Target Emotion: {target}")
+            print(f"Predicted Emotion: {extracted_label}")
+            print(f"LLM Output: {output}")
+            print(f"{'='*80}\n")
 
         # Add delay to avoid rate limits
         if args.batch_delay > 0:

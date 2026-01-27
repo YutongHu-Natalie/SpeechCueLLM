@@ -4,18 +4,19 @@ FLAG=1
 # Please adjust the following parameters according to your needs. Rememeber to update the MODELPATH for each LLM model.
 
 # ------  select basemodel ----------
-MODEL_NAME='LLaMA2'
+# MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
-MODEL_NAME='LLaMA3-instruct-70b'
+# MODEL_NAME='LLaMA3-instruct-70b'
 # MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
 # MODEL_NAME='OpenAI-gpt-4o-mini'
+MODEL_NAME='OpenAI-gpt-5-mini'
 # MODEL_NAME='OpenAI-gpt-4o'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
-# Experiments_setting='zero_shot'
-Experiments_setting='few_shot'
+Experiments_setting='zero_shot'
+# Experiments_setting='few_shot'
 # Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
@@ -65,7 +66,7 @@ data_percent=1.0
 
 
 case ${MODEL_NAME} in
-'ChatGLM'|'ChatGLM2'|'LLaMA'|'LLaMA2'|'LLaMA3'|'LLaMA3-instruct'|'LLaMA3-instruct-70b'|'Bloom-560m'|'Phi3-medium'|'OpenAI-gpt-4o-mini'|'OpenAI-gpt-4o'|'OpenAI-gpt-4-turbo')
+'ChatGLM'|'ChatGLM2'|'LLaMA'|'LLaMA2'|'LLaMA3'|'LLaMA3-instruct'|'LLaMA3-instruct-70b'|'Bloom-560m'|'Phi3-medium'|'OpenAI-gpt-4o-mini'|'OpenAI-gpt-5-mini'|'OpenAI-gpt-4o'|'OpenAI-gpt-4-turbo')
     case ${Experiments_setting} in
     'zero_shot'|'few_shot'|'lora'|'all_parameters')
         case ${dataset} in

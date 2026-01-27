@@ -1,0 +1,54 @@
+Job started at Mon Jan 26 21:38:04 EST 2026
+Running on host: tebuna
+Job ID: 12979
+SLURM allocated GPUs: 0
+Mon Jan 26 21:38:04 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 565.57.01              Driver Version: 565.57.01      CUDA Version: 12.7     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   32C    P8             27W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B5:00.0 Off |                  Off |
+| 30%   32C    P8             26W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+******************************************************************************************
+All parameters are valid.
+The dataset you have selected is: iemocap !
+The base model you have selected is OpenAI-gpt-5-mini!
+The model's SFT method you have selected: zero_shot!
+If predict emotions: False
+******************************************************************************************
+******************************************************************************************
+Data procession has executed successfully !
+******************************************************************************************
+******************************************************************************************
+Your choose iemocap! The max_context_length will be set as 2500!
+******************************************************************************************
+Your choose is not in MY candidations! Please check your Model name!
+Your choose OpenAI-gpt-5-mini! Model Parameters should be initialized in the path 
+ 
+Your choose zero_shot! The experiment will be set as ZERO_SHOT model
+******************************************************************************************
+Using OpenAI API with model: gpt-5-mini
+Processed Data_Path: ../PROCESSED_DATASET/iemocap/window/True_False
+******************************************************************************************
+Loaded 1623 test samples
+Using zero-shot prompting
+
+***** Running inference with gpt-5-mini (zero_shot) *****
+
