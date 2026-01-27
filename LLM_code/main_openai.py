@@ -373,7 +373,15 @@ def run_openai_inference(client, model_name, messages, max_retries=3):
     """
     for attempt in range(max_retries):
         try:
-            response = client.chat.completions.create(
+            if model_name == "gpt-5-mini":
+                response = client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                max_completion_tokens=800,
+                response_format={"type": "json_object"}  # Force JSON output
+            )
+            else:
+                response = client.chat.completions.create(
                 model=model_name,
                 messages=messages,
                 temperature=0.1,  # Low temperature for more deterministic output
