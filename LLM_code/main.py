@@ -576,8 +576,8 @@ with open(args.deepspeed_config, 'r', encoding='utf-8') as f:
     deepspeed_config = json.load(f)
 deepspeed_config["train_batch_size"] = args.batch_size * args.gradient_accumulation_steps * world_size
 deepspeed_config["gradient_accumulation_steps"] = args.gradient_accumulation_steps
-if deepspeed_config["zero_optimization"]["stage"] == 3:
-    deepspeed_config["zero_optimization"]['mics_shard_size'] = world_size
+# Note: Do NOT set mics_shard_size when using CPU offloading (offload_param or offload_optimizer)
+# MiCS is incompatible with CPU offloading and causes "No backend type associated with device type cpu" error
 def getOptimizerGroup(model):
     no_decay = ["bias", "LayerNorm.weight"]
     optimizer_grouped_parameters = [
