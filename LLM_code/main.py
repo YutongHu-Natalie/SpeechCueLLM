@@ -782,20 +782,37 @@ if args.do_train:
 
     optimizer_grouped_parameters = getOptimizerGroup(model=model)
 
-    # Use standard PyTorch AdamW optimizer (traditional and reliable)
-    # This avoids CUDA compilation issues with DeepSpeedCPUAdam
-    from torch.optim import AdamW
-    optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, betas=(0.9, 0.95))
-    lr_scheduler = get_linear_schedule_with_warmup(optimizer=optimizer, num_training_steps=t_total, num_warmup_steps=warmup_steps)
+    # Check if DeepSpeed config has optimizer defined (needed for CPU offloading)
+    if "optimizer" in deepspeed_config:
+        # Let DeepSpeed create and manage the optimizer (required for CPU offloading performance)
+        # Set the learning rate in the config if it's "auto"
+        if deepspeed_config["optimizer"]["params"].get("lr") == "auto":
+            deepspeed_config["optimizer"]["params"]["lr"] = args.learning_rate
+        if deepspeed_config["optimizer"]["params"].get("weight_decay") == "auto":
+            deepspeed_config["optimizer"]["params"]["weight_decay"] = args.weight_decay
 
-    model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
-        model=model,
-        training_data=train_dataset,
-        optimizer=optimizer,
-        lr_scheduler=lr_scheduler,
-        config=deepspeed_config,
-        collate_fn=train_collator
-    )
+        model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
+            model=model,
+            model_parameters=optimizer_grouped_parameters,
+            training_data=train_dataset,
+            config=deepspeed_config,
+            collate_fn=train_collator
+        )
+    else:
+        # Use standard PyTorch AdamW optimizer (traditional and reliable)
+        # This avoids CUDA compilation issues with DeepSpeedCPUAdam
+        from torch.optim import AdamW
+        optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, betas=(0.9, 0.95))
+        lr_scheduler = get_linear_schedule_with_warmup(optimizer=optimizer, num_training_steps=t_total, num_warmup_steps=warmup_steps)
+
+        model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
+            model=model,
+            training_data=train_dataset,
+            optimizer=optimizer,
+            lr_scheduler=lr_scheduler,
+            config=deepspeed_config,
+            collate_fn=train_collator
+        )
     model = model_engine    
     should_save = True
 elif args.do_eval:
