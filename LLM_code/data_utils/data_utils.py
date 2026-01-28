@@ -28,6 +28,51 @@ from torch.nn.utils.rnn import pad_sequence
 logger = logging.getLogger(__name__)
 AUDIO_MAX_LEN = 16000*6
 
+
+def get_deepspeed_config_path(model_name_or_path, base_dir=None):
+    """
+    Automatically select the appropriate DeepSpeed config based on model size.
+
+    Args:
+        model_name_or_path: Path or name of the model
+        base_dir: Base directory for config files (defaults to this file's directory)
+
+    Returns:
+        Path to the appropriate DeepSpeed config file
+    """
+    if base_dir is None:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    model_path_lower = model_name_or_path.lower()
+
+    # Check for 70B models
+    if '70b' in model_path_lower:
+        config_name = "deepspeed_config_70b.json"
+        print(f"Detected 70B model, using config: {config_name}")
+    # Check for 7B or 8B models
+    elif '7b' in model_path_lower or '8b' in model_path_lower:
+        config_name = "deepspeed_config_7b_8b.json"
+        print(f"Detected 7B/8B model, using config: {config_name}")
+    # Check for 13B models (can use similar config to 7B/8B for single GPU)
+    elif '13b' in model_path_lower:
+        config_name = "deepspeed_config_7b_8b.json"
+        print(f"Detected 13B model, using config: {config_name}")
+    else:
+        # Default to 7B/8B config for unknown models
+        config_name = "deepspeed_config_7b_8b.json"
+        print(f"Unknown model size, defaulting to config: {config_name}")
+
+    config_path = os.path.join(base_dir, config_name)
+
+    # Verify the config file exists
+    if not os.path.exists(config_path):
+        # Fall back to default config
+        fallback_path = os.path.join(base_dir, "deepspeed_config.json")
+        print(f"Warning: {config_path} not found, falling back to {fallback_path}")
+        return fallback_path
+
+    return config_path
+
 def read_data(file_name, percent, random_seed):
     f = open(file_name, 'r', encoding='utf-8').readlines()
     data = [json.loads(d) for d in f]
