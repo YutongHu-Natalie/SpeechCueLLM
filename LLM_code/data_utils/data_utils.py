@@ -28,6 +28,51 @@ from torch.nn.utils.rnn import pad_sequence
 logger = logging.getLogger(__name__)
 AUDIO_MAX_LEN = 16000*6
 
+
+def get_deepspeed_config_path(model_name_or_path, base_dir=None):
+    """
+    Automatically select the appropriate DeepSpeed config based on model size.
+
+    Args:
+        model_name_or_path: Path or name of the model
+        base_dir: Base directory for config files (defaults to this file's directory)
+
+    Returns:
+        Path to the appropriate DeepSpeed config file
+    """
+    if base_dir is None:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    model_path_lower = model_name_or_path.lower()
+
+    # Check for 70B models
+    if '70b' in model_path_lower:
+        config_name = "deepspeed_config_70b.json"
+        print(f"Detected 70B model, using config: {config_name}")
+    # Check for 7B or 8B models
+    elif '7b' in model_path_lower or '8b' in model_path_lower:
+        config_name = "deepspeed_config_7b_8b.json"
+        print(f"Detected 7B/8B model, using config: {config_name}")
+    # Check for 13B models (can use similar config to 7B/8B for single GPU)
+    elif '13b' in model_path_lower:
+        config_name = "deepspeed_config_7b_8b.json"
+        print(f"Detected 13B model, using config: {config_name}")
+    else:
+        # Default to 7B/8B config for unknown models
+        config_name = "deepspeed_config_7b_8b.json"
+        print(f"Unknown model size, defaulting to config: {config_name}")
+
+    config_path = os.path.join(base_dir, config_name)
+
+    # Verify the config file exists
+    if not os.path.exists(config_path):
+        # Fall back to default config
+        fallback_path = os.path.join(base_dir, "deepspeed_config.json")
+        print(f"Warning: {config_path} not found, falling back to {fallback_path}")
+        return fallback_path
+
+    return config_path
+
 def read_data(file_name, percent, random_seed):
     f = open(file_name, 'r', encoding='utf-8').readlines()
     data = [json.loads(d) for d in f]
@@ -84,17 +129,85 @@ class Seq2SeqDataset(Dataset):
 class Seq2SeqCollator(object):
     def __init__(self, args, tokenizer, mode="train"):
         self.tokenizer = tokenizer
-        self.args = args    
+        self.args = args
         self.mode = mode
         self.feature = args.feature
-        self.feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, sampling_rate=16000, padding_value=0.0, do_normalize=True, return_attention_mask=True)                                               
+        self.feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, sampling_rate=16000, padding_value=0.0, do_normalize=True, return_attention_mask=True)
+
+        # Detect if this is an instruct model that supports chat templates
+        self.is_instruct_model = self._detect_instruct_model(args)
+
+    def _detect_instruct_model(self, args):
+        """Detect if the model is an instruct model that supports chat templates."""
+        # Check the use_chat_template setting
+        use_chat = getattr(args, 'use_chat_template', 'auto')
+
+        if use_chat == 'True':
+            return True
+        elif use_chat == 'False':
+            return False
+        else:  # 'auto' - detect based on model name
+            model_path_lower = args.model_name_or_path.lower()
+            instruct_keywords = ['instruct', 'chat', 'llama-3', 'llama3']
+            return any(keyword in model_path_lower for keyword in instruct_keywords)
+
+    def _format_with_chat_template(self, prompt):
+        """
+        Format prompt using chat template for instruct models.
+
+        The prompt structure is:
+        "Now you are expert...### <conversation> ### <audio features> <instruction>"
+
+        For instruct models, we convert this to:
+        System: "You are an expert at sentiment and emotional analysis. Always respond with valid JSON only."
+        User: "<conversation>\n<audio features>\n<instruction>"
+        """
+        if not self.is_instruct_model or not hasattr(self.tokenizer, 'chat_template'):
+            return prompt
+
+        try:
+            # Split by ### to separate intro, conversation, and rest
+            if '###' in prompt:
+                parts = prompt.split('###')
+                if len(parts) >= 2:
+                    # Extract conversation and instructions (everything after first ###)
+                    # Skip the system intro at the beginning
+                    conversation_and_instruction = '###'.join(parts[1:]).strip()
+
+                    # Create chat messages
+                    messages = [
+                        {
+                            "role": "system",
+                            "content": "You are an expert at sentiment and emotional analysis. Always respond with valid JSON only. Do not include any additional text, explanations, or examples beyond the requested JSON output."
+                        },
+                        {
+                            "role": "user",
+                            "content": conversation_and_instruction
+                        }
+                    ]
+
+                    formatted_prompt = self.tokenizer.apply_chat_template(
+                        messages,
+                        tokenize=False,
+                        add_generation_prompt=True
+                    )
+                    return formatted_prompt
+
+        except Exception as e:
+            # Fallback to original prompt if chat template fails
+            logger.warning(f"Chat template application failed: {e}. Using original prompt.")
+
+        return prompt                                               
 
     def __call__(self, batch):
         if self.mode == "dev":
-            inputs = [d[0] for d in batch]     
+            inputs = [d[0] for d in batch]
+            # Apply chat template for instruct models
+            if self.is_instruct_model:
+                inputs = [self._format_with_chat_template(inp) for inp in inputs]
             inputs = self.tokenizer(inputs, max_length=self.args.max_length, truncation=True, padding=True, return_tensors='pt')
         else:
-            inputs = preprocess_data_batch(batch, self.tokenizer, self.args)
+            inputs = preprocess_data_batch(batch, self.tokenizer, self.args, self.is_instruct_model, self._format_with_chat_template)
         
         if self.feature == 'text':
             return inputs
@@ -128,11 +241,15 @@ class Seq2SeqCollator(object):
         return inputs
 
 
-def preprocess_data_batch(data, tokenizer, args):
-    
+def preprocess_data_batch(data, tokenizer, args, is_instruct_model=False, format_fn=None):
+
     inputs = [d[0] for d in data]
     inputs_pred = None
     targets = [d[1] for d in data]
+
+    # Apply chat template for instruct models during training
+    if is_instruct_model and format_fn is not None:
+        inputs = [format_fn(inp) for inp in inputs]
 
     if args.model_type == "decoder":
         if args.mode == "pretrain":
@@ -231,6 +348,7 @@ class ModelArgs:
     zero_shot: bool = False
     mode: str = "sft"
     gradient_checkpointing: bool = False
+    use_chat_template: str = 'auto'
 
     def save(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)

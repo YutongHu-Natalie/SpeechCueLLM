@@ -1,0 +1,64 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 12.81it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 12.78it/s]
+Using /local/scratch/yhu383/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Emitting ninja build file /local/scratch/yhu383/.cache/torch_extensions/py310_cu117/utils/build.ninja...
+Building extension module utils...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Loading extension module utils...
+Using /local/scratch/yhu383/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+No modifications detected for re-loaded extension module utils, skipping build step...
+Loading extension module utils...
+Runing epoch0 / 15:   0%|          | 0/646 [00:00<?, ?it/s]Runing epoch0 / 15:   0%|          | 0/646 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/local/scratch/yhu383/SpeechCueLLM/LLM_code/main.py", line 843, in <module>
+    outputs = model(**batch)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1724, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1538, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/peft/peft_model.py", line 678, in forward
+    return self.base_model(
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1538, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1174, in forward
+    outputs = self.model(
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1538, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 931, in forward
+    inputs_embeds = self.embed_tokens(input_ids)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    result = hook(self, args)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/parameter_offload.py", line 366, in _pre_forward_module_hook
+    self.pre_sub_module_forward_function(module)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/parameter_offload.py", line 478, in pre_sub_module_forward_function
+    param_coordinator.fetch_sub_module(sub_module)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/partitioned_param_coordinator.py", line 249, in fetch_sub_module
+    self.__all_gather_params(params_to_fetch)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/partitioned_param_coordinator.py", line 379, in __all_gather_params
+    handle = partitioned_params[0].all_gather_coalesced(partitioned_params)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/mics.py", line 165, in _param_all_gather_coalesced
+    return self._flat_all_gather_with_coalescing_manager(params, param_buffers)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/mics.py", line 213, in _flat_all_gather_with_coalescing_manager
+    all_gather_handle = dist.all_gather_coalesced(output_tensors,
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 464, in all_gather_coalesced
+    return cdb.all_gather_coalesced(output_tensors, input_tensors, group=group, async_op=async_op)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/deepspeed/comm/torch.py", line 148, in all_gather_coalesced
+    handle = torch.distributed.distributed_c10d.all_gather_into_tensor(output,
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1436, in wrapper
+    return func(*args, **kwargs)
+  File "/local/scratch/yhu383/SpeechCueLLM/venv/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2517, in all_gather_into_tensor
+    work = group._allgather_base(output_tensor, input_tensor)
+RuntimeError: Tensors must be CUDA and dense

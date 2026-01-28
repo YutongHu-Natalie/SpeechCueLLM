@@ -4,16 +4,19 @@ FLAG=1
 # Please adjust the following parameters according to your needs. Rememeber to update the MODELPATH for each LLM model.
 
 # ------  select basemodel ----------
-MODEL_NAME='LLaMA2'
+# MODEL_NAME='LLaMA2'
 # MODEL_NAME='LLaMA3'
-MODEL_NAME='LLaMA3-instruct-70b'
+# MODEL_NAME='LLaMA3-instruct-70b'
 # MODEL_NAME='LLaMA3-instruct'
 # MODEL_NAME='Phi3-medium'
+# MODEL_NAME='OpenAI-gpt-4o-mini'
+MODEL_NAME='OpenAI-gpt-5-mini'
+# MODEL_NAME='OpenAI-gpt-4o'
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
-# Experiments_setting='zero_shot'
-Experiments_setting='few_shot'
+Experiments_setting='zero_shot'
+# Experiments_setting='few_shot'
 # Experiments_setting='lora'
 # Experiments_setting='all_parameters'
 
@@ -63,7 +66,7 @@ data_percent=1.0
 
 
 case ${MODEL_NAME} in
-'ChatGLM'|'ChatGLM2'|'LLaMA'|'LLaMA2'|'LLaMA3'|'LLaMA3-instruct'|'LLaMA3-instruct-70b'|'Bloom-560m'|'Phi3-medium')
+'ChatGLM'|'ChatGLM2'|'LLaMA'|'LLaMA2'|'LLaMA3'|'LLaMA3-instruct'|'LLaMA3-instruct-70b'|'Bloom-560m'|'Phi3-medium'|'OpenAI-gpt-4o-mini'|'OpenAI-gpt-5-mini'|'OpenAI-gpt-4o'|'OpenAI-gpt-4-turbo')
     case ${Experiments_setting} in
     'zero_shot'|'few_shot'|'lora'|'all_parameters')
         case ${dataset} in
@@ -73,7 +76,7 @@ case ${MODEL_NAME} in
             echo "The dataset you have selected is: ${dataset} !"
             echo "The base model you have selected is ${MODEL_NAME}!"
             echo "The model's SFT method you have selected: ${Experiments_setting}!"
-            echo "If predict emotions: ${emotion_prediction}" 
+            echo "If predict emotions: ${emotion_prediction}"
             echo "******************************************************************************************"
             ;;
         *)
@@ -195,7 +198,26 @@ then
     fi
 
 
-    if [ ${use_encoder} = 'True' ]
+    # Check if using OpenAI API models
+    if [[ ${MODEL_NAME} == OpenAI-* ]]
+    then
+        # Extract the actual OpenAI model name (e.g., "OpenAI-gpt-4o-mini" -> "gpt-4o-mini")
+        OPENAI_MODEL_NAME=${MODEL_NAME#OpenAI-}
+        echo "******************************************************************************************"
+        echo "Using OpenAI API with model: ${OPENAI_MODEL_NAME}"
+        echo "Processed Data_Path: $DATA_PATH"
+        echo "******************************************************************************************"
+
+        python main_openai.py \
+            --dataset ${dataset} \
+            --data_dir ${DATA_PATH} \
+            --output_dir ../experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/per_${data_percent}_${task}_class5_${SEED} \
+            --model_name ${OPENAI_MODEL_NAME} \
+            --experiments_setting ${Experiments_setting} \
+            --data_percent ${data_percent} \
+            --seed ${SEED} \
+            --batch_delay 0.1
+    elif [ ${use_encoder} = 'True' ]
     then
         echo "Processed Data_Path: $DATA_PATH"
         deepspeed --master_port=${port} main_encoder.py \
@@ -243,5 +265,5 @@ then
         --data_percent ${data_percent} \
         --seed ${SEED}\
         --emotion_prediction ${emotion_prediction}
-    fi  
+    fi
 fi
