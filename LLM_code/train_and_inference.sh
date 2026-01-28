@@ -118,14 +118,24 @@ then
         echo "Data procession script encountered an error."
     fi
 
-    if [ ${dataset} = 'iemocap' ]    
+    if [ ${dataset} = 'iemocap' ]
     then
         # MAX_LENGTH=1200
         MAX_LENGTH=2500
+        # Reduce MAX_LENGTH for 70B models due to memory constraints
+        if [ ${MODEL_NAME} = 'LLaMA3-instruct-70b' ]; then
+            MAX_LENGTH=1024
+            echo "Note: Reduced MAX_LENGTH to ${MAX_LENGTH} for 70B model"
+        fi
     elif [ ${dataset} = 'meld' ]
     then
         #MAX_LENGTH=1024
         MAX_LENGTH=1500
+        # Reduce MAX_LENGTH for 70B models due to memory constraints
+        if [ ${MODEL_NAME} = 'LLaMA3-instruct-70b' ]; then
+            MAX_LENGTH=1024
+            echo "Note: Reduced MAX_LENGTH to ${MAX_LENGTH} for 70B model"
+        fi
     else
         echo -e "Your choose is not in MY candidations! Please check your Model name!"
     fi
@@ -245,6 +255,12 @@ then
         --emotion_prediction True
     else
         echo "Processed Data_Path: $DATA_PATH"
+        # Enable gradient checkpointing for 70B models to reduce activation memory
+        GRAD_CKPT_FLAG=""
+        if [ ${MODEL_NAME} = 'LLaMA3-instruct-70b' ]; then
+            GRAD_CKPT_FLAG="--gradient_checkpointing"
+            echo "Note: Enabling gradient checkpointing for 70B model"
+        fi
         deepspeed --master_port=${port} main.py \
         --dataset ${dataset} \
         --model_name_or_path ${MODEL_PATH} \
@@ -264,6 +280,7 @@ then
         --statistic_mode True \
         --data_percent ${data_percent} \
         --seed ${SEED}\
-        --emotion_prediction ${emotion_prediction}
+        --emotion_prediction ${emotion_prediction} \
+        ${GRAD_CKPT_FLAG}
     fi
 fi
