@@ -15,11 +15,13 @@ OUTPUT_BASE="./experiments"
 WINDOW_SIZE=12
 DATA_PERCENT=1.0
 SEED=42
+TEST_SESSION=5  # Session to use as test set (1-5), matches emotion recognition split
+USE_FILTERED_DATA="False"  # For LoRA only: use filtered dataset for training (test set always uses full dataset)
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
-        --model_type)0
+        --model_type)
             MODEL_TYPE="$2"
             shift 2
             ;;
@@ -51,6 +53,14 @@ while [[ $# -gt 0 ]]; do
             SEED="$2"
             shift 2
             ;;
+        --test_session)
+            TEST_SESSION="$2"
+            shift 2
+            ;;
+        --use_filtered_data)
+            USE_FILTERED_DATA="$2"
+            shift 2
+            ;;
         *)
             echo "Unknown option: $1"
             exit 1
@@ -74,6 +84,10 @@ echo "Output: $OUTPUT_DIR"
 echo "Window Size: $WINDOW_SIZE"
 echo "Data Percent: $DATA_PERCENT"
 echo "Seed: $SEED"
+echo "Test Session: $TEST_SESSION"
+if [ "$EXPERIMENT" == "lora" ]; then
+    echo "Use Filtered Data (training only): $USE_FILTERED_DATA"
+fi
 echo "=========================================="
 
 # Run based on model type
@@ -88,6 +102,7 @@ if [ "$MODEL_TYPE" == "openai" ]; then
         --window_size "$WINDOW_SIZE" \
         --data_percent "$DATA_PERCENT" \
         --seed "$SEED" \
+        --test_session "$TEST_SESSION" \
         --batch_delay 0.1
 
 elif [ "$MODEL_TYPE" == "llama" ]; then
@@ -101,6 +116,7 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --window_size "$WINDOW_SIZE" \
             --data_percent "$DATA_PERCENT" \
             --seed "$SEED" \
+            --test_session "$TEST_SESSION" \
             --do_train False \
             --do_eval True \
             --zero_shot True \
@@ -117,6 +133,7 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --window_size "$WINDOW_SIZE" \
             --data_percent "$DATA_PERCENT" \
             --seed "$SEED" \
+            --test_session "$TEST_SESSION" \
             --do_train False \
             --do_eval True \
             --zero_shot False \
@@ -126,7 +143,8 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --eval_batch_size 4
 
     elif [ "$EXPERIMENT" == "lora" ]; then
-        # For LoRA, use shorter prompts to fit in context window
+        # For LoRA: trains on sessions 1-4 (full or filtered), evaluates on session 5 from FULL dataset
+        # use_filtered_data only affects training data; test data is always from full dataset
         deepspeed --num_gpus=1 main_vad.py \
             --model_name_or_path "$MODEL_NAME" \
             --data_file "$DATA_FILE" \
@@ -134,6 +152,8 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --window_size "$WINDOW_SIZE" \
             --data_percent "$DATA_PERCENT" \
             --seed "$SEED" \
+            --test_session "$TEST_SESSION" \
+            --use_filtered_data "$USE_FILTERED_DATA" \
             --do_train True \
             --do_eval True \
             --zero_shot False \

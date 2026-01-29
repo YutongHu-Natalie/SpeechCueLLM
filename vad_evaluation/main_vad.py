@@ -460,6 +460,8 @@ class VADModelArgs:
     short_prompt: bool = False  # Use shorter prompt for LoRA
     gradient_checkpointing: bool = False
     deepspeed_config: str = "auto"
+    test_session: int = 5  # Session to use as test set (1-5)
+    use_filtered_data: bool = False  # Use filtered dataset (for LoRA only)
 
     def save(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
@@ -499,6 +501,10 @@ def main():
     parser.add_argument('--gradient_checkpointing', action='store_true')
     parser.add_argument('--deepspeed_config', type=str, default='auto')
     parser.add_argument('--local_rank', type=int, default=-1)
+    parser.add_argument('--test_session', type=int, default=5,
+                        help='Session to use as test set (1-5). For zero-shot/few-shot, only this session is evaluated.')
+    parser.add_argument('--use_filtered_data', type=str, default='False',
+                        help='For LoRA only: use filtered dataset instead of full dataset')
 
     cmd_args = parser.parse_args()
 
@@ -509,6 +515,7 @@ def main():
     cmd_args.zero_shot = cmd_args.zero_shot == 'True'
     cmd_args.few_shot = cmd_args.few_shot == 'True'
     cmd_args.short_prompt = cmd_args.short_prompt == 'True'
+    cmd_args.use_filtered_data = cmd_args.use_filtered_data == 'True'
 
     args = VADModelArgs()
     args.update(vars(cmd_args))
@@ -580,8 +587,35 @@ def main():
 
     # Load data
     print(f"Loading data: {args.data_file}")
-    df = read_vad_data(args.data_file, percent=args.data_percent, random_seed=args.seed)
-    print(f"Loaded {len(df)} samples")
+    df_full = read_vad_data(args.data_file, percent=args.data_percent, random_seed=args.seed)
+    print(f"Loaded {len(df_full)} total samples from full dataset")
+
+    # Test data is ALWAYS from the full dataset (Session 5) for consistency across all experiments
+    test_df = df_full[df_full['session'] == args.test_session].reset_index(drop=True)
+    print(f"Test set: Session {args.test_session} from full dataset = {len(test_df)} samples")
+
+    # Split data based on mode
+    if args.lora:
+        # For LoRA: determine training data source
+        if args.use_filtered_data:
+            # Use filtered dataset for training only
+            filtered_data_path = args.data_file.replace('full_dataset', 'filtered_dataset')
+            if os.path.exists(filtered_data_path):
+                df_filtered = read_vad_data(filtered_data_path, percent=args.data_percent, random_seed=args.seed)
+                train_df = df_filtered[df_filtered['session'] != args.test_session].reset_index(drop=True)
+                print(f"LoRA mode (filtered training): Train={len(train_df)} samples from filtered dataset")
+            else:
+                print(f"WARNING: Filtered dataset not found at {filtered_data_path}, using full dataset for training")
+                train_df = df_full[df_full['session'] != args.test_session].reset_index(drop=True)
+                print(f"LoRA mode: Train={len(train_df)} samples from full dataset")
+        else:
+            # Use full dataset for training
+            train_df = df_full[df_full['session'] != args.test_session].reset_index(drop=True)
+            print(f"LoRA mode: Train={len(train_df)} samples from full dataset (sessions != {args.test_session})")
+    else:
+        # For zero-shot and few-shot: no training data needed
+        train_df = None
+        print(f"Zero-shot/Few-shot mode: No training data (evaluation only)")
 
     # Select prompt function
     if args.few_shot:
@@ -591,23 +625,32 @@ def main():
         prompt_fn = lambda ch, tu, af: create_vad_prompt_zero_shot(ch, tu, af, short_version=args.short_prompt)
         print(f"Using zero-shot prompting (short_prompt={args.short_prompt})")
 
-    # Create dataset
-    dataset = VADDataset(df, prompt_fn, args.window_size, args.short_prompt)
+    # Create datasets
+    if args.lora and train_df is not None:
+        train_dataset = VADDataset(train_df, prompt_fn, args.window_size, args.short_prompt)
+        print(f"Created training dataset with {len(train_dataset)} samples")
+    else:
+        train_dataset = None
+
+    eval_dataset = VADDataset(test_df, prompt_fn, args.window_size, args.short_prompt)
+    print(f"Created evaluation dataset with {len(eval_dataset)} samples")
 
     if args.do_train:
         print("\n***** Training *****")
+        if train_dataset is None:
+            raise ValueError("Training requires train_dataset, but running in zero-shot/few-shot mode. Set --lora True for training.")
         train_collator = VADCollator(tokenizer, args.max_length, mode='train')
 
         optimizer_params = [p for p in model.parameters() if p.requires_grad]
         optimizer = torch.optim.AdamW(optimizer_params, lr=args.learning_rate)
 
-        t_total = math.ceil(len(dataset) / args.batch_size) * args.num_train_epochs
+        t_total = math.ceil(len(train_dataset) / args.batch_size) * args.num_train_epochs
         warmup_steps = int(t_total * args.warmup_ratio)
         lr_scheduler = get_linear_schedule_with_warmup(optimizer, warmup_steps, t_total)
 
         model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
             model=model,
-            training_data=dataset,
+            training_data=train_dataset,
             optimizer=optimizer,
             lr_scheduler=lr_scheduler,
             config=deepspeed_config,
@@ -659,9 +702,9 @@ def main():
         model = model_engine.module
 
         eval_collator = VADCollator(tokenizer, args.max_length, mode='eval')
-        eval_sampler = SequentialSampler(dataset)
+        eval_sampler = SequentialSampler(eval_dataset)
         eval_dataloader = DataLoader(
-            dataset,
+            eval_dataset,
             batch_size=args.eval_batch_size,
             sampler=eval_sampler,
             collate_fn=eval_collator,

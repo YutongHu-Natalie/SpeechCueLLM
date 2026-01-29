@@ -453,6 +453,8 @@ def main():
                         help='Conversation history window size')
     parser.add_argument('--batch_delay', type=float, default=0.1,
                         help='Delay between API calls')
+    parser.add_argument('--test_session', type=int, default=5,
+                        help='Session to use as test set (1-5). Only this session will be evaluated.')
 
     args = parser.parse_args()
 
@@ -472,7 +474,12 @@ def main():
 
     # Read data
     df = read_vad_data(args.data_file, percent=args.data_percent, random_seed=args.seed)
-    print(f"Loaded {len(df)} samples")
+    print(f"Loaded {len(df)} total samples from dataset")
+
+    # Filter for test session only (to match emotion recognition split)
+    original_len = len(df)
+    df = df[df['session'] == args.test_session].reset_index(drop=True)
+    print(f"Filtered to Session {args.test_session} (test set): {len(df)} samples (from {original_len} total)")
 
     # Select prompt function
     if args.experiments_setting == 'few_shot':
@@ -625,6 +632,7 @@ def main():
             "data_percent": args.data_percent,
             "window_size": args.window_size,
             "seed": args.seed,
+            "test_session": args.test_session,
             "num_samples": len(df),
             "num_failed": len(failed_cases)
         }, f, indent=2)
