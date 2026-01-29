@@ -8,7 +8,7 @@
 
 # Default settings
 MODEL_TYPE="openai"  # openai or llama
-EXPERIMENT="zero_shot"  # zero_shot, few_shot, lora
+EXPERIMENT="few_shot"  # zero_shot, few_shot, lora
 MODEL_NAME="gpt-4o-mini"  # OpenAI model name or path to LLaMA model
 DATA_FILE="./data/vad_full_dataset.csv"
 OUTPUT_BASE="./experiments"
