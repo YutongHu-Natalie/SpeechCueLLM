@@ -547,8 +547,21 @@ def main():
             "gold_d": gold_d,
         })
 
-        # Log progress
-        if (idx + 1) % 50 == 0 or idx == 0:
+        # Log progress - show detailed output for first 5 samples
+        if idx < 5:
+            print(f"\n{'='*80}")
+            print(f"Sample {idx + 1}/{len(df)} - DETAILED DEBUG")
+            print(f"{'='*80}")
+            print(f"Dialogue: {row['dialogue_id']}")
+            print(f"Content: {row['content']}")
+            print(f"Target: {target_utterance}")
+            print(f"\nConversation History:\n{conversation_history[:500]}{'...' if len(conversation_history) > 500 else ''}")
+            print(f"\nLLM Output:\n{output[:800]}{'...' if len(output) > 800 else ''}")
+            print(f"\nExtracted: V={v}, A={a}, D={d}")
+            print(f"Gold:      V={gold_v}, A={gold_a}, D={gold_d}")
+            print(f"Difference: V={abs(v-gold_v):.2f}, A={abs(a-gold_a):.2f}, D={abs(d-gold_d):.2f}")
+            print(f"{'='*80}\n")
+        elif (idx + 1) % 50 == 0:
             current_metrics = compute_vad_metrics(
                 golds_v, preds_v, golds_a, preds_a, golds_d, preds_d
             )
