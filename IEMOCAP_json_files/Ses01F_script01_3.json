@@ -1,0 +1,4806 @@
+{
+  "dialogue_id": "Ses01F_script01_3",
+  "session": "01",
+  "category": "script",
+  "metadata": {
+    "num_turns": 75,
+    "duration_seconds": 463.06,
+    "script_type": "scripted",
+    "annotator_info": {
+      "categorical_annotators": [
+        "E1",
+        "E4",
+        "E5"
+      ],
+      "vad_annotators": [
+        "E1",
+        "E2",
+        "E3"
+      ]
+    },
+    "average_vad_std": {
+      "avg_valence_std": 0.3444,
+      "avg_arousal_std": 0.6438,
+      "avg_dominance_std": 1.1331,
+      "num_turns_with_std": 75
+    },
+    "statistics": {
+      "consecutive_same_speaker_same_emotion": {
+        "same_speaker_sequences_total": 8,
+        "same_speaker_same_emotion_count": 3,
+        "percentage": 37.5,
+        "same_emotion_sequences": [
+          {
+            "start_index": 2,
+            "end_index": 3,
+            "length": 2,
+            "speaker": "F",
+            "emotion": "Neutral"
+          },
+          {
+            "start_index": 38,
+            "end_index": 39,
+            "length": 2,
+            "speaker": "F",
+            "emotion": "Happiness"
+          },
+          {
+            "start_index": 71,
+            "end_index": 72,
+            "length": 2,
+            "speaker": "F",
+            "emotion": "Unknown"
+          }
+        ],
+        "all_same_speaker_sequences": [
+          {
+            "start_index": 2,
+            "end_index": 3,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": true,
+            "emotions": [
+              "Neutral",
+              "Neutral"
+            ]
+          },
+          {
+            "start_index": 17,
+            "end_index": 18,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": false,
+            "emotions": [
+              "Neutral",
+              "Happiness"
+            ]
+          },
+          {
+            "start_index": 35,
+            "end_index": 37,
+            "length": 3,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Happiness",
+              "Happiness",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 38,
+            "end_index": 39,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": true,
+            "emotions": [
+              "Happiness",
+              "Happiness"
+            ]
+          },
+          {
+            "start_index": 43,
+            "end_index": 44,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": false,
+            "emotions": [
+              "Neutral",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 59,
+            "end_index": 62,
+            "length": 4,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Sadness",
+              "Sadness",
+              "Sadness",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 64,
+            "end_index": 68,
+            "length": 5,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Sadness",
+              "Sadness",
+              "Unknown",
+              "Unknown",
+              "Sadness"
+            ]
+          },
+          {
+            "start_index": 71,
+            "end_index": 72,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": true,
+            "emotions": [
+              "Unknown",
+              "Unknown"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "Ses01F_script01_3_F000",
+      "turn_index": 0,
+      "speaker": "F",
+      "time": {
+        "start": 4.8285,
+        "end": 8.9243,
+        "duration": 4.0958
+      },
+      "content": "You're the only one who still loves his parents.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 1.6667,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M000",
+      "turn_index": 1,
+      "speaker": "M",
+      "time": {
+        "start": 8.59,
+        "end": 13.17,
+        "duration": 4.58
+      },
+      "content": "I know.  It kind of went out of style, didn't it?",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 1.6667,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F001",
+      "turn_index": 2,
+      "speaker": "F",
+      "time": {
+        "start": 12.3484,
+        "end": 17.0473,
+        "duration": 4.6989
+      },
+      "content": "It's not so bad; it's a good thing.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 2.0,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F002",
+      "turn_index": 3,
+      "speaker": "F",
+      "time": {
+        "start": 17.1566,
+        "end": 26.1173,
+        "duration": 8.9607
+      },
+      "content": "[BREATHING] You know, it's lovely here.  The air is sweet.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.3333,
+          "arousal": 2.0,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M001",
+      "turn_index": 4,
+      "speaker": "M",
+      "time": {
+        "start": 26.0445,
+        "end": 28.8493,
+        "duration": 2.8048
+      },
+      "content": "You're not sorry you came.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 2.0,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 1.0,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F003",
+      "turn_index": 5,
+      "speaker": "F",
+      "time": {
+        "start": 28.31,
+        "end": 36.1344,
+        "duration": 7.8244
+      },
+      "content": "I'm not sorry, no. But I'm...I can't stay.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 1.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M002",
+      "turn_index": 6,
+      "speaker": "M",
+      "time": {
+        "start": 36.1709,
+        "end": 38.5386,
+        "duration": 2.3677
+      },
+      "content": "Why not?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 1.6667,
+          "dominance": 2.0,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F004",
+      "turn_index": 7,
+      "speaker": "F",
+      "time": {
+        "start": 38.32,
+        "end": 41.6,
+        "duration": 3.28
+      },
+      "content": "For one thing, your mother much as told me to go.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.3333,
+          "arousal": 2.6667,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M003",
+      "turn_index": 8,
+      "speaker": "M",
+      "time": {
+        "start": 41.0,
+        "end": 43.32,
+        "duration": 2.32
+      },
+      "content": "Well.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.6667,
+          "dominance": 1.6667,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F005",
+      "turn_index": 9,
+      "speaker": "F",
+      "time": {
+        "start": 42.82,
+        "end": 47.33,
+        "duration": 4.51
+      },
+      "content": "And then, you.  You've been kind of...",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.3333,
+          "arousal": 2.0,
+          "dominance": 1.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.0,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M004",
+      "turn_index": 10,
+      "speaker": "M",
+      "time": {
+        "start": 47.21,
+        "end": 49.51,
+        "duration": 2.3
+      },
+      "content": "What?",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 3.0,
+          "dominance": 2.6667,
+          "valence_std": 0.0,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F006",
+      "turn_index": 11,
+      "speaker": "F",
+      "time": {
+        "start": 49.1,
+        "end": 53.9831,
+        "duration": 4.8831
+      },
+      "content": "Sort of embarrassed ever since I got here.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 2.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M005",
+      "turn_index": 12,
+      "speaker": "M",
+      "time": {
+        "start": 54.62,
+        "end": 63.9,
+        "duration": 9.28
+      },
+      "content": "Well I was kind of planning of sneaking up on you over the course of a week or so.  They just take it for granted that we're all set.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.6667,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F007",
+      "turn_index": 13,
+      "speaker": "F",
+      "time": {
+        "start": 63.01,
+        "end": 65.8944,
+        "duration": 2.8844
+      },
+      "content": "I knew they would.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 1.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M006",
+      "turn_index": 14,
+      "speaker": "M",
+      "time": {
+        "start": 67.6792,
+        "end": 69.8648,
+        "duration": 2.1856
+      },
+      "content": "You did?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 3.3333,
+          "arousal": 1.6667,
+          "dominance": 1.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F008",
+      "turn_index": 15,
+      "speaker": "F",
+      "time": {
+        "start": 69.64,
+        "end": 75.91,
+        "duration": 6.27
+      },
+      "content": "Well sure, from your mother's point of view.  Why else would I come?",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.6667,
+          "arousal": 2.6667,
+          "dominance": 3.0,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M007",
+      "turn_index": 16,
+      "speaker": "M",
+      "time": {
+        "start": 78.08,
+        "end": 87.25,
+        "duration": 9.17
+      },
+      "content": "So would you want to?  I mean, I guess you have to know that's kind of why I asked you to come?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": "Fear"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Other",
+            "notes": "anxious"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F009",
+      "turn_index": 17,
+      "speaker": "F",
+      "time": {
+        "start": 87.61,
+        "end": 94.67,
+        "duration": 7.06
+      },
+      "content": "I, umm. I guess, I guess that's kind of why I came.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 1.0,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F010",
+      "turn_index": 18,
+      "speaker": "F",
+      "time": {
+        "start": 97.02,
+        "end": 98.4227,
+        "duration": 1.4027
+      },
+      "content": "[BREATHING]",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.6667,
+          "arousal": 3.6667,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M008",
+      "turn_index": 19,
+      "speaker": "M",
+      "time": {
+        "start": 98.07,
+        "end": 105.58,
+        "duration": 7.51
+      },
+      "content": "I love you. Annie, I love you.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.6667,
+          "arousal": 3.6667,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F011",
+      "turn_index": 20,
+      "speaker": "F",
+      "time": {
+        "start": 98.9525,
+        "end": 101.725,
+        "duration": 2.7725
+      },
+      "content": "[LAUGHTER]",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.6667,
+          "arousal": 4.0,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M009",
+      "turn_index": 21,
+      "speaker": "M",
+      "time": {
+        "start": 106.5092,
+        "end": 114.9575,
+        "duration": 8.4483
+      },
+      "content": "I don't really have any imagination, that's all I know how to say.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.6667,
+          "arousal": 4.0,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F012",
+      "turn_index": 22,
+      "speaker": "F",
+      "time": {
+        "start": 108.9225,
+        "end": 114.07,
+        "duration": 5.1475
+      },
+      "content": "[LAUGHTER]",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 5.0,
+          "arousal": 4.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 1.1547,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M010",
+      "turn_index": 23,
+      "speaker": "M",
+      "time": {
+        "start": 115.2878,
+        "end": 126.545,
+        "duration": 11.2572
+      },
+      "content": "Am I embarrassing you? Are you - See, I didn't want to do it here with this yard, on this porch.  I wanted it to be somewhere new, some place fresh for both of us.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 4.0,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F013",
+      "turn_index": 24,
+      "speaker": "F",
+      "time": {
+        "start": 117.0,
+        "end": 118.8,
+        "duration": 1.8
+      },
+      "content": "No. No",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 3.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.1547,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M011",
+      "turn_index": 25,
+      "speaker": "M",
+      "time": {
+        "start": 126.68,
+        "end": 137.2162,
+        "duration": 10.5362
+      },
+      "content": "You feel uncomfortable here, you feel that it's wrong here somehow.  I just...I don't...I didn't want...I didn't want to take you away from anything.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 3.3333,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F014",
+      "turn_index": 26,
+      "speaker": "F",
+      "time": {
+        "start": 137.289,
+        "end": 142.2065,
+        "duration": 4.9175
+      },
+      "content": "Chris, I've been ready a long, long, time.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 2.6667,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M012",
+      "turn_index": 27,
+      "speaker": "M",
+      "time": {
+        "start": 142.91,
+        "end": 147.379,
+        "duration": 4.469
+      },
+      "content": "And he's gone forever?  Are you sure?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 2.6667,
+          "dominance": 3.0,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.7321
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F015",
+      "turn_index": 28,
+      "speaker": "F",
+      "time": {
+        "start": 146.98,
+        "end": 150.5845,
+        "duration": 3.6045
+      },
+      "content": "I almost got married two years ago.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 2.0,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M013",
+      "turn_index": 29,
+      "speaker": "M",
+      "time": {
+        "start": 151.03,
+        "end": 153.5714,
+        "duration": 2.5414
+      },
+      "content": "Why didn't you?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.3333,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F016",
+      "turn_index": 30,
+      "speaker": "F",
+      "time": {
+        "start": 153.3875,
+        "end": 156.3762,
+        "duration": 2.9887
+      },
+      "content": "You started to write me.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 1.6667,
+          "dominance": 1.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M014",
+      "turn_index": 31,
+      "speaker": "M",
+      "time": {
+        "start": 156.3033,
+        "end": 159.54,
+        "duration": 3.2367
+      },
+      "content": "You felt something that far back?",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 3.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F017",
+      "turn_index": 32,
+      "speaker": "F",
+      "time": {
+        "start": 159.06,
+        "end": 161.23,
+        "duration": 2.17
+      },
+      "content": "Every day since.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 3.0,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M015",
+      "turn_index": 33,
+      "speaker": "M",
+      "time": {
+        "start": 160.7,
+        "end": 163.66,
+        "duration": 2.96
+      },
+      "content": "Why didn't you let me know?",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 4.0,
+          "dominance": 3.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Surprise",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F018",
+      "turn_index": 34,
+      "speaker": "F",
+      "time": {
+        "start": 162.8,
+        "end": 169.66,
+        "duration": 6.86
+      },
+      "content": "I was waiting for you, Chris.  You sure can be ambiguous, you know.  And when you did finally write me,",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 4.3333,
+          "dominance": 4.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.1547,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 5,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M016",
+      "turn_index": 35,
+      "speaker": "M",
+      "time": {
+        "start": 171.72,
+        "end": 173.6,
+        "duration": 1.88
+      },
+      "content": "Give me a...",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 1.1547,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Surprise",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M017",
+      "turn_index": 36,
+      "speaker": "M",
+      "time": {
+        "start": 173.67,
+        "end": 175.7325,
+        "duration": 2.0625
+      },
+      "content": "Give me a kiss.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 3.3333,
+          "valence_std": 0.0,
+          "arousal_std": 1.0,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M018",
+      "turn_index": 37,
+      "speaker": "M",
+      "time": {
+        "start": 180.26,
+        "end": 186.3491,
+        "duration": 6.0891
+      },
+      "content": "God.  I kissed you Annie.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 5.0,
+          "arousal": 4.3333,
+          "dominance": 3.6667,
+          "valence_std": 0.0,
+          "arousal_std": 1.1547,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F019",
+      "turn_index": 38,
+      "speaker": "F",
+      "time": {
+        "start": 169.69,
+        "end": 172.46,
+        "duration": 2.77
+      },
+      "content": "beating around the bush.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 4.0,
+          "dominance": 3.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F020",
+      "turn_index": 39,
+      "speaker": "F",
+      "time": {
+        "start": 186.209,
+        "end": 193.68,
+        "duration": 7.471
+      },
+      "content": "I will never forgive you.  All I'd done was sit around wondering if I was crazy waiting so long, wondering if you were thinking about me.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 3.6667,
+          "dominance": 3.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M019",
+      "turn_index": 40,
+      "speaker": "M",
+      "time": {
+        "start": 191.1025,
+        "end": 196.74,
+        "duration": 5.6375
+      },
+      "content": "Oh Annie, we are going to live now.  I am going to make you so happy.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.3333,
+          "arousal": 3.3333,
+          "dominance": 3.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F021",
+      "turn_index": 41,
+      "speaker": "F",
+      "time": {
+        "start": 196.14,
+        "end": 198.895,
+        "duration": 2.755
+      },
+      "content": "Not like that you're not.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.3333,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M020",
+      "turn_index": 42,
+      "speaker": "M",
+      "time": {
+        "start": 199.1,
+        "end": 201.4,
+        "duration": 2.3
+      },
+      "content": "I kissed you.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.6667,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 1.5275,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F022",
+      "turn_index": 43,
+      "speaker": "F",
+      "time": {
+        "start": 200.92,
+        "end": 206.29,
+        "duration": 5.37
+      },
+      "content": "Like Larry's brother.  Do it like you, Chris.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.3333,
+          "arousal": 1.6667,
+          "dominance": 3.0,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 2.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F023",
+      "turn_index": 44,
+      "speaker": "F",
+      "time": {
+        "start": 212.5813,
+        "end": 215.67,
+        "duration": 3.0887
+      },
+      "content": "Chris, what is it?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M021",
+      "turn_index": 45,
+      "speaker": "M",
+      "time": {
+        "start": 216.48,
+        "end": 220.04,
+        "duration": 3.56
+      },
+      "content": "Hey, let's drive some place.  Huh?  Let's get out of here.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 2.6667,
+          "dominance": 2.6667,
+          "valence_std": 1.1547,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F024",
+      "turn_index": 46,
+      "speaker": "F",
+      "time": {
+        "start": 218.54,
+        "end": 222.9675,
+        "duration": 4.4275
+      },
+      "content": "No. What is it?  Is it your mother?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.3333,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.7321
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": "Fear"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M022",
+      "turn_index": 47,
+      "speaker": "M",
+      "time": {
+        "start": 222.68,
+        "end": 225.5,
+        "duration": 2.82
+      },
+      "content": "No it's nothing like that. It's-",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 1.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F025",
+      "turn_index": 48,
+      "speaker": "F",
+      "time": {
+        "start": 225.04,
+        "end": 232.9798,
+        "duration": 7.9398
+      },
+      "content": "Then what?  Chris.  Even in your letters, there was something ashamed.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 1.6667,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M023",
+      "turn_index": 49,
+      "speaker": "M",
+      "time": {
+        "start": 232.7248,
+        "end": 240.3,
+        "duration": 7.5752
+      },
+      "content": "Yeah.  I suppose I have been. But it's going from me.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 3.0,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.0,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F026",
+      "turn_index": 50,
+      "speaker": "F",
+      "time": {
+        "start": 240.62,
+        "end": 243.65,
+        "duration": 3.03
+      },
+      "content": "You've got to tell me.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 1.6667,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "worried"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M024",
+      "turn_index": 51,
+      "speaker": "M",
+      "time": {
+        "start": 243.83,
+        "end": 247.52,
+        "duration": 3.69
+      },
+      "content": "I don't even know how to start.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 3.0,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F027",
+      "turn_index": 52,
+      "speaker": "F",
+      "time": {
+        "start": 247.48,
+        "end": 250.62,
+        "duration": 3.14
+      },
+      "content": "It wouldn't work like this.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 2.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "worried"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M025",
+      "turn_index": 53,
+      "speaker": "M",
+      "time": {
+        "start": 251.5,
+        "end": 259.73,
+        "duration": 8.23
+      },
+      "content": "It's just all mixed up with so many other things, you know?  You know overseas I was in command of a company?",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 3.0,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Sadness"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F028",
+      "turn_index": 54,
+      "speaker": "F",
+      "time": {
+        "start": 259.13,
+        "end": 261.66,
+        "duration": 2.53
+      },
+      "content": "Yeah, sure.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 2.3333,
+          "dominance": 1.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M026",
+      "turn_index": 55,
+      "speaker": "M",
+      "time": {
+        "start": 261.75,
+        "end": 264.9617,
+        "duration": 3.2117
+      },
+      "content": "Well I lost them.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 1.6667,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F029",
+      "turn_index": 56,
+      "speaker": "F",
+      "time": {
+        "start": 266.31,
+        "end": 268.5425,
+        "duration": 2.2325
+      },
+      "content": "How many?",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.5774,
+          "arousal_std": 0.0,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M027",
+      "turn_index": 57,
+      "speaker": "M",
+      "time": {
+        "start": 268.56,
+        "end": 270.7875,
+        "duration": 2.2275
+      },
+      "content": "Pretty much all.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 1.6667,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F030",
+      "turn_index": 58,
+      "speaker": "F",
+      "time": {
+        "start": 270.66,
+        "end": 273.26,
+        "duration": 2.6
+      },
+      "content": "Aw, geez.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.6667,
+          "arousal": 2.3333,
+          "dominance": 1.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M028",
+      "turn_index": 59,
+      "speaker": "M",
+      "time": {
+        "start": 272.44,
+        "end": 283.5024,
+        "duration": 11.0624
+      },
+      "content": "You can't just toss off a thing like that because they weren't just men. You know?",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.6667,
+          "arousal": 3.3333,
+          "dominance": 3.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M029",
+      "turn_index": 60,
+      "speaker": "M",
+      "time": {
+        "start": 283.73,
+        "end": 304.58,
+        "duration": 20.85
+      },
+      "content": "Like for instance, there was this one time it had been raining for several days and this kid he just came up to me and he gave me his last pair of dry socks.  He just put them in my pocket.  That's a little thing, you know, but that's what kind of guys I had.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 2.3333,
+          "dominance": 2.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M030",
+      "turn_index": 61,
+      "speaker": "M",
+      "time": {
+        "start": 304.7751,
+        "end": 319.99,
+        "duration": 15.2149
+      },
+      "content": "They didn't die, they killed themselves for each other.  I mean that, exactly.  Just a little more selfish and they would all be here today.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.3333,
+          "dominance": 3.6667,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M031",
+      "turn_index": 62,
+      "speaker": "M",
+      "time": {
+        "start": 320.9,
+        "end": 344.48,
+        "duration": 23.58
+      },
+      "content": "And I had this idea as I was watching them go down.  Everything was being destroyed, you know, but this one thing was being made.  It was kind of a monument, it's kind of responsibility, man for man.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.6667,
+          "dominance": 3.6667,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F031",
+      "turn_index": 63,
+      "speaker": "F",
+      "time": {
+        "start": 344.18,
+        "end": 345.74,
+        "duration": 1.56
+      },
+      "content": "Mmhmm.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 1.0,
+          "dominance": 1.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M032",
+      "turn_index": 64,
+      "speaker": "M",
+      "time": {
+        "start": 345.9,
+        "end": 359.22,
+        "duration": 13.32
+      },
+      "content": "To bring that on to the earth again, you know, is like some kind of monument and I thought I would just make a difference to them.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 3.0,
+          "dominance": 3.3333,
+          "valence_std": 0.0,
+          "arousal_std": 1.0,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": "Sadness"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M033",
+      "turn_index": 65,
+      "speaker": "M",
+      "time": {
+        "start": 360.2517,
+        "end": 378.35,
+        "duration": 18.0983
+      },
+      "content": "But then I came home and it was incredible, you know?  The whole thing was just kind of this random bus accident.  You know, I went back to the rat race again, I went to work.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.6667,
+          "arousal": 3.3333,
+          "dominance": 3.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 1.1547,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M034",
+      "turn_index": 66,
+      "speaker": "M",
+      "time": {
+        "start": 378.47,
+        "end": 383.65,
+        "duration": 5.18
+      },
+      "content": "Driving my new car and seeing a new refrigerator.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.6667,
+          "arousal": 3.0,
+          "dominance": 3.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Other",
+            "notes": "pensive"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M035",
+      "turn_index": 67,
+      "speaker": "M",
+      "time": {
+        "start": 384.52,
+        "end": 400.648,
+        "duration": 16.128
+      },
+      "content": "I mean...You can't take those things out of a war. when you drive that car and you see that new refrigerator, you have to know that it came out of the love that a man can have for another man.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 3.6667,
+          "dominance": 3.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Other",
+            "notes": "pensive"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 4,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M036",
+      "turn_index": 68,
+      "speaker": "M",
+      "time": {
+        "start": 401.91,
+        "end": 412.59,
+        "duration": 10.68
+      },
+      "content": "And I didn't want any of it. I guess that included you.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.6667,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F032",
+      "turn_index": 69,
+      "speaker": "F",
+      "time": {
+        "start": 415.8011,
+        "end": 419.8444,
+        "duration": 4.0433
+      },
+      "content": "Do you still feel that way?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 1.3333,
+          "dominance": 1.6667,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 0.5774
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M037",
+      "turn_index": 70,
+      "speaker": "M",
+      "time": {
+        "start": 419.4437,
+        "end": 422.5035,
+        "duration": 3.0598
+      },
+      "content": "I just want you to know Annie.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 2.3333,
+          "arousal": 2.3333,
+          "dominance": 2.3333,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F033",
+      "turn_index": 71,
+      "speaker": "F",
+      "time": {
+        "start": 422.467,
+        "end": 432.4477,
+        "duration": 9.9807
+      },
+      "content": "Because you mustn't feel that way.  Everything you have, you've earned - everything.  you understand me?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.3333,
+          "dominance": 3.6667,
+          "valence_std": 0.0,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.5275
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": "Sadness"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F034",
+      "turn_index": 72,
+      "speaker": "F",
+      "time": {
+        "start": 432.557,
+        "end": 450.47,
+        "duration": 17.913
+      },
+      "content": "Even me.  And your money?  Chris, there's nothing wrong in your money.  Your father put hundreds of planes into the air, you should be proud of that.  A man should be paid for that.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.6667,
+          "arousal": 2.6667,
+          "dominance": 4.0,
+          "valence_std": 0.5774,
+          "arousal_std": 0.5774,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 5,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_M038",
+      "turn_index": 73,
+      "speaker": "M",
+      "time": {
+        "start": 451.04,
+        "end": 460.28,
+        "duration": 9.24
+      },
+      "content": "Annie, Annie.  I am going to make a fortune for you.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 1.0,
+          "dominance_std": 1.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses01F_script01_3_F035",
+      "turn_index": 74,
+      "speaker": "F",
+      "time": {
+        "start": 459.57,
+        "end": 463.06,
+        "duration": 3.49
+      },
+      "content": "What would I do with a fortune?",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.3333,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.1547
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E5",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    }
+  ]
+}
