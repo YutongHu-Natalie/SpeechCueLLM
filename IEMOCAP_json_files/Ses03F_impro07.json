@@ -1,0 +1,5076 @@
+{
+  "dialogue_id": "Ses03F_impro07",
+  "session": "03",
+  "category": "improvis",
+  "metadata": {
+    "num_turns": 76,
+    "duration_seconds": 194.0118,
+    "script_type": "improvisational",
+    "annotator_info": {
+      "categorical_annotators": [
+        "E1",
+        "E2",
+        "E4",
+        "F3"
+      ],
+      "vad_annotators": [
+        "E1",
+        "E3",
+        "F3"
+      ]
+    },
+    "average_vad_std": {
+      "avg_valence_std": 0.1375,
+      "avg_arousal_std": 0.6384,
+      "avg_dominance_std": 0.7857,
+      "num_turns_with_std": 72
+    },
+    "statistics": {
+      "consecutive_same_speaker_same_emotion": {
+        "same_speaker_sequences_total": 9,
+        "same_speaker_same_emotion_count": 3,
+        "percentage": 33.33,
+        "same_emotion_sequences": [
+          {
+            "start_index": 35,
+            "end_index": 36,
+            "length": 2,
+            "speaker": "M",
+            "emotion": "Surprise"
+          },
+          {
+            "start_index": 59,
+            "end_index": 60,
+            "length": 2,
+            "speaker": "F",
+            "emotion": "Excited"
+          },
+          {
+            "start_index": 61,
+            "end_index": 62,
+            "length": 2,
+            "speaker": "M",
+            "emotion": "Excited"
+          }
+        ],
+        "all_same_speaker_sequences": [
+          {
+            "start_index": 14,
+            "end_index": 15,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Unknown",
+              "Excited"
+            ]
+          },
+          {
+            "start_index": 17,
+            "end_index": 18,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Surprise",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 21,
+            "end_index": 22,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": false,
+            "emotions": [
+              "Excited",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 35,
+            "end_index": 36,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": true,
+            "emotions": [
+              "Surprise",
+              "Surprise"
+            ]
+          },
+          {
+            "start_index": 37,
+            "end_index": 39,
+            "length": 3,
+            "speaker": "F",
+            "has_same_emotion": false,
+            "emotions": [
+              "Happiness",
+              "Unknown",
+              "Happiness"
+            ]
+          },
+          {
+            "start_index": 42,
+            "end_index": 43,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Unknown",
+              "Neutral"
+            ]
+          },
+          {
+            "start_index": 59,
+            "end_index": 60,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": true,
+            "emotions": [
+              "Excited",
+              "Excited"
+            ]
+          },
+          {
+            "start_index": 61,
+            "end_index": 62,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": true,
+            "emotions": [
+              "Excited",
+              "Excited"
+            ]
+          },
+          {
+            "start_index": 70,
+            "end_index": 71,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Excited",
+              "Neutral"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "Ses03F_impro07_M000",
+      "turn_index": 0,
+      "speaker": "M",
+      "time": {
+        "start": 5.1689,
+        "end": 7.6856,
+        "duration": 2.5167
+      },
+      "content": "Hey, Isabella.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "excited to see someone familiar"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F000",
+      "turn_index": 1,
+      "speaker": "F",
+      "time": {
+        "start": 7.2915,
+        "end": 9.6563,
+        "duration": 2.3648
+      },
+      "content": "Hey, how's it going, Joe?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "subdued"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M001",
+      "turn_index": 2,
+      "speaker": "M",
+      "time": {
+        "start": 9.284,
+        "end": 11.0248,
+        "duration": 1.7408
+      },
+      "content": "I'm all right.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "nonchalant"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F001",
+      "turn_index": 3,
+      "speaker": "F",
+      "time": {
+        "start": 10.4226,
+        "end": 13.5866,
+        "duration": 3.164
+      },
+      "content": "Uh-, So I got some good news.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "growing enthusiasm"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M002",
+      "turn_index": 4,
+      "speaker": "M",
+      "time": {
+        "start": 13.302,
+        "end": 14.8785,
+        "duration": 1.5765
+      },
+      "content": "Yeah?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F002",
+      "turn_index": 5,
+      "speaker": "F",
+      "time": {
+        "start": 14.3749,
+        "end": 15.5682,
+        "duration": 1.1933
+      },
+      "content": "Yep.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 3.5,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "hesitant"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M003",
+      "turn_index": 6,
+      "speaker": "M",
+      "time": {
+        "start": 15.0537,
+        "end": 16.7835,
+        "duration": 1.7298
+      },
+      "content": "You're not pregnant or anything.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "mischeivious"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "teasing, joking"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F003",
+      "turn_index": 7,
+      "speaker": "F",
+      "time": {
+        "start": 16.3565,
+        "end": 20.265,
+        "duration": 3.9085
+      },
+      "content": "Pregnant? What are you talking about? No.",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Frustration",
+            "notes": "Surprise"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "amused, surprirsed"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M004",
+      "turn_index": 8,
+      "speaker": "M",
+      "time": {
+        "start": 19.8052,
+        "end": 21.951,
+        "duration": 2.1458
+      },
+      "content": "I know you've been trying to have a baby, right?",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "amused"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "mischeivious"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "wry, teasing"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F004",
+      "turn_index": 9,
+      "speaker": "F",
+      "time": {
+        "start": 24.6223,
+        "end": 27.0419,
+        "duration": 2.4196
+      },
+      "content": "I have some better news than that.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "being serious"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M005",
+      "turn_index": 10,
+      "speaker": "M",
+      "time": {
+        "start": 26.2317,
+        "end": 27.6002,
+        "duration": 1.3685
+      },
+      "content": "Oh, really?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "jocular"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F005",
+      "turn_index": 11,
+      "speaker": "F",
+      "time": {
+        "start": 27.1514,
+        "end": 30.995,
+        "duration": 3.8436
+      },
+      "content": "Yes, What would you want more than anything in this world?",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "excited, anticipating"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M006",
+      "turn_index": 12,
+      "speaker": "M",
+      "time": {
+        "start": 30.6767,
+        "end": 32.724,
+        "duration": 2.0473
+      },
+      "content": "A chocolate cake?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "witty"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "teasing"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F006",
+      "turn_index": 13,
+      "speaker": "F",
+      "time": {
+        "start": 32.4612,
+        "end": 37.2017,
+        "duration": 4.7405
+      },
+      "content": "How about maybe for me to possibly stay in L.A.?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "not subtley hinting at what she wants"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M007",
+      "turn_index": 14,
+      "speaker": "M",
+      "time": {
+        "start": 36.5449,
+        "end": 39.8074,
+        "duration": 3.2625
+      },
+      "content": "Oh, wow. You got in?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 4.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "shocked"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": "very happy for his friend, shocked"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M008",
+      "turn_index": 15,
+      "speaker": "M",
+      "time": {
+        "start": 39.8402,
+        "end": 41.3511,
+        "duration": 1.5109
+      },
+      "content": "Which one?",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "curious, encouraging"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F007",
+      "turn_index": 16,
+      "speaker": "F",
+      "time": {
+        "start": 40.4095,
+        "end": 44.5589,
+        "duration": 4.1494
+      },
+      "content": "I got--U.S.C.. I got- Yeah, I got the acceptance letter.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "happy, proud, excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M009",
+      "turn_index": 17,
+      "speaker": "M",
+      "time": {
+        "start": 41.7343,
+        "end": 43.3984,
+        "duration": 1.6641
+      },
+      "content": "oh really?",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "happy, surprised"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M010",
+      "turn_index": 18,
+      "speaker": "M",
+      "time": {
+        "start": 43.5407,
+        "end": 46.3725,
+        "duration": 2.8318
+      },
+      "content": "You got in? Wow.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": "Surprise"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "teasing, surprised"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F008",
+      "turn_index": 19,
+      "speaker": "F",
+      "time": {
+        "start": 45.8836,
+        "end": 49.4527,
+        "duration": 3.5691
+      },
+      "content": "Yes, me, I got in. Thank you very much.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.5,
+          "dominance": 3.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": "jokingly offended, still excited, miffed but happy"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M011",
+      "turn_index": 20,
+      "speaker": "M",
+      "time": {
+        "start": 48.4564,
+        "end": 50.2191,
+        "duration": 1.7627
+      },
+      "content": "Good for you.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "happy, impressed"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F009",
+      "turn_index": 21,
+      "speaker": "F",
+      "time": {
+        "start": 49.4855,
+        "end": 61.419,
+        "duration": 11.9335
+      },
+      "content": "Yeah, I know, my mom called me. I was with my girlfriend in Boston, and uh- she got the letter and she called me, she said I don't know, do you want me to open it? And I was like yes, open it. And she opened it and she goes oh, I'm sorry, Nat.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": "babbling"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F010",
+      "turn_index": 22,
+      "speaker": "F",
+      "time": {
+        "start": 61.4409,
+        "end": 67.6047,
+        "duration": 6.1638
+      },
+      "content": "And I was like what? She's like, you know, you didn't get in. Totally plays it off. Like I didn't get in. And I'm like, I start almost crying.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 3.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 3,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": "narrates memories"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_MXX0",
+      "turn_index": 23,
+      "speaker": "Unknown",
+      "time": {
+        "start": 65.2681,
+        "end": 66.2038,
+        "duration": 0.9357
+      },
+      "content": "Uh-huh, uh-huh.",
+      "emotion": {
+        "primary_label": "unknown",
+        "averaged_vad": {
+          "valence": null,
+          "arousal": null,
+          "dominance": null,
+          "valence_std": null,
+          "arousal_std": null,
+          "dominance_std": null
+        },
+        "categorical_annotations": [],
+        "vad_annotations": []
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F011",
+      "turn_index": 24,
+      "speaker": "F",
+      "time": {
+        "start": 67.6266,
+        "end": 70.5826,
+        "duration": 2.956
+      },
+      "content": "And my mom was like Natalie, Natalie, it's [GARBAGE], you know-",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 3.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M012",
+      "turn_index": 25,
+      "speaker": "M",
+      "time": {
+        "start": 67.3201,
+        "end": 68.6995,
+        "duration": 1.3794
+      },
+      "content": "oh yeah.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Neutral",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "understanding"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F012",
+      "turn_index": 26,
+      "speaker": "F",
+      "time": {
+        "start": 70.6125,
+        "end": 72.7503,
+        "duration": 2.1378
+      },
+      "content": "and so, I mean, I got in.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "excited, proud"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M013",
+      "turn_index": 27,
+      "speaker": "M",
+      "time": {
+        "start": 72.0606,
+        "end": 76.4727,
+        "duration": 4.4121
+      },
+      "content": "Oh, Jesus. That is so amazing.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "impressed, amazed, surprised"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F013",
+      "turn_index": 28,
+      "speaker": "F",
+      "time": {
+        "start": 75.4764,
+        "end": 80.6658,
+        "duration": 5.1894
+      },
+      "content": "So now I can stay here and now we can party. I know.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "excited, elated"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M014",
+      "turn_index": 29,
+      "speaker": "M",
+      "time": {
+        "start": 79.0345,
+        "end": 81.3884,
+        "duration": 2.3539
+      },
+      "content": "Party. You want to get drunk tonight?",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "hopeful"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F014",
+      "turn_index": 30,
+      "speaker": "F",
+      "time": {
+        "start": 81.1366,
+        "end": 83.7094,
+        "duration": 2.5728
+      },
+      "content": "Yeah, why not.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 5.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M015",
+      "turn_index": 31,
+      "speaker": "M",
+      "time": {
+        "start": 81.8154,
+        "end": 84.4101,
+        "duration": 2.5947
+      },
+      "content": "Yeah, we're going to celebrate.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.5,
+          "dominance": 3.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F015",
+      "turn_index": 32,
+      "speaker": "F",
+      "time": {
+        "start": 84.005,
+        "end": 86.5888,
+        "duration": 2.5838
+      },
+      "content": "We're not twenty one yet, but whatever.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "nonchalant"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M016",
+      "turn_index": 33,
+      "speaker": "M",
+      "time": {
+        "start": 85.483,
+        "end": 88.9645,
+        "duration": 3.4815
+      },
+      "content": "Yeah, I'm only eighteen so it's--go get drunk.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "indifferent, nonchalant, happy"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F016",
+      "turn_index": 34,
+      "speaker": "F",
+      "time": {
+        "start": 89.9498,
+        "end": 97.2632,
+        "duration": 7.3134
+      },
+      "content": "[LAUGHTER]. I'm so excited, Joe. Oh, man, I-- And I got in--I got into the school of theatre, so it's like-",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "so excited, happy"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M017",
+      "turn_index": 35,
+      "speaker": "M",
+      "time": {
+        "start": 92.1833,
+        "end": 94.5481,
+        "duration": 2.3648
+      },
+      "content": "Shit. That's-",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "impressed"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": "Surprise"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "amazed, disbelieving"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M018",
+      "turn_index": 36,
+      "speaker": "M",
+      "time": {
+        "start": 96.1027,
+        "end": 104.0948,
+        "duration": 7.9921
+      },
+      "content": "Oh, my God. That's--I heard it's top five-- --in the Grauman scale or something.",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "admiring, encouraging"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F017",
+      "turn_index": 37,
+      "speaker": "F",
+      "time": {
+        "start": 97.6125,
+        "end": 99.7,
+        "duration": 2.0875
+      },
+      "content": "Yeah. It's really cool.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "subduing her happiness and pride"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F018",
+      "turn_index": 38,
+      "speaker": "F",
+      "time": {
+        "start": 100.94,
+        "end": 101.9425,
+        "duration": 1.0025
+      },
+      "content": "Yeah.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Other",
+            "notes": "proud"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "smug, chipper"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F019",
+      "turn_index": 39,
+      "speaker": "F",
+      "time": {
+        "start": 103.2409,
+        "end": 105.8246,
+        "duration": 2.5837
+      },
+      "content": "Top five in the nation.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "proud"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Other",
+            "notes": "proud"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "smug, proud, excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M019",
+      "turn_index": 40,
+      "speaker": "M",
+      "time": {
+        "start": 104.9378,
+        "end": 109.3828,
+        "duration": 4.445
+      },
+      "content": "Who-whooooo. Miss Acti- Acting Pants.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "teasing, impressed"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F020",
+      "turn_index": 41,
+      "speaker": "F",
+      "time": {
+        "start": 108.9339,
+        "end": 114.0576,
+        "duration": 5.1237
+      },
+      "content": "Acting Pants? So what are you going to do? Are you--you're be--you're going to stay here, right?",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Other",
+            "notes": "Hopeful"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "not insulted, excited, little worried about friend"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M020",
+      "turn_index": 42,
+      "speaker": "M",
+      "time": {
+        "start": 110.0068,
+        "end": 111.9775,
+        "duration": 1.9707
+      },
+      "content": "Acti- acting pants.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "joking"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M021",
+      "turn_index": 43,
+      "speaker": "M",
+      "time": {
+        "start": 113.5431,
+        "end": 116.9675,
+        "duration": 3.4244
+      },
+      "content": "I got into film school at the Art Academy.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "pride"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "proud"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F021",
+      "turn_index": 44,
+      "speaker": "F",
+      "time": {
+        "start": 116.5538,
+        "end": 120.1338,
+        "duration": 3.58
+      },
+      "content": "Awesome. We're both going to be in L.A.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "happy for friend, excited not to separate"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_MXX1",
+      "turn_index": 45,
+      "speaker": "Unknown",
+      "time": {
+        "start": 117.7317,
+        "end": 118.3911,
+        "duration": 0.6594
+      },
+      "content": "Uh-huh.",
+      "emotion": {
+        "primary_label": "unknown",
+        "averaged_vad": {
+          "valence": null,
+          "arousal": null,
+          "dominance": null,
+          "valence_std": null,
+          "arousal_std": null,
+          "dominance_std": null
+        },
+        "categorical_annotations": [],
+        "vad_annotations": []
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M022",
+      "turn_index": 46,
+      "speaker": "M",
+      "time": {
+        "start": 119.4441,
+        "end": 123.1555,
+        "duration": 3.7114
+      },
+      "content": "So I'm going to be--yeah. I'm going to make films; you're going to be in them.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "cocky"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "flippant, buoyant"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F022",
+      "turn_index": 47,
+      "speaker": "F",
+      "time": {
+        "start": 122.5534,
+        "end": 126.7125,
+        "duration": 4.1591
+      },
+      "content": "I'm so excited. Yeah, I thought I was going to go to Boston, but then--",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "remembers past dilemmas"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M023",
+      "turn_index": 48,
+      "speaker": "M",
+      "time": {
+        "start": 126.2319,
+        "end": 127.907,
+        "duration": 1.6751
+      },
+      "content": "Fuck Boston.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Disgust",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "mocking, joking"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 3,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F023",
+      "turn_index": 49,
+      "speaker": "F",
+      "time": {
+        "start": 132.2534,
+        "end": 135.5707,
+        "duration": 3.3173
+      },
+      "content": "Oh man, I'm so excited. So much to do.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "happily overwhelmed"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M024",
+      "turn_index": 50,
+      "speaker": "M",
+      "time": {
+        "start": 128.4325,
+        "end": 132.5819,
+        "duration": 4.1494
+      },
+      "content": "Boston smells bad. L.A. is so much cooler.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Disgust",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "joking, light"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F024",
+      "turn_index": 51,
+      "speaker": "F",
+      "time": {
+        "start": 135.6035,
+        "end": 140.1689,
+        "duration": 4.5654
+      },
+      "content": "There's so much culture here, you know? It's just like-- --all great restaurants and-",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "pleased, excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_MXX2",
+      "turn_index": 52,
+      "speaker": "Unknown",
+      "time": {
+        "start": 138.0271,
+        "end": 138.5263,
+        "duration": 0.4992
+      },
+      "content": "Yeah.",
+      "emotion": {
+        "primary_label": "unknown",
+        "averaged_vad": {
+          "valence": null,
+          "arousal": null,
+          "dominance": null,
+          "valence_std": null,
+          "arousal_std": null,
+          "dominance_std": null
+        },
+        "categorical_annotations": [],
+        "vad_annotations": []
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F025",
+      "turn_index": 53,
+      "speaker": "F",
+      "time": {
+        "start": 140.2075,
+        "end": 142.6103,
+        "duration": 2.4028
+      },
+      "content": "I'm just so excited to start my life.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "content, excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M025",
+      "turn_index": 54,
+      "speaker": "M",
+      "time": {
+        "start": 141.4389,
+        "end": 144.6125,
+        "duration": 3.1736
+      },
+      "content": "We should uh- go to Little Ethiopia.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Neutral",
+            "notes": "Happiness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "friendly advice"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F026",
+      "turn_index": 55,
+      "speaker": "F",
+      "time": {
+        "start": 144.34,
+        "end": 152.4965,
+        "duration": 8.1565
+      },
+      "content": "Oh, and you sit down and you have the sponge bread-- --and eat the--drink the beer. Ugh, I love that stuff. I'm so excited.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_MXX3",
+      "turn_index": 56,
+      "speaker": "Unknown",
+      "time": {
+        "start": 147.9015,
+        "end": 148.4327,
+        "duration": 0.5312
+      },
+      "content": "Yeah.",
+      "emotion": {
+        "primary_label": "unknown",
+        "averaged_vad": {
+          "valence": null,
+          "arousal": null,
+          "dominance": null,
+          "valence_std": null,
+          "arousal_std": null,
+          "dominance_std": null
+        },
+        "categorical_annotations": [],
+        "vad_annotations": []
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F027",
+      "turn_index": 57,
+      "speaker": "F",
+      "time": {
+        "start": 152.53,
+        "end": 154.8175,
+        "duration": 2.2875
+      },
+      "content": "Are you going to come stay in my dorm with me sometime?",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Other",
+            "notes": "hopeful"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "hopeful"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 5,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M026",
+      "turn_index": 58,
+      "speaker": "M",
+      "time": {
+        "start": 154.3796,
+        "end": 158.0034,
+        "duration": 3.6238
+      },
+      "content": "Hell, yeah. Pass out.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "teasing, excited"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F028",
+      "turn_index": 59,
+      "speaker": "F",
+      "time": {
+        "start": 155.9342,
+        "end": 157.664,
+        "duration": 1.7298
+      },
+      "content": "Yeah. I'll get like one of those little--",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": "babbling again in excitement"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F029",
+      "turn_index": 60,
+      "speaker": "F",
+      "time": {
+        "start": 157.7525,
+        "end": 161.56,
+        "duration": 3.8075
+      },
+      "content": "Yeah. Those little-- --mattresses. I'll put it by my bed.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "amused"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M027",
+      "turn_index": 61,
+      "speaker": "M",
+      "time": {
+        "start": 158.3319,
+        "end": 159.5033,
+        "duration": 1.1714
+      },
+      "content": "-drunk.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "emphasizing"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M028",
+      "turn_index": 62,
+      "speaker": "M",
+      "time": {
+        "start": 161.0689,
+        "end": 163.7621,
+        "duration": 2.6932
+      },
+      "content": "No, I'll sleep in your bed. Cuddle up.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "playful"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "teasing"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F030",
+      "turn_index": 63,
+      "speaker": "F",
+      "time": {
+        "start": 162.6892,
+        "end": 168.1304,
+        "duration": 5.4412
+      },
+      "content": "Oh, I don't think so. Hmm-mm. No.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 4.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Other",
+            "notes": "annoyed"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "amused but firm"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M029",
+      "turn_index": 64,
+      "speaker": "M",
+      "time": {
+        "start": 165.9846,
+        "end": 167.3093,
+        "duration": 1.3247
+      },
+      "content": "Uh-oh.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "joking, teasing,"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F031",
+      "turn_index": 65,
+      "speaker": "F",
+      "time": {
+        "start": 168.3494,
+        "end": 171.4587,
+        "duration": 3.1093
+      },
+      "content": "That's going to--that'll be reserved for somebody else.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "jokes back at him"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M030",
+      "turn_index": 66,
+      "speaker": "M",
+      "time": {
+        "start": 171.1083,
+        "end": 175.695,
+        "duration": 4.5867
+      },
+      "content": "Oh, hey. Freshman slut. That's you gona need.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "teasing, joking, not really offended"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F032",
+      "turn_index": 67,
+      "speaker": "F",
+      "time": {
+        "start": 171.6557,
+        "end": 177.8524,
+        "duration": 6.1967
+      },
+      "content": "[LAUGHTER] Hello? I am not.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 4.0,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": "kind of offended, still amused"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M031",
+      "turn_index": 68,
+      "speaker": "M",
+      "time": {
+        "start": 176.2977,
+        "end": 179.0238,
+        "duration": 2.7261
+      },
+      "content": "That's what you got to be though, freshman year.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "bantering, teasing"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F033",
+      "turn_index": 69,
+      "speaker": "F",
+      "time": {
+        "start": 178.1699,
+        "end": 180.8225,
+        "duration": 2.6526
+      },
+      "content": "No, I don't. I'm not like that.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 3.5,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Other",
+            "notes": "offended"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Other",
+            "notes": "annoyed"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "anxious, bantering"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M032",
+      "turn_index": 70,
+      "speaker": "M",
+      "time": {
+        "start": 179.1661,
+        "end": 180.2391,
+        "duration": 1.073
+      },
+      "content": "Yeah.",
+      "emotion": {
+        "primary_label": "Excited",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.0,
+          "dominance": 3.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Excited",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M033",
+      "turn_index": 71,
+      "speaker": "M",
+      "time": {
+        "start": 180.5347,
+        "end": 182.2754,
+        "duration": 1.7407
+      },
+      "content": "Well, get used to it.",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "playful"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "still teasing"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F034",
+      "turn_index": 72,
+      "speaker": "F",
+      "time": {
+        "start": 181.6076,
+        "end": 184.049,
+        "duration": 2.4414
+      },
+      "content": "[LAUGHTER]. No, you'd get used to it.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "joking, bantering"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M034",
+      "turn_index": 73,
+      "speaker": "M",
+      "time": {
+        "start": 183.7534,
+        "end": 185.6803,
+        "duration": 1.9269
+      },
+      "content": "Hey, I'm already getting used to it.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "Other",
+            "notes": "playful"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "happy, joking"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "valence": 5,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_F035",
+      "turn_index": 74,
+      "speaker": "F",
+      "time": {
+        "start": 190.1909,
+        "end": 192.1616,
+        "duration": 1.9707
+      },
+      "content": "[LAUGHTER]. Oh, Joe, I'm so happy.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 5.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "emotion": "Happiness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "subdued jubilance"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 5,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "F3",
+            "valence": 5,
+            "arousal": 5,
+            "dominance": 4,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses03F_impro07_M035",
+      "turn_index": 75,
+      "speaker": "M",
+      "time": {
+        "start": 191.7127,
+        "end": 194.0118,
+        "duration": 2.2991
+      },
+      "content": "Me too, Isabella.",
+      "emotion": {
+        "primary_label": "Happiness",
+        "averaged_vad": {
+          "valence": 4.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "Happinessamused"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Happiness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "M3",
+            "emotion": "",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E1",
+            "valence": 4,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "serious but pleased"
+          },
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    }
+  ]
+}

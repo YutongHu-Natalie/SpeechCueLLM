@@ -1,0 +1,69 @@
+{
+  "full_dataset": {
+    "total_samples": 10086,
+    "valence_mean": 2.7780655244546266,
+    "valence_std": 0.8973109396417589,
+    "arousal_mean": 3.089749875485606,
+    "arousal_std": 0.7017491569347245,
+    "dominance_mean": 3.1943255005478637,
+    "dominance_std": 0.7890997204218647,
+    "avg_std_mean": 0.5562237795328067,
+    "avg_std_median": 0.4714,
+    "emotion_distribution": {
+      "Unknown": 2507,
+      "Frustration": 1849,
+      "Neutral": 1708,
+      "Anger": 1103,
+      "Sadness": 1084,
+      "Excited": 1041,
+      "Happiness": 595,
+      "Surprise": 107,
+      "unknown": 47,
+      "fea": 40,
+      "Other": 3,
+      "dis": 2
+    },
+    "session_distribution": {
+      "01": 1819,
+      "02": 1811,
+      "03": 2158,
+      "04": 2103,
+      "05": 2195
+    }
+  },
+  "filtered_dataset": {
+    "total_samples": 5301,
+    "valence_mean": 2.791926032823995,
+    "valence_std": 0.8763707961522594,
+    "arousal_mean": 3.100452612714582,
+    "arousal_std": 0.7073543540060994,
+    "dominance_mean": 3.2793500848896437,
+    "dominance_std": 0.7624586603619042,
+    "avg_std_mean": 0.3342986354775829,
+    "avg_std_median": 0.4714,
+    "emotion_distribution": {
+      "Unknown": 1389,
+      "Neutral": 1006,
+      "Frustration": 953,
+      "Sadness": 582,
+      "Excited": 526,
+      "Anger": 480,
+      "Happiness": 312,
+      "Surprise": 35,
+      "fea": 16,
+      "dis": 2
+    },
+    "session_distribution": {
+      "01": 836,
+      "02": 931,
+      "03": 1167,
+      "04": 1155,
+      "05": 1212
+    }
+  },
+  "filter_settings": {
+    "method": "percentile",
+    "percentile": 50.0,
+    "threshold": null
+  }
+}
