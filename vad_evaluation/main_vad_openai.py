@@ -296,7 +296,6 @@ def create_openai_messages_few_shot(conversation_history, target_utterance, audi
         examples_text += f"Conversation history:\n{example['conversation_history']}\n"
         examples_text += f"Target utterance: {example['target_utterance']}\n"
         examples_text += f"Audio features: {example['audio_features']}\n"
-        examples_text += f"<scratchpad>\n{example['scratchpad']}\n</scratchpad>\n"
         examples_text += f"<answer>\n{json.dumps(example['answer'])}\n</answer>\n"
 
     user_message = f"""You will be analyzing a dialogue to evaluate the emotion expressed in a specific target utterance using the Valence-Arousal-Dominance (VAD) Model. The VAD model measures emotion across three dimensions:
