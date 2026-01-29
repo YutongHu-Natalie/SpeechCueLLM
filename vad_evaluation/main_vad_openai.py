@@ -409,11 +409,18 @@ def run_openai_inference(client, model_name, messages, max_retries=3):
     """
     for attempt in range(max_retries):
         try:
-            response = client.chat.completions.create(
+            if model_name == "gpt-5-mini":
+                response = client.chat.completions.create(
                 model=model_name,
                 messages=messages,
-                temperature=0.1,
-                max_tokens=800,
+                max_completion_tokens=600,
+            )
+            else:
+                response = client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                temperature=0.1,  # Low temperature for more deterministic output
+                max_tokens=300,
             )
             return response.choices[0].message.content
         except Exception as e:
