@@ -261,3 +261,13 @@ history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223,
 best_f1: 71.937
 current_f1: 69.917
 history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89, 70.251, 69.917]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+[2026-01-29 01:13:43,637] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 1452423
+[2026-01-29 01:13:48,274] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 1452424
+[2026-01-29 01:13:48,274] [ERROR] [launch.py:341:sigkill_handler] ['/local/scratch/yhu383/SpeechCueLLM/venv/bin/python', '-u', 'main.py', '--local_rank=1', '--dataset', 'iemocap', '--model_name_or_path', '/local/scratch/yhu383/models/llama3.3-70b', '--data_dir', '../PROCESSED_DATASET/iemocap/window/True_False', '--output_dir', '../new_experiments/LLaMA3-instruct-70b/lora/iemocap/window_12/LR_3e-4_BS_8_per_1.0_des_context_class5_11', '--max_length', '1024', '--batch_size', '8', '--deepspeed_config', '../LLM_code/data_utils/deepspeed_config.json', '--gradient_accumulation_steps', '8', '--eval_batch_size', '8', '--num_train_epochs', '15', '--save_steps', '100000', '--lora', 'True', '--learning_rate', '3e-4', '--do_eval', 'True', '--do_train', 'True', '--statistic_mode', 'True', '--data_percent', '1.0', '--seed', '11', '--emotion_prediction', 'False', '--gradient_checkpointing'] exits with return code = 1
+Job finished at Thu Jan 29 01:13:49 AM EST 2026
