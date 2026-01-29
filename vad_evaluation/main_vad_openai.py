@@ -481,6 +481,12 @@ def main():
     df = df[df['session'] == args.test_session].reset_index(drop=True)
     print(f"Filtered to Session {args.test_session} (test set): {len(df)} samples (from {original_len} total)")
 
+    # Remove samples with NaN VAD values (unannotated utterances)
+    before_nan_filter = len(df)
+    df = df.dropna(subset=['valence', 'arousal', 'dominance']).reset_index(drop=True)
+    if len(df) < before_nan_filter:
+        print(f"Removed {before_nan_filter - len(df)} samples with NaN VAD values. Remaining: {len(df)} samples")
+
     # Select prompt function
     if args.experiments_setting == 'few_shot':
         create_messages_fn = create_openai_messages_few_shot

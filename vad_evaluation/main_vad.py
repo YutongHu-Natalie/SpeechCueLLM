@@ -592,6 +592,11 @@ def main():
 
     # Test data is ALWAYS from the full dataset (Session 5) for consistency across all experiments
     test_df = df_full[df_full['session'] == args.test_session].reset_index(drop=True)
+    # Remove samples with NaN VAD values (unannotated utterances)
+    before_nan = len(test_df)
+    test_df = test_df.dropna(subset=['valence', 'arousal', 'dominance']).reset_index(drop=True)
+    if len(test_df) < before_nan:
+        print(f"Test set: Removed {before_nan - len(test_df)} samples with NaN VAD values")
     print(f"Test set: Session {args.test_session} from full dataset = {len(test_df)} samples")
 
     # Split data based on mode
@@ -612,6 +617,11 @@ def main():
             # Use full dataset for training
             train_df = df_full[df_full['session'] != args.test_session].reset_index(drop=True)
             print(f"LoRA mode: Train={len(train_df)} samples from full dataset (sessions != {args.test_session})")
+        # Remove NaN values from training data
+        before_nan = len(train_df)
+        train_df = train_df.dropna(subset=['valence', 'arousal', 'dominance']).reset_index(drop=True)
+        if len(train_df) < before_nan:
+            print(f"Training set: Removed {before_nan - len(train_df)} samples with NaN VAD values. Remaining: {len(train_df)}")
     else:
         # For zero-shot and few-shot: no training data needed
         train_df = None
