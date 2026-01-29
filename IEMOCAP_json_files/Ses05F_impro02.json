@@ -1,0 +1,4613 @@
+{
+  "dialogue_id": "Ses05F_impro02",
+  "session": "05",
+  "category": "improvis",
+  "metadata": {
+    "num_turns": 82,
+    "duration_seconds": 343.4,
+    "script_type": "improvisational",
+    "annotator_info": {
+      "categorical_annotators": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "vad_annotators": [
+        "E3",
+        "E4"
+      ]
+    },
+    "average_vad_std": {
+      "avg_valence_std": 0.6896,
+      "avg_arousal_std": 0.7857,
+      "avg_dominance_std": 0.4627,
+      "num_turns_with_std": 81
+    },
+    "statistics": {
+      "consecutive_same_speaker_same_emotion": {
+        "same_speaker_sequences_total": 6,
+        "same_speaker_same_emotion_count": 4,
+        "percentage": 66.67,
+        "same_emotion_sequences": [
+          {
+            "start_index": 26,
+            "end_index": 27,
+            "length": 2,
+            "speaker": "M",
+            "emotion": "Unknown"
+          },
+          {
+            "start_index": 35,
+            "end_index": 36,
+            "length": 2,
+            "speaker": "M",
+            "emotion": "Unknown"
+          },
+          {
+            "start_index": 42,
+            "end_index": 43,
+            "length": 2,
+            "speaker": "M",
+            "emotion": "Unknown"
+          },
+          {
+            "start_index": 65,
+            "end_index": 66,
+            "length": 2,
+            "speaker": "M",
+            "emotion": "Sadness"
+          }
+        ],
+        "all_same_speaker_sequences": [
+          {
+            "start_index": 6,
+            "end_index": 7,
+            "length": 2,
+            "speaker": "F",
+            "has_same_emotion": false,
+            "emotions": [
+              "Unknown",
+              "Sadness"
+            ]
+          },
+          {
+            "start_index": 17,
+            "end_index": 18,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": false,
+            "emotions": [
+              "Unknown",
+              "Frustration"
+            ]
+          },
+          {
+            "start_index": 26,
+            "end_index": 27,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": true,
+            "emotions": [
+              "Unknown",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 35,
+            "end_index": 36,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": true,
+            "emotions": [
+              "Unknown",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 42,
+            "end_index": 43,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": true,
+            "emotions": [
+              "Unknown",
+              "Unknown"
+            ]
+          },
+          {
+            "start_index": 65,
+            "end_index": 66,
+            "length": 2,
+            "speaker": "M",
+            "has_same_emotion": true,
+            "emotions": [
+              "Sadness",
+              "Sadness"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "Ses05F_impro02_F000",
+      "turn_index": 0,
+      "speaker": "F",
+      "time": {
+        "start": 5.17,
+        "end": 7.6605,
+        "duration": 2.4905
+      },
+      "content": "baby, I need you to sit down.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": "anxious as in expecting something big to happen"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "repressing distress"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M000",
+      "turn_index": 1,
+      "speaker": "M",
+      "time": {
+        "start": 7.6018,
+        "end": 10.43,
+        "duration": 2.8282
+      },
+      "content": "What is it?",
+      "emotion": {
+        "primary_label": "Neutral",
+        "averaged_vad": {
+          "valence": 3.0,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 0.0,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "nervous"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 3,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "made nervous by her tone, concerned"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F001",
+      "turn_index": 2,
+      "speaker": "F",
+      "time": {
+        "start": 12.3,
+        "end": 14.48,
+        "duration": 2.18
+      },
+      "content": "um.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 1.5,
+          "dominance": 1.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": "Fear"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "hesitant, reluctant"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M001",
+      "turn_index": 3,
+      "speaker": "M",
+      "time": {
+        "start": 15.54,
+        "end": 18.22,
+        "duration": 2.68
+      },
+      "content": "You can say it.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.5,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "anxiety"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "concern, bordering alarm"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F002",
+      "turn_index": 4,
+      "speaker": "F",
+      "time": {
+        "start": 19.0,
+        "end": 24.66,
+        "duration": 5.66
+      },
+      "content": "I'm sorry.  It's just a lot ahh to explain. ahh I got a call--",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "overwhelmed, nervous"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M002",
+      "turn_index": 5,
+      "speaker": "M",
+      "time": {
+        "start": 23.28,
+        "end": 24.81,
+        "duration": 1.53
+      },
+      "content": "Are you all right?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.5,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "very concerned"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F003",
+      "turn_index": 6,
+      "speaker": "F",
+      "time": {
+        "start": 24.7,
+        "end": 28.46,
+        "duration": 3.76
+      },
+      "content": "Yeah, um everything's fine so far. um",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "lying, denying distress, comforting him, very upset"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F004",
+      "turn_index": 7,
+      "speaker": "F",
+      "time": {
+        "start": 28.8,
+        "end": 31.1014,
+        "duration": 2.3014
+      },
+      "content": "I got a call today,",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "nervous, tensed"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_FXX0",
+      "turn_index": 8,
+      "speaker": "Unknown",
+      "time": {
+        "start": 31.6581,
+        "end": 32.7521,
+        "duration": 1.094
+      },
+      "content": "And um--",
+      "emotion": {
+        "primary_label": "unknown",
+        "averaged_vad": {
+          "valence": null,
+          "arousal": null,
+          "dominance": null,
+          "valence_std": null,
+          "arousal_std": null,
+          "dominance_std": null
+        },
+        "categorical_annotations": [],
+        "vad_annotations": []
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M003",
+      "turn_index": 9,
+      "speaker": "M",
+      "time": {
+        "start": 31.56,
+        "end": 33.26,
+        "duration": 1.7
+      },
+      "content": "okay.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.5,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "suspicious, hesitant, anxious, concerned"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F005",
+      "turn_index": 10,
+      "speaker": "F",
+      "time": {
+        "start": 33.64,
+        "end": 37.13,
+        "duration": 3.49
+      },
+      "content": "I'm going to need to go overseas for a while.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Disgust",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "trying to remain calm and neutral"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M004",
+      "turn_index": 11,
+      "speaker": "M",
+      "time": {
+        "start": 38.49,
+        "end": 40.68,
+        "duration": 2.19
+      },
+      "content": "You got called up.",
+      "emotion": {
+        "primary_label": "Anger",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Anger",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": "suppressing horror, stricken, deflated"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F006",
+      "turn_index": 12,
+      "speaker": "F",
+      "time": {
+        "start": 40.92,
+        "end": 42.29,
+        "duration": 1.37
+      },
+      "content": "Iraq.",
+      "emotion": {
+        "primary_label": "fea",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 1.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 1,
+            "dominance": 3,
+            "notes": "dreading, but the worst is over"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M005",
+      "turn_index": 13,
+      "speaker": "M",
+      "time": {
+        "start": 41.89,
+        "end": 44.97,
+        "duration": 3.08
+      },
+      "content": "I thought you said this wasn't going to happen for at least a year.",
+      "emotion": {
+        "primary_label": "Anger",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Anger",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "disbelief, denial"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F007",
+      "turn_index": 14,
+      "speaker": "F",
+      "time": {
+        "start": 44.49,
+        "end": 47.65,
+        "duration": 3.16
+      },
+      "content": "I'm sorry.  I thought so. \"sigh\"",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "apologetic, upset"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M006",
+      "turn_index": 15,
+      "speaker": "M",
+      "time": {
+        "start": 50.1,
+        "end": 52.32,
+        "duration": 2.22
+      },
+      "content": "What am I going to do?",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": "overwhelmed, scared, desperate"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F008",
+      "turn_index": 16,
+      "speaker": "F",
+      "time": {
+        "start": 51.74,
+        "end": 54.42,
+        "duration": 2.68
+      },
+      "content": "I don't know \"sigh\".",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "overwhelmed, frightened, sad, unable to restrain distress"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M007",
+      "turn_index": 17,
+      "speaker": "M",
+      "time": {
+        "start": 54.18,
+        "end": 59.57,
+        "duration": 5.39
+      },
+      "content": "I can't do this by myself. I I don't know how to do this.  You know how to do this.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Fear"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "self"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M008",
+      "turn_index": 18,
+      "speaker": "M",
+      "time": {
+        "start": 60.35,
+        "end": 61.9,
+        "duration": 1.55
+      },
+      "content": "The kids-",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "horror, realization"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F009",
+      "turn_index": 19,
+      "speaker": "F",
+      "time": {
+        "start": 61.57,
+        "end": 65.73,
+        "duration": 4.16
+      },
+      "content": "I know.  I know.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.0,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Sadness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "overwhelmed, helpless, emotional"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M009",
+      "turn_index": 20,
+      "speaker": "M",
+      "time": {
+        "start": 65.14,
+        "end": 69.66,
+        "duration": 4.52
+      },
+      "content": "Nobody's even here.  Your parents live on the other side of the country.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "one bad realization after another"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F010",
+      "turn_index": 21,
+      "speaker": "F",
+      "time": {
+        "start": 68.83,
+        "end": 79.79,
+        "duration": 10.96
+      },
+      "content": "I know.  Well, we'll have to figure all that out.  I mean, I think the Army's going to provide childcare and help us out with that. um.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": "Anger"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "letting logic take over, repressing emotion, staying rational"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M010",
+      "turn_index": 22,
+      "speaker": "M",
+      "time": {
+        "start": 80.46,
+        "end": 83.44,
+        "duration": 2.98
+      },
+      "content": "Where do you have to go?  Where are you going?",
+      "emotion": {
+        "primary_label": "Anger",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Anger"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "business"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F011",
+      "turn_index": 23,
+      "speaker": "F",
+      "time": {
+        "start": 83.05,
+        "end": 85.3,
+        "duration": 2.25
+      },
+      "content": "Iraq.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 1.4142,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": "the word"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M011",
+      "turn_index": 24,
+      "speaker": "M",
+      "time": {
+        "start": 85.67,
+        "end": 90.17,
+        "duration": 4.5
+      },
+      "content": "What are you going to do there?  Is it going to be dangerous?  What are you-?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "anxious, scared"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F012",
+      "turn_index": 25,
+      "speaker": "F",
+      "time": {
+        "start": 88.33,
+        "end": 93.3,
+        "duration": 4.97
+      },
+      "content": "I think infantry.  I'm not sure.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Fear"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "upset, miserable"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M012",
+      "turn_index": 26,
+      "speaker": "M",
+      "time": {
+        "start": 94.97,
+        "end": 97.46,
+        "duration": 2.49
+      },
+      "content": "It's--",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "lost, speechless"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M013",
+      "turn_index": 27,
+      "speaker": "M",
+      "time": {
+        "start": 99.33,
+        "end": 103.4,
+        "duration": 4.07
+      },
+      "content": "Can we do something else?  Can you tell them that you just had two kids?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 3.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Excited",
+            "notes": "Fear"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": "desperate, anxious,"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F013",
+      "turn_index": 28,
+      "speaker": "F",
+      "time": {
+        "start": 97.74,
+        "end": 103.85,
+        "duration": 6.11
+      },
+      "content": "It's going to be at least six months, probably a year. I tried.",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 1.4142,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": "slides from restraining to emotional, helpless"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M014",
+      "turn_index": 29,
+      "speaker": "M",
+      "time": {
+        "start": 103.9163,
+        "end": 108.13,
+        "duration": 4.2137
+      },
+      "content": "I don't understand why they would just do something like this?",
+      "emotion": {
+        "primary_label": "Anger",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "lost, overwhelmed, helpless, victim"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F014",
+      "turn_index": 30,
+      "speaker": "F",
+      "time": {
+        "start": 106.68,
+        "end": 109.98,
+        "duration": 3.3
+      },
+      "content": "I know, I know.  It's really, really messed up.",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "can"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M015",
+      "turn_index": 31,
+      "speaker": "M",
+      "time": {
+        "start": 109.4,
+        "end": 116.86,
+        "duration": 7.46
+      },
+      "content": "It doesn't make any sense.  It's stupid.  I told you you shouldn't go in the Army.",
+      "emotion": {
+        "primary_label": "Anger",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 4.0,
+          "dominance": 3.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Anger",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": "accusing, angry, desperate,"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F015",
+      "turn_index": 32,
+      "speaker": "F",
+      "time": {
+        "start": 117.36,
+        "end": 121.02,
+        "duration": 3.66
+      },
+      "content": "Believe me, if I had a choice, I wouldn't have chosen this.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "despair"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "defensive but upset"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M016",
+      "turn_index": 33,
+      "speaker": "M",
+      "time": {
+        "start": 120.58,
+        "end": 125.54,
+        "duration": 4.96
+      },
+      "content": "I don't know I don't know what I'm going to do.  I don't know how to-",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Excited",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "self doubt, overwhelmed, lost"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F016",
+      "turn_index": 34,
+      "speaker": "F",
+      "time": {
+        "start": 125.21,
+        "end": 130.26,
+        "duration": 5.05
+      },
+      "content": "You don't know how to what?  You'll be fine. I mean, you're a great parent. I know.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "starts off comforting, then anguished"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M017",
+      "turn_index": 35,
+      "speaker": "M",
+      "time": {
+        "start": 127.37,
+        "end": 131.84,
+        "duration": 4.47
+      },
+      "content": "They're six months old. Six months old, they're tiny.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 4.0,
+          "dominance": 3.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "despair"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "disbelieving, overwhelmed, scared"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M018",
+      "turn_index": 36,
+      "speaker": "M",
+      "time": {
+        "start": 131.93,
+        "end": 136.21,
+        "duration": 4.28
+      },
+      "content": "I can't do this.  I've never done this before.  I don't know anything about this.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "despair"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": "Anger"
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "self doubt, overwhelmed"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F017",
+      "turn_index": 37,
+      "speaker": "F",
+      "time": {
+        "start": 133.58,
+        "end": 138.14,
+        "duration": 4.56
+      },
+      "content": "Well, maybe you should move in with my mom and she can help.",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "back to suppressive rationality"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M019",
+      "turn_index": 38,
+      "speaker": "M",
+      "time": {
+        "start": 137.69,
+        "end": 141.91,
+        "duration": 4.22
+      },
+      "content": "Your Your mom, you want me to move in with your mom?",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 4.0,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Other",
+            "notes": "panic"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "incredulous, skeptical, disbelieving"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F018",
+      "turn_index": 39,
+      "speaker": "F",
+      "time": {
+        "start": 140.62,
+        "end": 144.2,
+        "duration": 3.58
+      },
+      "content": "I don't know, I'm just--I'm trying to think of something.",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Surprise",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "overwhelmed, desperate"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M020",
+      "turn_index": 40,
+      "speaker": "M",
+      "time": {
+        "start": 142.8,
+        "end": 146.95,
+        "duration": 4.15
+      },
+      "content": "She doesn't even like me.  She's never liked me. No.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "appalled"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F019",
+      "turn_index": 41,
+      "speaker": "F",
+      "time": {
+        "start": 145.0128,
+        "end": 148.8,
+        "duration": 3.7872
+      },
+      "content": "She likes you. Of course, she likes you.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.5,
+          "arousal": 2.0,
+          "dominance": 2.5,
+          "valence_std": 2.1213,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Surprise",
+            "notes": "Happiness"
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "comforting"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 4,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "amused, comforting"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M021",
+      "turn_index": 42,
+      "speaker": "M",
+      "time": {
+        "start": 147.83,
+        "end": 150.66,
+        "duration": 2.83
+      },
+      "content": "She likes you.  She likes the kids.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "pouty, accusing, skeptical"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M022",
+      "turn_index": 43,
+      "speaker": "M",
+      "time": {
+        "start": 151.67,
+        "end": 156.68,
+        "duration": 5.01
+      },
+      "content": "I no I can't- \"sigh\"",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "lost, speechless, overwhelmed"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F020",
+      "turn_index": 44,
+      "speaker": "F",
+      "time": {
+        "start": 156.43,
+        "end": 158.23,
+        "duration": 1.8
+      },
+      "content": "You can't what?",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 1.5,
+          "dominance": 1.0,
+          "valence_std": 1.4142,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": "concerned, worried"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M023",
+      "turn_index": 45,
+      "speaker": "M",
+      "time": {
+        "start": 159.17,
+        "end": 166.01,
+        "duration": 6.84
+      },
+      "content": "I can't let you go.  I can't let you go.  I'll call them.  I'll say something.  I'll do anything.  I'll tell them something different.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "desperate"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F021",
+      "turn_index": 46,
+      "speaker": "F",
+      "time": {
+        "start": 164.25,
+        "end": 167.39,
+        "duration": 3.14
+      },
+      "content": "I don't think there's anything we can do.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "hopeless, despairing, anguished"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M024",
+      "turn_index": 47,
+      "speaker": "M",
+      "time": {
+        "start": 166.05,
+        "end": 169.52,
+        "duration": 3.47
+      },
+      "content": "I'll tell them I'm sick and that you can't leave something.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "desperate, pleading"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F022",
+      "turn_index": 48,
+      "speaker": "F",
+      "time": {
+        "start": 169.17,
+        "end": 182.02,
+        "duration": 12.85
+      },
+      "content": "Well, we can try it.  Baby, don't beg me.  I mean, if there were anything that I could do, I would do it.  Believe me.  This is not what I want.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Sadness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "doesn"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M025",
+      "turn_index": 49,
+      "speaker": "M",
+      "time": {
+        "start": 181.75,
+        "end": 183.73,
+        "duration": 1.98
+      },
+      "content": "It's not fair.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.0,
+          "arousal": 3.5,
+          "dominance": 1.0,
+          "valence_std": 0.0,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "misery, helpless"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F023",
+      "turn_index": 50,
+      "speaker": "F",
+      "time": {
+        "start": 183.02,
+        "end": 188.9,
+        "duration": 5.88
+      },
+      "content": "I know.  I know it's not fair.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.0,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "resigned, hopless, starting to repress emotions again"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M026",
+      "turn_index": 51,
+      "speaker": "M",
+      "time": {
+        "start": 189.28,
+        "end": 200.16,
+        "duration": 10.88
+      },
+      "content": "Why has to be you?  There's all those other people.  Somebody else can go instead.  It's not right.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "desperate, miserable, terrified"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F024",
+      "turn_index": 52,
+      "speaker": "F",
+      "time": {
+        "start": 199.56,
+        "end": 202.78,
+        "duration": 3.22
+      },
+      "content": "Well, apparently nobody else can go.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 1.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "hopeless, dead"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M027",
+      "turn_index": 53,
+      "speaker": "M",
+      "time": {
+        "start": 203.43,
+        "end": 207.0,
+        "duration": 3.57
+      },
+      "content": "What are you going to do that's any different than anybody else?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 3.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Anger"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 4,
+            "notes": "accusing, angry"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F025",
+      "turn_index": 54,
+      "speaker": "F",
+      "time": {
+        "start": 205.98,
+        "end": 213.17,
+        "duration": 7.19
+      },
+      "content": "I don't know.  Baby, why are you asking me this?  It's just as hard for me.  Please, try to understand that.",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 3.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "pleading, defensive, lashing back"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M028",
+      "turn_index": 55,
+      "speaker": "M",
+      "time": {
+        "start": 212.6,
+        "end": 224.55,
+        "duration": 11.95
+      },
+      "content": "I don't know.  It's not me, so I'm the one who has to stay here.  I'm the one who has to take care of them, and I don't have-I don't have anybody else.  You're all I have.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 4.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Anger"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "self pity, overwhelmed, alone, lost, terrified"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F026",
+      "turn_index": 56,
+      "speaker": "F",
+      "time": {
+        "start": 223.63,
+        "end": 233.5,
+        "duration": 9.87
+      },
+      "content": "I understand, baby.  I'm sorry. I mean try to understand I'm I'm scared myself.",
+      "emotion": {
+        "primary_label": "Frustration",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 3.0,
+          "dominance": 3.5,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Frustration",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Sadness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 4,
+            "notes": "accusing, comforting, firm,"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M029",
+      "turn_index": 57,
+      "speaker": "M",
+      "time": {
+        "start": 233.41,
+        "end": 240.23,
+        "duration": 6.82
+      },
+      "content": "I understand.  I'm worried about you.  I don't know what's going to happen to you.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": "Fear"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 1,
+            "notes": "stops pitying self, concern, misery"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F027",
+      "turn_index": 58,
+      "speaker": "F",
+      "time": {
+        "start": 238.65,
+        "end": 240.41,
+        "duration": 1.76
+      },
+      "content": "I know.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "despairing, anguished"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M030",
+      "turn_index": 59,
+      "speaker": "M",
+      "time": {
+        "start": 240.53,
+        "end": 247.47,
+        "duration": 6.94
+      },
+      "content": "Iraq of all-come on.  People die every day.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Anger",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "ill"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F028",
+      "turn_index": 60,
+      "speaker": "F",
+      "time": {
+        "start": 246.35,
+        "end": 248.2,
+        "duration": 1.85
+      },
+      "content": "I know.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "anguished, upset"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M031",
+      "turn_index": 61,
+      "speaker": "M",
+      "time": {
+        "start": 249.9654,
+        "end": 252.0563,
+        "duration": 2.0909
+      },
+      "content": "I jus-",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 1.5,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Fear",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": "resigned, despairing"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F029",
+      "turn_index": 62,
+      "speaker": "F",
+      "time": {
+        "start": 252.21,
+        "end": 262.69,
+        "duration": 10.48
+      },
+      "content": "We'll figure something out.  We just have to ... we just have to think about this.  Could any of your family help us?",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 1.4142,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "staying rational, trying to find solutions, comforting"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M032",
+      "turn_index": 63,
+      "speaker": "M",
+      "time": {
+        "start": 262.98,
+        "end": 264.82,
+        "duration": 1.84
+      },
+      "content": "I don't know.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "despairing, quiet"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F030",
+      "turn_index": 64,
+      "speaker": "F",
+      "time": {
+        "start": 265.5084,
+        "end": 269.0981,
+        "duration": 3.5897
+      },
+      "content": "Maybe we should call your parents.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.7071,
+          "dominance_std": 1.4142
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "firm, suggesting solutions, not giving up"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M033",
+      "turn_index": 65,
+      "speaker": "M",
+      "time": {
+        "start": 269.52,
+        "end": 278.85,
+        "duration": 9.33
+      },
+      "content": "Yeah.  I guess.  I don't know what they're going to say.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 2.8284,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "quietly hopless, despairing, empty"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M034",
+      "turn_index": 66,
+      "speaker": "M",
+      "time": {
+        "start": 280.43,
+        "end": 286.69,
+        "duration": 6.26
+      },
+      "content": "Yeah, we'll call them.  We'll figure something out.  I'm sorry, I'm sorry, I'm sorry.  You're right.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 1.5,
+          "valence_std": 1.4142,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "apologetic, trying to pull himself together"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F031",
+      "turn_index": 67,
+      "speaker": "F",
+      "time": {
+        "start": 285.79,
+        "end": 289.17,
+        "duration": 3.38
+      },
+      "content": "I'm going to miss their first words.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.0,
+          "arousal": 4.0,
+          "dominance": 1.5,
+          "valence_std": 0.0,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "a new wave of anguish and despair"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M035",
+      "turn_index": 68,
+      "speaker": "M",
+      "time": {
+        "start": 289.05,
+        "end": 291.18,
+        "duration": 2.13
+      },
+      "content": "I know.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "trying to keep himself together"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F032",
+      "turn_index": 69,
+      "speaker": "F",
+      "time": {
+        "start": 291.05,
+        "end": 294.92,
+        "duration": 3.87
+      },
+      "content": "You'll have to send me pictures and letters everyday.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.0,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.0,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": "Sadness"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "pleading, panicked"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M036",
+      "turn_index": 70,
+      "speaker": "M",
+      "time": {
+        "start": 293.41,
+        "end": 299.99,
+        "duration": 6.58
+      },
+      "content": "All the time, every day, every day.  They have e-mail over there and stuff like that, right? I can send you pictures.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "comforting, desperate, on edge"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F033",
+      "turn_index": 71,
+      "speaker": "F",
+      "time": {
+        "start": 298.02,
+        "end": 301.28,
+        "duration": 3.26
+      },
+      "content": "I don't know. I hope so.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.5,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Neutral",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Frustration",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 3,
+            "notes": "slightly more hopeful"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M037",
+      "turn_index": 72,
+      "speaker": "M",
+      "time": {
+        "start": 301.19,
+        "end": 307.92,
+        "duration": 6.73
+      },
+      "content": "You have to call me all the time whenever you can.  You have to tell me what you're doing and how you're doing.  Okay?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 3.0,
+          "dominance": 2.5,
+          "valence_std": 1.4142,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "concern"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 3,
+            "notes": "concern, worry, acceptance"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F034",
+      "turn_index": 73,
+      "speaker": "F",
+      "time": {
+        "start": 307.54,
+        "end": 310.21,
+        "duration": 2.67
+      },
+      "content": "Yeah, as much as I can.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.5,
+          "arousal": 2.0,
+          "dominance": 2.0,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Neutral",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": "despairing, empty"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M038",
+      "turn_index": 74,
+      "speaker": "M",
+      "time": {
+        "start": 309.81,
+        "end": 312.18,
+        "duration": 2.37
+      },
+      "content": "How long do we have?  When do you leave?",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.0,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "anxiety"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 4,
+            "dominance": 2,
+            "notes": "clingy, jittery, activated"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F035",
+      "turn_index": 75,
+      "speaker": "F",
+      "time": {
+        "start": 311.9,
+        "end": 316.1,
+        "duration": 4.2
+      },
+      "content": "\"sigh\" Three weeks.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.0,
+          "dominance": 1.5,
+          "valence_std": 1.4142,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M039",
+      "turn_index": 76,
+      "speaker": "M",
+      "time": {
+        "start": 315.41,
+        "end": 319.41,
+        "duration": 4.0
+      },
+      "content": "Three weeks?",
+      "emotion": {
+        "primary_label": "Surprise",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 4.0,
+          "dominance": 1.0,
+          "valence_std": 0.7071,
+          "arousal_std": 1.4142,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Surprise",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Surprise",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 3,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "shocked,"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F036",
+      "turn_index": 77,
+      "speaker": "F",
+      "time": {
+        "start": 318.97,
+        "end": 320.71,
+        "duration": 1.74
+      },
+      "content": "Yeah.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 1.0,
+          "dominance": 1.0,
+          "valence_std": 1.4142,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": "overwhelmed, diminished"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M040",
+      "turn_index": 78,
+      "speaker": "M",
+      "time": {
+        "start": 320.35,
+        "end": 328.82,
+        "duration": 8.47
+      },
+      "content": "I don't Okay.  Okay, we can do this.  We can do this.  It's okay.  We'll make it work.",
+      "emotion": {
+        "primary_label": "Unknown",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 2.0,
+          "dominance": 2.5,
+          "valence_std": 0.7071,
+          "arousal_std": 0.0,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Other",
+            "notes": "optimistic"
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 2,
+            "dominance": 3,
+            "notes": "comforting, repressing grief, hopeful"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F037",
+      "turn_index": 79,
+      "speaker": "F",
+      "time": {
+        "start": 328.2,
+        "end": 329.4,
+        "duration": 1.2
+      },
+      "content": "Yeah.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 1.0,
+          "dominance": 1.0,
+          "valence_std": 1.4142,
+          "arousal_std": 0.0,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 1,
+            "dominance": 1,
+            "notes": "disbelieving"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_M041",
+      "turn_index": 80,
+      "speaker": "M",
+      "time": {
+        "start": 332.823,
+        "end": 335.1399,
+        "duration": 2.3169
+      },
+      "content": "I love you.",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 2.0,
+          "arousal": 2.5,
+          "dominance": 2.0,
+          "valence_std": 1.4142,
+          "arousal_std": 0.7071,
+          "dominance_std": 0.0
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Fear",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 3,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 3,
+            "dominance": 2,
+            "notes": "desperate, loves her truly"
+          }
+        ]
+      }
+    },
+    {
+      "turn_id": "Ses05F_impro02_F038",
+      "turn_index": 81,
+      "speaker": "F",
+      "time": {
+        "start": 335.2658,
+        "end": 343.4,
+        "duration": 8.1342
+      },
+      "content": "I love you.  I'm going to miss you so much. \"sigh\"",
+      "emotion": {
+        "primary_label": "Sadness",
+        "averaged_vad": {
+          "valence": 1.5,
+          "arousal": 3.5,
+          "dominance": 1.5,
+          "valence_std": 0.7071,
+          "arousal_std": 2.1213,
+          "dominance_std": 0.7071
+        },
+        "categorical_annotations": [
+          {
+            "annotator_id": "E1",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E2",
+            "emotion": "Sadness",
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "emotion": "Sadness",
+            "notes": ""
+          }
+        ],
+        "vad_annotations": [
+          {
+            "annotator_id": "E3",
+            "valence": 2,
+            "arousal": 2,
+            "dominance": 2,
+            "notes": ""
+          },
+          {
+            "annotator_id": "E4",
+            "valence": 1,
+            "arousal": 5,
+            "dominance": 1,
+            "notes": "anguished, miserable"
+          }
+        ]
+      }
+    }
+  ]
+}

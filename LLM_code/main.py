@@ -576,8 +576,8 @@ with open(args.deepspeed_config, 'r', encoding='utf-8') as f:
     deepspeed_config = json.load(f)
 deepspeed_config["train_batch_size"] = args.batch_size * args.gradient_accumulation_steps * world_size
 deepspeed_config["gradient_accumulation_steps"] = args.gradient_accumulation_steps
-if deepspeed_config["zero_optimization"]["stage"] == 3:
-    deepspeed_config["zero_optimization"]['mics_shard_size'] = world_size
+# Note: Do NOT set mics_shard_size when using CPU offloading (offload_param or offload_optimizer)
+# MiCS is incompatible with CPU offloading and causes "No backend type associated with device type cpu" error
 def getOptimizerGroup(model):
     no_decay = ["bias", "LayerNorm.weight"]
     optimizer_grouped_parameters = [
@@ -713,8 +713,8 @@ else:
             tokenizer.add_special_tokens({'pad_token': '[PAD]'})
             model.resize_token_embeddings(len(tokenizer))
             model.generation_config.pad_token_id = tokenizer.pad_token_id
-        deepspeed_config["bfloat16"]["enabled"] = False
-        deepspeed_config["fp16"]["enabled"] = False
+        # Keep fp16 enabled from DeepSpeed config for memory efficiency
+        # (Don't override the config settings here)
 
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.unk_token
@@ -782,20 +782,37 @@ if args.do_train:
 
     optimizer_grouped_parameters = getOptimizerGroup(model=model)
 
-    # Use standard PyTorch AdamW optimizer (traditional and reliable)
-    # This avoids CUDA compilation issues with DeepSpeedCPUAdam
-    from torch.optim import AdamW
-    optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, betas=(0.9, 0.95))
-    lr_scheduler = get_linear_schedule_with_warmup(optimizer=optimizer, num_training_steps=t_total, num_warmup_steps=warmup_steps)
+    # Check if DeepSpeed config has optimizer defined (needed for CPU offloading)
+    if "optimizer" in deepspeed_config:
+        # Let DeepSpeed create and manage the optimizer (required for CPU offloading performance)
+        # Set the learning rate in the config if it's "auto"
+        if deepspeed_config["optimizer"]["params"].get("lr") == "auto":
+            deepspeed_config["optimizer"]["params"]["lr"] = args.learning_rate
+        if deepspeed_config["optimizer"]["params"].get("weight_decay") == "auto":
+            deepspeed_config["optimizer"]["params"]["weight_decay"] = args.weight_decay
 
-    model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
-        model=model,
-        training_data=train_dataset,
-        optimizer=optimizer,
-        lr_scheduler=lr_scheduler,
-        config=deepspeed_config,
-        collate_fn=train_collator
-    )
+        model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
+            model=model,
+            model_parameters=optimizer_grouped_parameters,
+            training_data=train_dataset,
+            config=deepspeed_config,
+            collate_fn=train_collator
+        )
+    else:
+        # Use standard PyTorch AdamW optimizer (traditional and reliable)
+        # This avoids CUDA compilation issues with DeepSpeedCPUAdam
+        from torch.optim import AdamW
+        optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, betas=(0.9, 0.95))
+        lr_scheduler = get_linear_schedule_with_warmup(optimizer=optimizer, num_training_steps=t_total, num_warmup_steps=warmup_steps)
+
+        model_engine, optimizer, train_dataloader, lr_scheduler = deepspeed.initialize(
+            model=model,
+            training_data=train_dataset,
+            optimizer=optimizer,
+            lr_scheduler=lr_scheduler,
+            config=deepspeed_config,
+            collate_fn=train_collator
+        )
     model = model_engine    
     should_save = True
 elif args.do_eval:

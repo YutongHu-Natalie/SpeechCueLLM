@@ -1,0 +1,263 @@
+Job started at Wed Jan 28 11:31:59 AM EST 2026
+Running on host: h200server
+Job ID: 25251
+SLURM allocated GPUs: 0,1
+Wed Jan 28 11:31:59 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.163.01             Driver Version: 550.163.01     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    Off |   00000000:BA:00.0 Off |                    0 |
+| N/A   24C    P0             77W /  700W |       1MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA H200                    Off |   00000000:DB:00.0 Off |                    0 |
+| N/A   23C    P0             77W /  700W |       1MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+******************************************************************************************
+All parameters are valid.
+The dataset you have selected is: iemocap !
+The base model you have selected is LLaMA3-instruct-70b!
+The model's SFT method you have selected: lora!
+If predict emotions: False
+******************************************************************************************
+******************************************************************************************
+Data procession has executed successfully !
+******************************************************************************************
+Note: Reduced MAX_LENGTH to 1024 for 70B model
+******************************************************************************************
+Your choose iemocap! The max_context_length will be set as 1024!
+******************************************************************************************
+Your choose LLaMA3-instruct-70b! Model Parameters should be initialized in the path 
+ /local/scratch/yhu383/models/llama3.3-70b
+Your choose lora! The experiment will be set as LORA model
+Processed Data_Path: ../PROCESSED_DATASET/iemocap/window/True_False
+Note: Enabling gradient checkpointing for 70B model
+Warning: The cache directory for DeepSpeed Triton autotune, /home/yhu383/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2026-01-28 11:32:19,387] [WARNING] [runner.py:232:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2026-01-28 11:32:19,388] [INFO] [runner.py:630:main] cmd = /local/scratch/yhu383/SpeechCueLLM/venv/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=26000 --enable_each_rank_log=None --log_level=info main.py --dataset iemocap --model_name_or_path /local/scratch/yhu383/models/llama3.3-70b --data_dir ../PROCESSED_DATASET/iemocap/window/True_False --output_dir ../new_experiments/LLaMA3-instruct-70b/lora/iemocap/window_12/LR_3e-4_BS_8_per_1.0_des_context_class5_11 --max_length 1024 --batch_size 8 --deepspeed_config ../LLM_code/data_utils/deepspeed_config.json --gradient_accumulation_steps 8 --eval_batch_size 8 --num_train_epochs 15 --save_steps 100000 --lora True --learning_rate 3e-4 --do_eval True --do_train True --statistic_mode True --data_percent 1.0 --seed 11 --emotion_prediction False --gradient_checkpointing
+Warning: The cache directory for DeepSpeed Triton autotune, /home/yhu383/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2026-01-28 11:32:23,382] [INFO] [launch.py:162:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2026-01-28 11:32:23,382] [INFO] [launch.py:168:main] nnodes=1, num_local_procs=2, node_rank=0
+[2026-01-28 11:32:23,382] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2026-01-28 11:32:23,382] [INFO] [launch.py:180:main] dist_world_size=2
+[2026-01-28 11:32:23,382] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2026-01-28 11:32:23,382] [INFO] [launch.py:272:main] process 1452423 spawned with command: ['/local/scratch/yhu383/SpeechCueLLM/venv/bin/python', '-u', 'main.py', '--local_rank=0', '--dataset', 'iemocap', '--model_name_or_path', '/local/scratch/yhu383/models/llama3.3-70b', '--data_dir', '../PROCESSED_DATASET/iemocap/window/True_False', '--output_dir', '../new_experiments/LLaMA3-instruct-70b/lora/iemocap/window_12/LR_3e-4_BS_8_per_1.0_des_context_class5_11', '--max_length', '1024', '--batch_size', '8', '--deepspeed_config', '../LLM_code/data_utils/deepspeed_config.json', '--gradient_accumulation_steps', '8', '--eval_batch_size', '8', '--num_train_epochs', '15', '--save_steps', '100000', '--lora', 'True', '--learning_rate', '3e-4', '--do_eval', 'True', '--do_train', 'True', '--statistic_mode', 'True', '--data_percent', '1.0', '--seed', '11', '--emotion_prediction', 'False', '--gradient_checkpointing']
+[2026-01-28 11:32:23,383] [INFO] [launch.py:272:main] process 1452424 spawned with command: ['/local/scratch/yhu383/SpeechCueLLM/venv/bin/python', '-u', 'main.py', '--local_rank=1', '--dataset', 'iemocap', '--model_name_or_path', '/local/scratch/yhu383/models/llama3.3-70b', '--data_dir', '../PROCESSED_DATASET/iemocap/window/True_False', '--output_dir', '../new_experiments/LLaMA3-instruct-70b/lora/iemocap/window_12/LR_3e-4_BS_8_per_1.0_des_context_class5_11', '--max_length', '1024', '--batch_size', '8', '--deepspeed_config', '../LLM_code/data_utils/deepspeed_config.json', '--gradient_accumulation_steps', '8', '--eval_batch_size', '8', '--num_train_epochs', '15', '--save_steps', '100000', '--lora', 'True', '--learning_rate', '3e-4', '--do_eval', 'True', '--do_train', 'True', '--statistic_mode', 'True', '--data_percent', '1.0', '--seed', '11', '--emotion_prediction', 'False', '--gradient_checkpointing']
+Warning: The cache directory for DeepSpeed Triton autotune, /home/yhu383/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/yhu383/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+ModelArgs(model_type='decoder', model_name_or_path='/local/scratch/yhu383/models/llama3.3-70b', checkpoint_dir=None, output_dir='../new_experiments/LLaMA3-instruct-70b/lora/iemocap/window_12/LR_3e-4_BS_8_per_1.0_des_context_class5_11', data_dir='../PROCESSED_DATASET/iemocap/window/True_False', do_train=True, do_eval=True, warmup_ratio=0.1, warmup_steps=None, save_steps=100000, weight_decay=0.0, max_seq_length=256, max_length=1024, num_beams=1, do_sample=False, top_k=None, top_p=None, learning_rate=0.0003, preprocess_inputs=True, clip_norm=1.0, open_ended=False, batch_size=8, eval_batch_size=8, gradient_accumulation_steps=8, lora=True, lora_dim=16, lora_alpha=16, lora_dropout=0.05, lora_module_name='q_proj,k_proj,v_proj,query_key_value', seed=11, offload_optimizer=False, deepspeed_config='../LLM_code/data_utils/deepspeed_config.json', zero_shot=True, mode='sft', gradient_checkpointing=True, use_chat_template='auto')
+Detected 70B model, using config: deepspeed_config_70b.json
+Auto-selected DeepSpeed config: /local/scratch/yhu383/SpeechCueLLM/LLM_code/data_utils/deepspeed_config_70b.json
+ModelArgs(model_type='decoder', model_name_or_path='/local/scratch/yhu383/models/llama3.3-70b', checkpoint_dir=None, output_dir='../new_experiments/LLaMA3-instruct-70b/lora/iemocap/window_12/LR_3e-4_BS_8_per_1.0_des_context_class5_11', data_dir='../PROCESSED_DATASET/iemocap/window/True_False', do_train=True, do_eval=True, warmup_ratio=0.1, warmup_steps=None, save_steps=100000, weight_decay=0.0, max_seq_length=256, max_length=1024, num_beams=1, do_sample=False, top_k=None, top_p=None, learning_rate=0.0003, preprocess_inputs=True, clip_norm=1.0, open_ended=False, batch_size=8, eval_batch_size=8, gradient_accumulation_steps=8, lora=True, lora_dim=16, lora_alpha=16, lora_dropout=0.05, lora_module_name='q_proj,k_proj,v_proj,query_key_value', seed=11, offload_optimizer=False, deepspeed_config='../LLM_code/data_utils/deepspeed_config.json', zero_shot=True, mode='sft', gradient_checkpointing=True, use_chat_template='auto')
+Detected 70B model, using config: deepspeed_config_70b.json
+Auto-selected DeepSpeed config: /local/scratch/yhu383/SpeechCueLLM/LLM_code/data_utils/deepspeed_config_70b.json
+the number of num_samples is 5163
+the number of num_samples is 5163
+the number of num_samples is 1623
+the number of num_samples is 1623
+the number of num_samples is 5163
+the number of num_samples is 5163
+the number of num_samples is 1623
+the number of num_samples is 1623
+Stage 3 initialize beginning
+MA 131.5 GB         Max_MA 131.5 GB         CA 131.51 GB         Max_CA 132 GB 
+CPU Virtual Memory:  used = 84.63 GB, percent = 4.2%
+DeepSpeedZeRoOffload initialize [begin]
+MA 131.5 GB         Max_MA 135.41 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 85.99 GB, percent = 4.3%
+Parameter Offload - Persistent parameters statistics: param_count = 321, numel = 3940352
+DeepSpeedZeRoOffload initialize [end]
+MA 0.0 GB         Max_MA 131.5 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 230.48 GB, percent = 11.4%
+Before creating fp16 partitions
+MA 0.0 GB         Max_MA 0.0 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 230.51 GB, percent = 11.4%
+After creating fp16 partitions: 1
+MA 0.0 GB         Max_MA 0.0 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 228.81 GB, percent = 11.4%
+Before creating fp32 partitions
+MA 0.0 GB         Max_MA 0.0 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 228.83 GB, percent = 11.4%
+After creating fp32 partitions
+MA 0.0 GB         Max_MA 0.0 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 228.94 GB, percent = 11.4%
+Before initializing optimizer states
+MA 0.0 GB         Max_MA 0.0 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 229.16 GB, percent = 11.4%
+After initializing optimizer states
+MA 0.0 GB         Max_MA 0.0 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 229.28 GB, percent = 11.4%
+After initializing ZeRO optimizer
+MA 0.09 GB         Max_MA 0.09 GB         CA 135.42 GB         Max_CA 135 GB 
+CPU Virtual Memory:  used = 229.11 GB, percent = 11.4%
+[2026-01-28 11:38:36,620] [WARNING] [stage3.py:2236:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 71.937
+history: [71.937]
+best_f1: 71.937
+current_f1: 71.937
+history: [71.937]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 71.15
+history: [71.937, 71.15]
+best_f1: 71.937
+current_f1: 71.15
+history: [71.937, 71.15]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 71.025
+history: [71.937, 71.15, 71.025]
+best_f1: 71.937
+current_f1: 71.025
+history: [71.937, 71.15, 71.025]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 69.044
+history: [71.937, 71.15, 71.025, 69.044]
+best_f1: 71.937
+current_f1: 69.044
+history: [71.937, 71.15, 71.025, 69.044]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 68.256
+history: [71.937, 71.15, 71.025, 69.044, 68.256]
+best_f1: 71.937
+current_f1: 68.256
+history: [71.937, 71.15, 71.025, 69.044, 68.256]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 70.088
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088]
+best_f1: 71.937
+current_f1: 70.088
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 70.362
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362]
+best_f1: 71.937
+current_f1: 70.362
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 67.736
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736]
+best_f1: 71.937
+current_f1: 67.736
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 71.223
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223]
+best_f1: 71.937
+current_f1: 71.223
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 69.72
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72]
+best_f1: 71.937
+current_f1: 69.72
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 69.89
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89]
+best_f1: 71.937
+current_f1: 69.89
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 70.251
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89, 70.251]
+best_f1: 71.937
+current_f1: 70.251
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89, 70.251]
+
+*****    Evaluating  *****
+
+
+*****    Evaluating  *****
+
+best_f1: 71.937
+current_f1: 69.917
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89, 70.251, 69.917]
+best_f1: 71.937
+current_f1: 69.917
+history: [71.937, 71.15, 71.025, 69.044, 68.256, 70.088, 70.362, 67.736, 71.223, 69.72, 69.89, 70.251, 69.917]
