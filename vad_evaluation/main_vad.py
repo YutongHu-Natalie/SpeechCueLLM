@@ -652,7 +652,8 @@ def main():
         train_collator = VADCollator(tokenizer, args.max_length, mode='train')
 
         optimizer_params = [p for p in model.parameters() if p.requires_grad]
-        optimizer = torch.optim.AdamW(optimizer_params, lr=args.learning_rate)
+        from deepspeed.ops.adam import DeepSpeedCPUAdam
+        optimizer = DeepSpeedCPUAdam(optimizer_params, lr=args.learning_rate)
 
         t_total = math.ceil(len(train_dataset) / args.batch_size) * args.num_train_epochs
         warmup_steps = int(t_total * args.warmup_ratio)
