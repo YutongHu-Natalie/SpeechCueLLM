@@ -17,6 +17,7 @@ DATA_PERCENT=1.0
 SEED=42
 TEST_SESSION=5  # Session to use as test set (1-5), matches emotion recognition split
 USE_FILTERED_DATA="False"  # For LoRA only: use filtered dataset for training (test set always uses full dataset)
+INCLUDE_HISTORY_VAD="False"  # Include VAD values for conversation history utterances
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -61,6 +62,10 @@ while [[ $# -gt 0 ]]; do
             USE_FILTERED_DATA="$2"
             shift 2
             ;;
+        --include_history_vad)
+            INCLUDE_HISTORY_VAD="$2"
+            shift 2
+            ;;
         *)
             echo "Unknown option: $1"
             exit 1
@@ -88,11 +93,17 @@ echo "Test Session: $TEST_SESSION"
 if [ "$EXPERIMENT" == "lora" ]; then
     echo "Use Filtered Data (training only): $USE_FILTERED_DATA"
 fi
+echo "Include History VAD: $INCLUDE_HISTORY_VAD"
 echo "=========================================="
 
 # Run based on model type
 if [ "$MODEL_TYPE" == "openai" ]; then
     echo "Running OpenAI VAD evaluation..."
+
+    OPENAI_EXTRA_ARGS=""
+    if [ "$INCLUDE_HISTORY_VAD" == "True" ]; then
+        OPENAI_EXTRA_ARGS="--include_history_vad"
+    fi
 
     python main_vad_openai.py \
         --data_file "$DATA_FILE" \
@@ -103,7 +114,8 @@ if [ "$MODEL_TYPE" == "openai" ]; then
         --data_percent "$DATA_PERCENT" \
         --seed "$SEED" \
         --test_session "$TEST_SESSION" \
-        --batch_delay 0.1
+        --batch_delay 0.1 \
+        $OPENAI_EXTRA_ARGS
 
 elif [ "$MODEL_TYPE" == "llama" ]; then
     echo "Running LLaMA VAD evaluation..."
@@ -117,6 +129,7 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --data_percent "$DATA_PERCENT" \
             --seed "$SEED" \
             --test_session "$TEST_SESSION" \
+            --include_history_vad "$INCLUDE_HISTORY_VAD" \
             --do_train False \
             --do_eval True \
             --zero_shot True \
@@ -134,6 +147,7 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --data_percent "$DATA_PERCENT" \
             --seed "$SEED" \
             --test_session "$TEST_SESSION" \
+            --include_history_vad "$INCLUDE_HISTORY_VAD" \
             --do_train False \
             --do_eval True \
             --zero_shot False \
@@ -153,6 +167,7 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
             --data_percent "$DATA_PERCENT" \
             --seed "$SEED" \
             --test_session "$TEST_SESSION" \
+            --include_history_vad "$INCLUDE_HISTORY_VAD" \
             --use_filtered_data "$USE_FILTERED_DATA" \
             --do_train True \
             --do_eval True \
