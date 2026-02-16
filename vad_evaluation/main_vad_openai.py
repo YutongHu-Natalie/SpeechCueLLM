@@ -185,7 +185,7 @@ def read_vad_data(file_path, percent=1.0, random_seed=42):
     return df
 
 
-def build_conversation_history(df, current_idx, window_size=12):
+def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False):
     """
     Build conversation history for a given utterance.
 
@@ -193,6 +193,7 @@ def build_conversation_history(df, current_idx, window_size=12):
         df: DataFrame with VAD data
         current_idx: Index of the target utterance
         window_size: Number of previous utterances to include
+        include_history_vad: If True, include VAD values for history utterances
 
     Returns:
         Tuple of (conversation_history, target_utterance)
@@ -213,7 +214,18 @@ def build_conversation_history(df, current_idx, window_size=12):
     for _, row in history_df.iterrows():
         speaker = f"Speaker_{row['speaker']}"
         content = row['content']
-        history_lines.append(f'{speaker}: "{content}"')
+        if include_history_vad:
+            # Include VAD values if available
+            v = row.get('valence')
+            a = row.get('arousal')
+            d = row.get('dominance')
+            if pd.notna(v) and pd.notna(a) and pd.notna(d):
+                vad_str = f" [VAD: V={int(round(v))}, A={int(round(a))}, D={int(round(d))}]"
+            else:
+                vad_str = ""
+            history_lines.append(f'{speaker}: "{content}"{vad_str}')
+        else:
+            history_lines.append(f'{speaker}: "{content}"')
 
     conversation_history = '\n'.join(history_lines)
 
@@ -242,11 +254,13 @@ def get_audio_features_for_context(df, current_idx, num_utterances=3):
     return "Audio features not available for this sample."
 
 
-def create_openai_messages_zero_shot(conversation_history, target_utterance, audio_features):
+def create_openai_messages_zero_shot(conversation_history, target_utterance, audio_features, include_history_vad=False):
     """
     Create messages for OpenAI API call using zero-shot VAD prompt.
     """
     developer_message = """Now you are expert of evaluating emotions for dialogues based on Valence-Arousal-Dominance (VAD) Model. Please rate the emotion on a scale of 1-5 (only give integer) for each dimension."""
+
+    history_vad_note = "\nNote: VAD ratings [V=Valence, A=Arousal, D=Dominance] are provided for context utterances." if include_history_vad else ""
 
     user_message = f"""You will be analyzing a dialogue to evaluate the emotion expressed in a specific target utterance using the Valence-Arousal-Dominance (VAD) Model. The VAD model measures emotion across three dimensions:
 * Valence: How positive or negative the emotion is (1 = very negative, 5 = very positive)
@@ -254,7 +268,7 @@ def create_openai_messages_zero_shot(conversation_history, target_utterance, aud
 * Dominance: The degree of control or power expressed (1 = very submissive/controlled, 5 = very dominant/in-control)
 
 Input:
-The conversation history leading up to the target utterance:
+The conversation history leading up to the target utterance:{history_vad_note}
 {conversation_history}
 
 Here is the target utterance you need to analyze:
@@ -281,7 +295,7 @@ Remember:
     return messages
 
 
-def create_openai_messages_few_shot(conversation_history, target_utterance, audio_features):
+def create_openai_messages_few_shot(conversation_history, target_utterance, audio_features, include_history_vad=False):
     """
     Create messages for OpenAI API call using few-shot VAD prompt with examples.
     """
@@ -298,6 +312,8 @@ def create_openai_messages_few_shot(conversation_history, target_utterance, audi
         examples_text += f"Audio features: {example['audio_features']}\n"
         examples_text += f"<answer>\n{json.dumps(example['answer'])}\n</answer>\n"
 
+    history_vad_note = "\nNote: VAD ratings [V=Valence, A=Arousal, D=Dominance] are provided for context utterances." if include_history_vad else ""
+
     user_message = f"""You will be analyzing a dialogue to evaluate the emotion expressed in a specific target utterance using the Valence-Arousal-Dominance (VAD) Model. The VAD model measures emotion across three dimensions:
 * Valence: How positive or negative the emotion is (1 = very negative, 5 = very positive)
 * Arousal: The intensity or energy level of the emotion (1 = very calm/passive, 5 = very excited/active)
@@ -307,7 +323,7 @@ def create_openai_messages_few_shot(conversation_history, target_utterance, audi
 --- Now analyze this dialogue ---
 
 Input:
-The conversation history leading up to the target utterance:
+The conversation history leading up to the target utterance:{history_vad_note}
 {conversation_history}
 
 Here is the target utterance you need to analyze:
@@ -455,6 +471,8 @@ def main():
                         help='Delay between API calls')
     parser.add_argument('--test_session', type=int, default=5,
                         help='Session to use as test set (1-5). Only this session will be evaluated.')
+    parser.add_argument('--include_history_vad', action='store_true',
+                        help='Include VAD values for utterances in conversation history')
 
     args = parser.parse_args()
 
@@ -495,6 +513,9 @@ def main():
         create_messages_fn = create_openai_messages_zero_shot
         print("Using zero-shot prompting")
 
+    if args.include_history_vad:
+        print("Including VAD values for conversation history utterances")
+
     # Run inference
     all_outputs = []
     preds_v, preds_a, preds_d = [], [], []
@@ -507,11 +528,13 @@ def main():
         row = df.iloc[idx]
 
         # Build conversation history
-        conversation_history, target_utterance = build_conversation_history(df, idx, args.window_size)
+        conversation_history, target_utterance = build_conversation_history(
+            df, idx, args.window_size, args.include_history_vad
+        )
         audio_features = get_audio_features_for_context(df, idx)
 
         # Create messages
-        messages = create_messages_fn(conversation_history, target_utterance, audio_features)
+        messages = create_messages_fn(conversation_history, target_utterance, audio_features, args.include_history_vad)
 
         # Run inference
         output = run_openai_inference(client, args.model_name, messages)
@@ -639,6 +662,7 @@ def main():
             "window_size": args.window_size,
             "seed": args.seed,
             "test_session": args.test_session,
+            "include_history_vad": args.include_history_vad,
             "num_samples": len(df),
             "num_failed": len(failed_cases)
         }, f, indent=2)

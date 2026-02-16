@@ -171,13 +171,16 @@ def get_few_shot_examples():
     return examples
 
 
-def create_vad_prompt_zero_shot(conversation_history, target_utterance, audio_features, short_version=False):
+def create_vad_prompt_zero_shot(conversation_history, target_utterance, audio_features, short_version=False, include_history_vad=False):
     """
     Create zero-shot prompt for VAD prediction.
 
     Args:
         short_version: If True, use a shorter prompt suitable for LoRA with limited context
+        include_history_vad: If True, mention that VAD values are included in history
     """
+    history_vad_note = "\nNote: VAD ratings [V=Valence, A=Arousal, D=Dominance] are provided for context utterances." if include_history_vad else ""
+
     if short_version:
         # Shorter prompt for LoRA to fit in context window
         prompt = f"""Rate the emotion in the target utterance using VAD (1-5 scale):
@@ -185,7 +188,7 @@ def create_vad_prompt_zero_shot(conversation_history, target_utterance, audio_fe
 * Arousal: The intensity or energy level (1 = very calm, 5 = very excited)
 * Dominance: The degree of control or power (1 = very submissive, 5 = very dominant)
 
-Conversation:
+Conversation:{history_vad_note}
 {conversation_history}
 
 Target: {target_utterance}
@@ -201,7 +204,7 @@ You will be analyzing a dialogue to evaluate the emotion expressed in a specific
 * Arousal: The intensity or energy level (1 = very calm, 5 = very excited)
 * Dominance: The degree of control or power (1 = very submissive, 5 = very dominant)
 
-Conversation history:
+Conversation history:{history_vad_note}
 {conversation_history}
 
 Target utterance: {target_utterance}
@@ -217,13 +220,15 @@ Provide your ratings in JSON format inside <answer> tags:
     return prompt
 
 
-def create_vad_prompt_few_shot(conversation_history, target_utterance, audio_features):
+def create_vad_prompt_few_shot(conversation_history, target_utterance, audio_features, include_history_vad=False):
     """Create few-shot prompt with examples."""
     examples = get_few_shot_examples()
     examples_text = ""
 
     for i, ex in enumerate(examples, 1):
         examples_text += f"\nExample {i}:\nConversation: {ex['conversation_history']}\nTarget: {ex['target_utterance']}\nAudio: {ex['audio_features']}\n<answer>\n{ex['answer']}\n</answer>\n"
+
+    history_vad_note = "\nNote: VAD ratings [V=Valence, A=Arousal, D=Dominance] are provided for context utterances." if include_history_vad else ""
 
     prompt = f"""Now you are expert of evaluating emotions for dialogues based on VAD Model. Rate emotion on scale 1-5 for each dimension.
 
@@ -235,7 +240,7 @@ VAD dimensions:
 
 Now analyze this dialogue:
 
-Conversation history:
+Conversation history:{history_vad_note}
 {conversation_history}
 
 Target utterance: {target_utterance}
@@ -271,8 +276,15 @@ def read_vad_data(file_path, percent=1.0, random_seed=42):
     return df
 
 
-def build_conversation_history(df, current_idx, window_size=12):
-    """Build conversation history for a given utterance."""
+def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False):
+    """Build conversation history for a given utterance.
+
+    Args:
+        df: DataFrame with utterance data
+        current_idx: Index of current utterance
+        window_size: Number of previous utterances to include
+        include_history_vad: If True, include VAD values for history utterances
+    """
     current_row = df.iloc[current_idx]
     dialogue_id = current_row['dialogue_id']
     turn_index = current_row['turn_index']
@@ -285,7 +297,18 @@ def build_conversation_history(df, current_idx, window_size=12):
     for _, row in history_df.iterrows():
         speaker = f"Speaker_{row['speaker']}"
         content = row['content']
-        history_lines.append(f'{speaker}: "{content}"')
+        if include_history_vad:
+            # Include VAD values if available
+            v = row.get('valence')
+            a = row.get('arousal')
+            d = row.get('dominance')
+            if pd.notna(v) and pd.notna(a) and pd.notna(d):
+                vad_str = f" [VAD: V={int(round(v))}, A={int(round(a))}, D={int(round(d))}]"
+            else:
+                vad_str = ""
+            history_lines.append(f'{speaker}: "{content}"{vad_str}')
+        else:
+            history_lines.append(f'{speaker}: "{content}"')
 
     conversation_history = '\n'.join(history_lines)
     target_speaker = f"Speaker_{current_row['speaker']}"
@@ -298,11 +321,12 @@ def build_conversation_history(df, current_idx, window_size=12):
 class VADDataset(Dataset):
     """Dataset for VAD prediction."""
 
-    def __init__(self, df, prompt_fn, window_size=12, short_prompt=False):
+    def __init__(self, df, prompt_fn, window_size=12, short_prompt=False, include_history_vad=False):
         self.df = df.reset_index(drop=True)
         self.prompt_fn = prompt_fn
         self.window_size = window_size
         self.short_prompt = short_prompt
+        self.include_history_vad = include_history_vad
 
     def __len__(self):
         return len(self.df)
@@ -310,16 +334,17 @@ class VADDataset(Dataset):
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
         conversation_history, target_utterance = build_conversation_history(
-            self.df, idx, self.window_size
+            self.df, idx, self.window_size, self.include_history_vad
         )
         audio_features = "Audio features not available."
 
         if self.short_prompt:
             prompt = create_vad_prompt_zero_shot(
-                conversation_history, target_utterance, audio_features, short_version=True
+                conversation_history, target_utterance, audio_features,
+                short_version=True, include_history_vad=self.include_history_vad
             )
         else:
-            prompt = self.prompt_fn(conversation_history, target_utterance, audio_features)
+            prompt = self.prompt_fn(conversation_history, target_utterance, audio_features, self.include_history_vad)
 
         # Target for training: the expected JSON output
         target = json.dumps({
@@ -462,6 +487,7 @@ class VADModelArgs:
     deepspeed_config: str = "auto"
     test_session: int = 5  # Session to use as test set (1-5)
     use_filtered_data: bool = False  # Use filtered dataset (for LoRA only)
+    include_history_vad: bool = False  # Include VAD values for conversation history utterances
 
     def save(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
@@ -505,6 +531,8 @@ def main():
                         help='Session to use as test set (1-5). For zero-shot/few-shot, only this session is evaluated.')
     parser.add_argument('--use_filtered_data', type=str, default='False',
                         help='For LoRA only: use filtered dataset instead of full dataset')
+    parser.add_argument('--include_history_vad', type=str, default='False',
+                        help='Include VAD values for utterances in conversation history')
 
     cmd_args = parser.parse_args()
 
@@ -516,6 +544,7 @@ def main():
     cmd_args.few_shot = cmd_args.few_shot == 'True'
     cmd_args.short_prompt = cmd_args.short_prompt == 'True'
     cmd_args.use_filtered_data = cmd_args.use_filtered_data == 'True'
+    cmd_args.include_history_vad = cmd_args.include_history_vad == 'True'
 
     args = VADModelArgs()
     args.update(vars(cmd_args))
@@ -632,18 +661,20 @@ def main():
         prompt_fn = create_vad_prompt_few_shot
         print("Using few-shot prompting")
     else:
-        prompt_fn = lambda ch, tu, af: create_vad_prompt_zero_shot(ch, tu, af, short_version=args.short_prompt)
+        prompt_fn = lambda ch, tu, af, ihv: create_vad_prompt_zero_shot(ch, tu, af, short_version=args.short_prompt, include_history_vad=ihv)
         print(f"Using zero-shot prompting (short_prompt={args.short_prompt})")
 
     # Create datasets
     if args.lora and train_df is not None:
-        train_dataset = VADDataset(train_df, prompt_fn, args.window_size, args.short_prompt)
+        train_dataset = VADDataset(train_df, prompt_fn, args.window_size, args.short_prompt, args.include_history_vad)
         print(f"Created training dataset with {len(train_dataset)} samples")
     else:
         train_dataset = None
 
-    eval_dataset = VADDataset(test_df, prompt_fn, args.window_size, args.short_prompt)
+    eval_dataset = VADDataset(test_df, prompt_fn, args.window_size, args.short_prompt, args.include_history_vad)
     print(f"Created evaluation dataset with {len(eval_dataset)} samples")
+    if args.include_history_vad:
+        print("Including VAD values for conversation history utterances")
 
     if args.do_train:
         print("\n***** Training *****")
