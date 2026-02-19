@@ -363,10 +363,10 @@ def extract_vad_from_output(output):
     if not output or output.strip() == '':
         return None, None, None
 
-    # Strategy 1: Extract from <answer> tags
-    answer_match = re.search(r'<answer>\s*(.*?)\s*</answer>', output, re.DOTALL)
-    if answer_match:
-        answer_content = answer_match.group(1).strip()
+    # Strategy 1: Extract from <answer> tags (use LAST match to skip few-shot examples)
+    answer_matches = re.findall(r'<answer>\s*(.*?)\s*</answer>', output, re.DOTALL)
+    if answer_matches:
+        answer_content = answer_matches[-1].strip()
         try:
             parsed = json.loads(answer_content)
             v = int(parsed.get('v_value', 3))
