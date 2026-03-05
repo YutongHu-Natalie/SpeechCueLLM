@@ -276,7 +276,7 @@ def read_vad_data(file_path, percent=1.0, random_seed=42):
     return df
 
 
-def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False, predicted_vad_cache=None):
+def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False, predicted_vad_cache=None, vad_context_size=None):
     """Build conversation history for a given utterance.
 
     Args:
@@ -287,6 +287,9 @@ def build_conversation_history(df, current_idx, window_size=12, include_history_
         predicted_vad_cache: Dict mapping (dialogue_id, turn_index) -> (v, a, d) of
                              previously predicted VAD values. Used instead of ground
                              truth to avoid data leakage.
+        vad_context_size: If set, only attach VAD labels to the last N utterances in
+                          history (while still showing all window_size utterances as
+                          text context). None means attach to all (original behavior).
     """
     current_row = df.iloc[current_idx]
     dialogue_id = current_row['dialogue_id']
@@ -296,18 +299,25 @@ def build_conversation_history(df, current_idx, window_size=12, include_history_
     start_idx = max(0, turn_index - window_size)
     history_df = dialogue_df[(dialogue_df['turn_index'] >= start_idx) & (dialogue_df['turn_index'] < turn_index)]
 
+    # Determine which rows get VAD annotations (only the last vad_context_size rows)
+    history_rows = list(history_df.iterrows())
+    if include_history_vad and vad_context_size is not None:
+        vad_annotated_indices = {row['turn_index'] for _, row in history_rows[-vad_context_size:]}
+    else:
+        vad_annotated_indices = None  # annotate all (or none if include_history_vad is False)
+
     history_lines = []
-    for _, row in history_df.iterrows():
+    for _, row in history_rows:
         speaker = f"Speaker_{row['speaker']}"
         content = row['content']
         if include_history_vad:
-            # Use predicted VAD from cache (not ground truth) to avoid data leakage
+            should_annotate = (vad_annotated_indices is None or row['turn_index'] in vad_annotated_indices)
             cache_key = (row['dialogue_id'], row['turn_index'])
-            if predicted_vad_cache is not None and cache_key in predicted_vad_cache:
+            if should_annotate and predicted_vad_cache is not None and cache_key in predicted_vad_cache:
                 pred_v, pred_a, pred_d = predicted_vad_cache[cache_key]
                 vad_str = f" [VAD: V={int(round(pred_v))}, A={int(round(pred_a))}, D={int(round(pred_d))}]"
             else:
-                vad_str = ""  # No prediction cached yet for this utterance
+                vad_str = ""  # No annotation for this utterance
             history_lines.append(f'{speaker}: "{content}"{vad_str}')
         else:
             history_lines.append(f'{speaker}: "{content}"')
@@ -490,6 +500,7 @@ class VADModelArgs:
     test_session: int = 5  # Session to use as test set (1-5)
     use_filtered_data: bool = False  # Use filtered dataset (for LoRA only)
     include_history_vad: bool = False  # Include VAD values for conversation history utterances
+    vad_context_size: int = None  # If set, only attach VAD to last N history utterances
 
     def save(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
@@ -535,6 +546,10 @@ def main():
                         help='For LoRA only: use filtered dataset instead of full dataset')
     parser.add_argument('--include_history_vad', type=str, default='False',
                         help='Include VAD values for utterances in conversation history')
+    parser.add_argument('--vad_context_size', type=int, default=None,
+                        help='When --include_history_vad is True, only attach predicted VAD to the '
+                             'last N utterances in history (full window_size text context is kept). '
+                             'Default None means attach VAD to all history utterances.')
 
     cmd_args = parser.parse_args()
 
@@ -676,7 +691,10 @@ def main():
     eval_dataset = VADDataset(test_df, prompt_fn, args.window_size, args.short_prompt, args.include_history_vad)
     print(f"Created evaluation dataset with {len(eval_dataset)} samples")
     if args.include_history_vad:
-        print("Including VAD values for conversation history utterances")
+        if args.vad_context_size is not None:
+            print(f"Including predicted VAD for last {args.vad_context_size} history utterances (partial context mode)")
+        else:
+            print("Including VAD values for all conversation history utterances")
 
     if args.do_train:
         print("\n***** Training *****")
@@ -824,7 +842,8 @@ def main():
                 conversation_history, target_utterance = build_conversation_history(
                     test_df, idx, args.window_size,
                     include_history_vad=True,
-                    predicted_vad_cache=predicted_vad_cache
+                    predicted_vad_cache=predicted_vad_cache,
+                    vad_context_size=args.vad_context_size
                 )
                 audio_features = "Audio features not available."
 
