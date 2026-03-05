@@ -783,11 +783,14 @@ def main():
                 )
 
         # Initialize for inference
+        # replace_with_kernel_inject=False required for LoRA models: the kernel injector
+        # tries to merge separate Q/K/V projections into a fused QKV tensor, which fails
+        # when LoRA adapter weights are attached to those projections.
         dtype = torch.half
         model_engine = deepspeed.init_inference(
             model,
             mp_size=world_size,
-            replace_with_kernel_inject=True,
+            replace_with_kernel_inject=False,
             dtype=dtype,
         )
         model = model_engine.module
