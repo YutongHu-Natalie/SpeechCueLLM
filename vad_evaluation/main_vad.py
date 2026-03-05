@@ -731,8 +731,41 @@ def main():
         print("\n***** Evaluating *****")
 
         if args.checkpoint_dir and not args.zero_shot:
-            from deepspeed.utils.zero_to_fp32 import load_state_dict_from_zero_checkpoint
-            model = load_state_dict_from_zero_checkpoint(model, args.checkpoint_dir)
+            import glob as _glob
+
+            # Locate the checkpoint step directory
+            _latest_file = os.path.join(args.checkpoint_dir, 'latest')
+            if os.path.exists(_latest_file):
+                with open(_latest_file) as _f:
+                    _tag = _f.read().strip()
+                _step_dir = os.path.join(args.checkpoint_dir, _tag)
+            else:
+                _step_dirs = sorted(_glob.glob(os.path.join(args.checkpoint_dir, 'global_step*')))
+                assert _step_dirs, f"No global_step* dirs found in {args.checkpoint_dir}"
+                _step_dir = _step_dirs[-1]
+
+            _model_state_files = sorted(_glob.glob(os.path.join(_step_dir, 'mp_rank_*_model_states.pt')))
+            assert _model_state_files, f"No mp_rank_*_model_states.pt found in {_step_dir}"
+
+            # Read ZeRO stage and gather flag from the saved DeepSpeed config
+            _ckpt = torch.load(_model_state_files[0], map_location='cpu', weights_only=False)
+            _ds_cfg = _ckpt.get('ds_config', {})
+            _zero_stage = _ds_cfg.get('zero_optimization', {}).get('stage', 0)
+            _gather = _ds_cfg.get('zero_optimization', {}).get('stage3_gather_16bit_weights_on_model_save', False)
+
+            if _zero_stage < 3 or _gather:
+                # ZeRO stage 0/1/2, or ZeRO stage 3 with stage3_gather_16bit_weights_on_model_save=True:
+                # mp_rank_*_model_states.pt holds the full model weights (BF16 stage-0 or FP16 stage-3 gathered)
+                model.load_state_dict(_ckpt['module'], strict=False)
+                print(f"Loaded checkpoint from {_model_state_files[0]} (ZeRO stage {_zero_stage})")
+            else:
+                # ZeRO stage 3 without gather: reconstruct FP32 weights from optimizer shards
+                del _ckpt
+                from deepspeed.utils.zero_to_fp32 import load_state_dict_from_zero_checkpoint
+                from deepspeed.utils.tensor_fragment import fragment_address
+                torch.serialization.add_safe_globals([fragment_address])
+                model = load_state_dict_from_zero_checkpoint(model, args.checkpoint_dir)
+                print(f"Loaded ZeRO stage 3 checkpoint from {args.checkpoint_dir}")
 
         # Initialize for inference
         dtype = torch.half
