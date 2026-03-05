@@ -745,27 +745,42 @@ def main():
                 _step_dir = _step_dirs[-1]
 
             _model_state_files = sorted(_glob.glob(os.path.join(_step_dir, 'mp_rank_*_model_states.pt')))
-            assert _model_state_files, f"No mp_rank_*_model_states.pt found in {_step_dir}"
+            _fp16_zero_files  = _glob.glob(os.path.join(_step_dir, 'zero_pp_rank_*_optim_states.pt'))
 
-            # Read ZeRO stage and gather flag from the saved DeepSpeed config
-            _ckpt = torch.load(_model_state_files[0], map_location='cpu', weights_only=False)
-            _ds_cfg = _ckpt.get('ds_config', {})
-            _zero_stage = _ds_cfg.get('zero_optimization', {}).get('stage', 0)
-            _gather = _ds_cfg.get('zero_optimization', {}).get('stage3_gather_16bit_weights_on_model_save', False)
+            if _model_state_files:
+                # Read ZeRO stage and gather flag from the saved DeepSpeed config
+                _ckpt = torch.load(_model_state_files[0], map_location='cpu', weights_only=False)
+                _ds_cfg = _ckpt.get('ds_config', {})
+                _zero_stage = _ds_cfg.get('zero_optimization', {}).get('stage', 0)
+                _gather = _ds_cfg.get('zero_optimization', {}).get('stage3_gather_16bit_weights_on_model_save', False)
 
-            if _zero_stage < 3 or _gather:
-                # ZeRO stage 0/1/2, or ZeRO stage 3 with stage3_gather_16bit_weights_on_model_save=True:
-                # mp_rank_*_model_states.pt holds the full model weights (BF16 stage-0 or FP16 stage-3 gathered)
-                model.load_state_dict(_ckpt['module'], strict=False)
-                print(f"Loaded checkpoint from {_model_state_files[0]} (ZeRO stage {_zero_stage})")
-            else:
-                # ZeRO stage 3 without gather: reconstruct FP32 weights from optimizer shards
-                del _ckpt
+                if _zero_stage < 3 or _gather:
+                    # ZeRO stage 0 (BF16): full weights always present
+                    # ZeRO stage 3 (FP16) with gather=True: full 16-bit weights gathered at save time
+                    model.load_state_dict(_ckpt['module'], strict=False)
+                    print(f"Loaded checkpoint from {_model_state_files[0]} (ZeRO stage {_zero_stage})")
+                else:
+                    # ZeRO stage 3 without gather: mp_rank file has only a parameter shard
+                    del _ckpt
+                    from deepspeed.utils.zero_to_fp32 import load_state_dict_from_zero_checkpoint
+                    from deepspeed.utils.tensor_fragment import fragment_address
+                    torch.serialization.add_safe_globals([fragment_address])
+                    model = load_state_dict_from_zero_checkpoint(model, args.checkpoint_dir)
+                    print(f"Loaded ZeRO stage 3 (shard) checkpoint from {args.checkpoint_dir}")
+
+            elif _fp16_zero_files:
+                # No mp_rank model state files — reconstruct from FP16 ZeRO optimizer shards directly
                 from deepspeed.utils.zero_to_fp32 import load_state_dict_from_zero_checkpoint
                 from deepspeed.utils.tensor_fragment import fragment_address
                 torch.serialization.add_safe_globals([fragment_address])
                 model = load_state_dict_from_zero_checkpoint(model, args.checkpoint_dir)
                 print(f"Loaded ZeRO stage 3 checkpoint from {args.checkpoint_dir}")
+
+            else:
+                raise FileNotFoundError(
+                    f"No loadable checkpoint files found in {_step_dir}.\n"
+                    f"Expected mp_rank_*_model_states.pt or zero_pp_rank_*_optim_states.pt"
+                )
 
         # Initialize for inference
         dtype = torch.half
