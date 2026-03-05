@@ -276,7 +276,7 @@ def read_vad_data(file_path, percent=1.0, random_seed=42):
     return df
 
 
-def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False):
+def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False, predicted_vad_cache=None):
     """Build conversation history for a given utterance.
 
     Args:
@@ -284,6 +284,9 @@ def build_conversation_history(df, current_idx, window_size=12, include_history_
         current_idx: Index of current utterance
         window_size: Number of previous utterances to include
         include_history_vad: If True, include VAD values for history utterances
+        predicted_vad_cache: Dict mapping (dialogue_id, turn_index) -> (v, a, d) of
+                             previously predicted VAD values. Used instead of ground
+                             truth to avoid data leakage.
     """
     current_row = df.iloc[current_idx]
     dialogue_id = current_row['dialogue_id']
@@ -298,14 +301,13 @@ def build_conversation_history(df, current_idx, window_size=12, include_history_
         speaker = f"Speaker_{row['speaker']}"
         content = row['content']
         if include_history_vad:
-            # Include VAD values if available
-            v = row.get('valence')
-            a = row.get('arousal')
-            d = row.get('dominance')
-            if pd.notna(v) and pd.notna(a) and pd.notna(d):
-                vad_str = f" [VAD: V={int(round(v))}, A={int(round(a))}, D={int(round(d))}]"
+            # Use predicted VAD from cache (not ground truth) to avoid data leakage
+            cache_key = (row['dialogue_id'], row['turn_index'])
+            if predicted_vad_cache is not None and cache_key in predicted_vad_cache:
+                pred_v, pred_a, pred_d = predicted_vad_cache[cache_key]
+                vad_str = f" [VAD: V={int(round(pred_v))}, A={int(round(pred_a))}, D={int(round(pred_d))}]"
             else:
-                vad_str = ""
+                vad_str = ""  # No prediction cached yet for this utterance
             history_lines.append(f'{speaker}: "{content}"{vad_str}')
         else:
             history_lines.append(f'{speaker}: "{content}"')
@@ -758,42 +760,70 @@ def main():
         failed_cases = []
 
         model.eval()
-        for batch_idx, (batch, metadata) in enumerate(tqdm(eval_dataloader, desc="Evaluating")):
-            batch = batch.to(device)
 
-            with torch.no_grad():
-                outputs = model.generate(
-                    **batch,
-                    max_new_tokens=100,
-                    num_beams=1,
-                    do_sample=False,
-                    pad_token_id=tokenizer.pad_token_id,
-                    eos_token_id=tokenizer.eos_token_id,
+        if args.include_history_vad:
+            # Sequential evaluation: process one utterance at a time so we can
+            # feed the model's own predicted VAD as context for subsequent utterances
+            # instead of leaking ground truth values.
+            predicted_vad_cache = {}  # (dialogue_id, turn_index) -> (v, a, d)
+
+            for idx in tqdm(range(len(test_df)), desc="Evaluating (sequential)"):
+                row = test_df.iloc[idx]
+
+                conversation_history, target_utterance = build_conversation_history(
+                    test_df, idx, args.window_size,
+                    include_history_vad=True,
+                    predicted_vad_cache=predicted_vad_cache
                 )
+                audio_features = "Audio features not available."
 
-            # Decode outputs
-            for i in range(len(outputs)):
-                output_text = tokenizer.decode(outputs[i], skip_special_tokens=True)
+                if args.few_shot:
+                    prompt = create_vad_prompt_few_shot(
+                        conversation_history, target_utterance, audio_features,
+                        include_history_vad=True
+                    )
+                else:
+                    prompt = create_vad_prompt_zero_shot(
+                        conversation_history, target_utterance, audio_features,
+                        short_version=args.short_prompt, include_history_vad=True
+                    )
 
-                # Extract predicted VAD
+                inputs = tokenizer(
+                    prompt,
+                    return_tensors='pt',
+                    max_length=args.max_length,
+                    truncation=True
+                ).to(device)
+
+                with torch.no_grad():
+                    output_ids = model.generate(
+                        **inputs,
+                        max_new_tokens=100,
+                        num_beams=1,
+                        do_sample=False,
+                        pad_token_id=tokenizer.pad_token_id,
+                        eos_token_id=tokenizer.eos_token_id,
+                    )
+
+                output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
                 v, a, d = extract_vad_from_output(output_text)
 
-                # Get gold values
-                gold_v = metadata['gold_v'][i]
-                gold_a = metadata['gold_a'][i]
-                gold_d = metadata['gold_d'][i]
+                gold_v = float(row['valence'])
+                gold_a = float(row['arousal'])
+                gold_d = float(row['dominance'])
 
-                # Handle failures
                 if v is None or a is None or d is None:
                     v = v or 3.0
                     a = a or 3.0
                     d = d or 3.0
-                    failed_cases.append(batch_idx * args.eval_batch_size + i)
+                    failed_cases.append(idx)
 
-                # Clamp to valid range
                 v = max(1.0, min(5.0, v))
                 a = max(1.0, min(5.0, a))
                 d = max(1.0, min(5.0, d))
+
+                # Store prediction so subsequent utterances can use it as context
+                predicted_vad_cache[(row['dialogue_id'], row['turn_index'])] = (v, a, d)
 
                 preds_v.append(v)
                 preds_a.append(a)
@@ -803,11 +833,11 @@ def main():
                 golds_d.append(gold_d)
 
                 all_outputs.append({
-                    "index": batch_idx * args.eval_batch_size + i,
-                    "dialogue_id": metadata['dialogue_id'][i],
-                    "turn_id": metadata['turn_id'][i],
-                    "content": metadata['content'][i],
-                    "output": output_text[-500:],  # Truncate for storage
+                    "index": idx,
+                    "dialogue_id": row['dialogue_id'],
+                    "turn_id": row['turn_id'],
+                    "content": row['content'],
+                    "output": output_text[-500:],
                     "pred_v": v,
                     "pred_a": a,
                     "pred_d": d,
@@ -815,6 +845,62 @@ def main():
                     "gold_a": gold_a,
                     "gold_d": gold_d,
                 })
+
+        else:
+            # Batched evaluation (no VAD history context needed)
+            for batch_idx, (batch, metadata) in enumerate(tqdm(eval_dataloader, desc="Evaluating")):
+                batch = batch.to(device)
+
+                with torch.no_grad():
+                    outputs = model.generate(
+                        **batch,
+                        max_new_tokens=100,
+                        num_beams=1,
+                        do_sample=False,
+                        pad_token_id=tokenizer.pad_token_id,
+                        eos_token_id=tokenizer.eos_token_id,
+                    )
+
+                # Decode outputs
+                for i in range(len(outputs)):
+                    output_text = tokenizer.decode(outputs[i], skip_special_tokens=True)
+
+                    v, a, d = extract_vad_from_output(output_text)
+
+                    gold_v = metadata['gold_v'][i]
+                    gold_a = metadata['gold_a'][i]
+                    gold_d = metadata['gold_d'][i]
+
+                    if v is None or a is None or d is None:
+                        v = v or 3.0
+                        a = a or 3.0
+                        d = d or 3.0
+                        failed_cases.append(batch_idx * args.eval_batch_size + i)
+
+                    v = max(1.0, min(5.0, v))
+                    a = max(1.0, min(5.0, a))
+                    d = max(1.0, min(5.0, d))
+
+                    preds_v.append(v)
+                    preds_a.append(a)
+                    preds_d.append(d)
+                    golds_v.append(gold_v)
+                    golds_a.append(gold_a)
+                    golds_d.append(gold_d)
+
+                    all_outputs.append({
+                        "index": batch_idx * args.eval_batch_size + i,
+                        "dialogue_id": metadata['dialogue_id'][i],
+                        "turn_id": metadata['turn_id'][i],
+                        "content": metadata['content'][i],
+                        "output": output_text[-500:],
+                        "pred_v": v,
+                        "pred_a": a,
+                        "pred_d": d,
+                        "gold_v": gold_v,
+                        "gold_a": gold_a,
+                        "gold_d": gold_d,
+                    })
 
         # Compute metrics
         metrics = compute_vad_metrics(golds_v, preds_v, golds_a, preds_a, golds_d, preds_d)

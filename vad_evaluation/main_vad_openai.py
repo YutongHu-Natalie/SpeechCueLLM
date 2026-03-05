@@ -185,7 +185,7 @@ def read_vad_data(file_path, percent=1.0, random_seed=42):
     return df
 
 
-def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False):
+def build_conversation_history(df, current_idx, window_size=12, include_history_vad=False, predicted_vad_cache=None):
     """
     Build conversation history for a given utterance.
 
@@ -194,6 +194,9 @@ def build_conversation_history(df, current_idx, window_size=12, include_history_
         current_idx: Index of the target utterance
         window_size: Number of previous utterances to include
         include_history_vad: If True, include VAD values for history utterances
+        predicted_vad_cache: Dict mapping (dialogue_id, turn_index) -> (v, a, d) of
+                             previously predicted VAD values. Used instead of ground
+                             truth to avoid data leakage.
 
     Returns:
         Tuple of (conversation_history, target_utterance)
@@ -215,14 +218,13 @@ def build_conversation_history(df, current_idx, window_size=12, include_history_
         speaker = f"Speaker_{row['speaker']}"
         content = row['content']
         if include_history_vad:
-            # Include VAD values if available
-            v = row.get('valence')
-            a = row.get('arousal')
-            d = row.get('dominance')
-            if pd.notna(v) and pd.notna(a) and pd.notna(d):
-                vad_str = f" [VAD: V={int(round(v))}, A={int(round(a))}, D={int(round(d))}]"
+            # Use predicted VAD from cache (not ground truth) to avoid data leakage
+            cache_key = (row['dialogue_id'], row['turn_index'])
+            if predicted_vad_cache is not None and cache_key in predicted_vad_cache:
+                pred_v, pred_a, pred_d = predicted_vad_cache[cache_key]
+                vad_str = f" [VAD: V={int(round(pred_v))}, A={int(round(pred_a))}, D={int(round(pred_d))}]"
             else:
-                vad_str = ""
+                vad_str = ""  # No prediction cached yet for this utterance
             history_lines.append(f'{speaker}: "{content}"{vad_str}')
         else:
             history_lines.append(f'{speaker}: "{content}"')
@@ -522,14 +524,19 @@ def main():
     golds_v, golds_a, golds_d = [], [], []
     failed_cases = []
 
+    # Cache of predicted VAD values: (dialogue_id, turn_index) -> (v, a, d)
+    # Used to feed prior predicted VAD as context instead of ground truth
+    predicted_vad_cache = {}
+
     print(f"\n***** Running VAD inference with {args.model_name} ({args.experiments_setting}) *****\n")
 
     for idx in tqdm(range(len(df)), desc="Processing"):
         row = df.iloc[idx]
 
-        # Build conversation history
+        # Build conversation history using predicted VAD cache (not ground truth)
         conversation_history, target_utterance = build_conversation_history(
-            df, idx, args.window_size, args.include_history_vad
+            df, idx, args.window_size, args.include_history_vad,
+            predicted_vad_cache=predicted_vad_cache if args.include_history_vad else None
         )
         audio_features = get_audio_features_for_context(df, idx)
 
@@ -561,6 +568,9 @@ def main():
         v = max(1.0, min(5.0, v))
         a = max(1.0, min(5.0, a))
         d = max(1.0, min(5.0, d))
+
+        # Store prediction in cache so it can be used as context for future utterances
+        predicted_vad_cache[(row['dialogue_id'], row['turn_index'])] = (v, a, d)
 
         preds_v.append(v)
         preds_a.append(a)
