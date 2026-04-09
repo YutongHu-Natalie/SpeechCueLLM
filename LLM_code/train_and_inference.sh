@@ -12,6 +12,8 @@ FLAG=1
 # MODEL_NAME='OpenAI-gpt-4o-mini'
 MODEL_NAME='OpenAI-gpt-5-mini'
 # MODEL_NAME='OpenAI-gpt-4o'
+# MODEL_NAME='Qwen-local'   # local model via transformers (zero_shot / few_shot only)
+# MODEL_NAME='Qwen-remote'  # remote server via OpenAI-compatible API (zero_shot / few_shot only)
 
 # ------ select the experiment ------------
 # Experiments_setting='test'
@@ -50,6 +52,21 @@ port=26000
 task='des_context'
 emotion_prediction='False'
 
+# ------  Qwen-specific settings ------
+# Path to the locally downloaded Qwen model directory (used when MODEL_NAME='Qwen-local')
+QWEN_MODEL_PATH='/local/scratch/yhu383/models/Qwen3.5-35B'
+# Base URL of the remote Qwen server (used when MODEL_NAME='Qwen-remote')
+# Can also be set via the QWEN_BASE_URL environment variable
+QWEN_BASE_URL='http://localhost:8000/v1'
+# Qwen model identifier passed to the remote server
+QWEN_REMOTE_MODEL='Qwen/Qwen3.5-35B-A3B'
+# Set to '--enable_thinking' to turn on chain-of-thought, or leave empty for direct answers
+QWEN_THINKING=''
+# dtype for local inference: auto, bfloat16, float16, float32
+QWEN_DTYPE='bfloat16'
+# Max new tokens to generate per sample (local inference)
+QWEN_MAX_NEW_TOKENS=512
+
 
 #  ------ select the historical window for dataset ------ 
 # LLaMA 's context = 1024 is enough for almost dataset, except for iemocap.
@@ -87,6 +104,30 @@ case ${MODEL_NAME} in
         ;;
     *)
         echo "The Experiments_setting parameter is invalid. CHECK IT OUT!"
+        FLAG=0
+        ;;
+    esac
+    ;;
+'Qwen-local'|'Qwen-remote')
+    case ${Experiments_setting} in
+    'zero_shot'|'few_shot')
+        case ${dataset} in
+        'iemocap'|'meld')
+            echo "******************************************************************************************"
+            echo "All parameters are valid."
+            echo "The dataset you have selected is: ${dataset} !"
+            echo "The base model you have selected is ${MODEL_NAME}!"
+            echo "The model's SFT method you have selected: ${Experiments_setting}!"
+            echo "******************************************************************************************"
+            ;;
+        *)
+            echo "The dataset parameter is invalid. CHECK IT OUT!"
+            FLAG=0
+            ;;
+        esac
+        ;;
+    *)
+        echo "Qwen models only support zero_shot and few_shot. CHECK Experiments_setting!"
         FLAG=0
         ;;
     esac
@@ -227,6 +268,45 @@ then
             --data_percent ${data_percent} \
             --seed ${SEED} \
             --batch_delay 0.1
+
+    elif [ ${MODEL_NAME} = 'Qwen-local' ]
+    then
+        echo "******************************************************************************************"
+        echo "Using local Qwen model: ${QWEN_MODEL_PATH}"
+        echo "Processed Data_Path: $DATA_PATH"
+        echo "******************************************************************************************"
+
+        python main_qwen_local.py \
+            --dataset ${dataset} \
+            --data_dir ${DATA_PATH} \
+            --output_dir ../experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/per_${data_percent}_${task}_class5_${SEED} \
+            --model_path ${QWEN_MODEL_PATH} \
+            --experiments_setting ${Experiments_setting} \
+            --dtype ${QWEN_DTYPE} \
+            --max_new_tokens ${QWEN_MAX_NEW_TOKENS} \
+            --data_percent ${data_percent} \
+            --seed ${SEED} \
+            ${QWEN_THINKING}
+
+    elif [ ${MODEL_NAME} = 'Qwen-remote' ]
+    then
+        echo "******************************************************************************************"
+        echo "Using remote Qwen server: ${QWEN_BASE_URL}  model: ${QWEN_REMOTE_MODEL}"
+        echo "Processed Data_Path: $DATA_PATH"
+        echo "******************************************************************************************"
+
+        python main_qwen.py \
+            --dataset ${dataset} \
+            --data_dir ${DATA_PATH} \
+            --output_dir ../experiments/${MODEL_NAME}/${Experiments_setting}/${dataset}/window_${historical_window}/per_${data_percent}_${task}_class5_${SEED} \
+            --model_name ${QWEN_REMOTE_MODEL} \
+            --base_url ${QWEN_BASE_URL} \
+            --experiments_setting ${Experiments_setting} \
+            --data_percent ${data_percent} \
+            --seed ${SEED} \
+            --batch_delay 0.1 \
+            ${QWEN_THINKING}
+
     elif [ ${use_encoder} = 'True' ]
     then
         echo "Processed Data_Path: $DATA_PATH"
