@@ -203,9 +203,12 @@ then
     elif [ ${MODEL_NAME} = 'LLaMA3-instruct-70b' ]
     then
         MODEL_PATH='/local/scratch/yhu383/models/llama3.3-70b'
-    elif [ ${MODEL_NAME} = 'Phi3-medium' ]    
+    elif [ ${MODEL_NAME} = 'Phi3-medium' ]
     then
         MODEL_PATH='Phi3-medium MODELPATH'
+    elif [[ ${MODEL_NAME} == Qwen-* ]]
+    then
+        MODEL_PATH='N/A (Qwen uses QWEN_MODEL_PATH or QWEN_BASE_URL)'
     else
         echo -e "Your choose is not in MY candidations! Please check your Model name!"
     fi
