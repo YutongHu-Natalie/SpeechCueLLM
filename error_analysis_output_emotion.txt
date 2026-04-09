@@ -72,24 +72,24 @@ Context History      Correct    Total      Accuracy
 2 utterances         17         31         54.8%
 3+ utterances        1145       1561       73.4%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        1          1          100.0%
-1 utterances    sad          4          7          57.1%
-1 utterances    neutral      9          12         75.0%
-1 utterances    excited      9          10         90.0%
-1 utterances    frustrated   1          1          100.0%
-2 utterances    happy        2          2          100.0%
-2 utterances    sad          2          8          25.0%
-2 utterances    neutral      7          11         63.6%
-2 utterances    excited      3          6          50.0%
-2 utterances    frustrated   3          4          75.0%
-3+ utterances   happy        93         141        66.0%
-3+ utterances   sad          184        230        80.0%
-3+ utterances   neutral      288        361        79.8%
-3+ utterances   angry        115        170        67.6%
-3+ utterances   excited      181        283        64.0%
-3+ utterances   frustrated   284        376        75.5%
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        1        1          66.7%
+1 utterances    sad          4        7          72.7%
+1 utterances    neutral      9        12         72.0%
+1 utterances    excited      9        10         85.7%
+1 utterances    frustrated   1        1          100.0%
+2 utterances    happy        2        2          100.0%
+2 utterances    sad          2        8          40.0%
+2 utterances    neutral      7        11         51.9%
+2 utterances    excited      3        6          54.5%
+2 utterances    frustrated   3        4          60.0%
+3+ utterances   happy        93       141        62.4%
+3+ utterances   sad          184      230        84.4%
+3+ utterances   neutral      288      361        75.6%
+3+ utterances   angry        115      170        69.1%
+3+ utterances   excited      181      283        72.0%
+3+ utterances   frustrated   284      376        71.9%
 
 
 Using checkpoint: preds_for_eval_8.text (Acc: 71.90%)
@@ -164,24 +164,24 @@ Context History      Correct    Total      Accuracy
 2 utterances         20         31         64.5%
 3+ utterances        1122       1561       71.9%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        1          1          100.0%
-1 utterances    sad          6          7          85.7%
-1 utterances    neutral      8          12         66.7%
-1 utterances    excited      9          10         90.0%
-1 utterances    frustrated   1          1          100.0%
-2 utterances    happy        2          2          100.0%
-2 utterances    sad          6          8          75.0%
-2 utterances    neutral      4          11         36.4%
-2 utterances    excited      5          6          83.3%
-2 utterances    frustrated   3          4          75.0%
-3+ utterances   happy        109        141        77.3%
-3+ utterances   sad          200        230        87.0%
-3+ utterances   neutral      280        361        77.6%
-3+ utterances   angry        95         170        55.9%
-3+ utterances   excited      168        283        59.4%
-3+ utterances   frustrated   270        376        71.8%
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        1        1          66.7%
+1 utterances    sad          6        7          92.3%
+1 utterances    neutral      8        12         72.7%
+1 utterances    excited      9        10         90.0%
+1 utterances    frustrated   1        1          66.7%
+2 utterances    happy        2        2          66.7%
+2 utterances    sad          6        8          80.0%
+2 utterances    neutral      4        11         42.1%
+2 utterances    excited      5        6          83.3%
+2 utterances    frustrated   3        4          66.7%
+3+ utterances   happy        109      141        66.5%
+3+ utterances   sad          200      230        83.5%
+3+ utterances   neutral      280      361        74.8%
+3+ utterances   angry        95       170        61.7%
+3+ utterances   excited      168      283        70.1%
+3+ utterances   frustrated   270      376        69.3%
 
 
 Using checkpoint: preds_for_eval_0.text (Acc: 71.84%)
@@ -256,24 +256,508 @@ Context History      Correct    Total      Accuracy
 2 utterances         17         31         54.8%
 3+ utterances        1127       1561       72.2%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        0          1          0.0%
-1 utterances    sad          4          7          57.1%
-1 utterances    neutral      10         12         83.3%
-1 utterances    excited      7          10         70.0%
-1 utterances    frustrated   1          1          100.0%
-2 utterances    happy        1          2          50.0%
-2 utterances    sad          3          8          37.5%
-2 utterances    neutral      8          11         72.7%
-2 utterances    excited      2          6          33.3%
-2 utterances    frustrated   3          4          75.0%
-3+ utterances   happy        80         141        56.7%
-3+ utterances   sad          171        230        74.3%
-3+ utterances   neutral      265        361        73.4%
-3+ utterances   angry        113        170        66.5%
-3+ utterances   excited      225        283        79.5%
-3+ utterances   frustrated   273        376        72.6%
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        0        1          0.0%
+1 utterances    sad          4        7          72.7%
+1 utterances    neutral      10       12         69.0%
+1 utterances    excited      7        10         82.4%
+1 utterances    frustrated   1        1          66.7%
+2 utterances    happy        1        2          66.7%
+2 utterances    sad          3        8          50.0%
+2 utterances    neutral      8        11         55.2%
+2 utterances    excited      2        6          50.0%
+2 utterances    frustrated   3        4          66.7%
+3+ utterances   happy        80       141        61.1%
+3+ utterances   sad          171      230        80.7%
+3+ utterances   neutral      265      361        73.5%
+3+ utterances   angry        113      170        65.1%
+3+ utterances   excited      225      283        78.7%
+3+ utterances   frustrated   273      376        68.6%
+
+
+Using checkpoint: preds_for_eval.text (Acc: 10.84%)
+
+################################################################################
+# EXPERIMENT: LLaMA2-7B Zero-Shot (audio)
+################################################################################
+Total samples: 1623
+Overall Accuracy: 6.90%
+
+================================================================================
+Confusion Matrix
+================================================================================
+True\Pred   happy     sad       neutral   angry     excited   frustrated
+------------------------------------------------------------------------
+happy       103       0         0         0         0         0         
+sad         82        0         0         0         0         0         
+neutral     115       0         0         0         0         0         
+angry       52        0         0         0         0         0         
+excited     199       0         0         0         5         0         
+frustrated  92        0         0         0         1         4         
+
+================================================================================
+SPECIFIC CONFUSION ANALYSIS
+================================================================================
+
+1. Happy <-> Excited Confusion:
+   Happy predicted as Excited: 0/103 (0.0%)
+   Excited predicted as Happy: 199/204 (97.5%)
+
+2. Frustrated <-> Sad Confusion:
+   Frustrated predicted as Sad: 0/97 (0.0%)
+   Sad predicted as Frustrated: 0/82 (0.0%)
+
+3. Frustrated <-> Angry Confusion:
+   Frustrated predicted as Angry: 0/97 (0.0%)
+   Angry predicted as Frustrated: 0/52 (0.0%)
+
+4. Neutral Misclassifications:
+   Neutral predicted as happy: 115/115 (100.0%)
+
+5. Predictions as Neutral (when it shouldn't be):
+
+================================================================================
+UTTERANCE LENGTH ANALYSIS
+================================================================================
+
+Length Category           Correct    Total      Accuracy  
+-------------------------------------------------------
+Very Short (1-20 chars)   25         115        21.7%
+Short (21-50 chars)       39         207        18.8%
+Medium (51-100 chars)     29         193        15.0%
+Long (101-200 chars)      16         118        13.6%
+Very Long (200+ chars)    3          20         15.0%
+
+================================================================================
+CONVERSATION HISTORY ANALYSIS
+================================================================================
+
+Context History      Correct    Total      Accuracy  
+--------------------------------------------------
+1 utterances         1          5          20.0%
+2 utterances         2          7          28.6%
+3+ utterances        109        641        17.0%
+
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        1        1          33.3%
+1 utterances    excited      0        4          0.0%
+2 utterances    happy        2        2          44.4%
+2 utterances    neutral      0        3          0.0%
+2 utterances    excited      0        1          0.0%
+2 utterances    frustrated   0        1          0.0%
+3+ utterances   happy        100      100        27.4%
+3+ utterances   sad          0        82         0.0%
+3+ utterances   neutral      0        112        0.0%
+3+ utterances   angry        0        52         0.0%
+3+ utterances   excited      5        199        4.9%
+3+ utterances   frustrated   4        96         8.0%
+
+
+Using checkpoint: preds_for_eval.text (Acc: 19.66%)
+
+################################################################################
+# EXPERIMENT: LLaMA2-7B Few-Shot (audio)
+################################################################################
+Total samples: 1623
+Overall Accuracy: 3.27%
+
+================================================================================
+Confusion Matrix
+================================================================================
+True\Pred   happy     sad       neutral   angry     excited   frustrated
+------------------------------------------------------------------------
+happy       53        0         0         0         0         0         
+sad         12        0         0         0         0         0         
+neutral     32        0         0         0         0         0         
+angry       3         0         0         0         0         0         
+excited     105       0         0         0         0         0         
+frustrated  7         0         0         0         0         0         
+
+================================================================================
+SPECIFIC CONFUSION ANALYSIS
+================================================================================
+
+1. Happy <-> Excited Confusion:
+   Happy predicted as Excited: 0/53 (0.0%)
+   Excited predicted as Happy: 105/105 (100.0%)
+
+2. Frustrated <-> Sad Confusion:
+   Frustrated predicted as Sad: 0/7 (0.0%)
+   Sad predicted as Frustrated: 0/12 (0.0%)
+
+3. Frustrated <-> Angry Confusion:
+   Frustrated predicted as Angry: 0/7 (0.0%)
+   Angry predicted as Frustrated: 0/3 (0.0%)
+
+4. Neutral Misclassifications:
+   Neutral predicted as happy: 32/32 (100.0%)
+
+5. Predictions as Neutral (when it shouldn't be):
+
+================================================================================
+UTTERANCE LENGTH ANALYSIS
+================================================================================
+
+Length Category           Correct    Total      Accuracy  
+-------------------------------------------------------
+Very Short (1-20 chars)   14         47         29.8%
+Short (21-50 chars)       16         69         23.2%
+Medium (51-100 chars)     17         63         27.0%
+Long (101-200 chars)      5          31         16.1%
+Very Long (200+ chars)    1          2          50.0%
+
+================================================================================
+CONVERSATION HISTORY ANALYSIS
+================================================================================
+
+Context History      Correct    Total      Accuracy  
+--------------------------------------------------
+3+ utterances        53         212        25.0%
+
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+3+ utterances   happy        53       53         40.0%
+3+ utterances   sad          0        12         0.0%
+3+ utterances   neutral      0        32         0.0%
+3+ utterances   angry        0        3          0.0%
+3+ utterances   excited      0        105        0.0%
+3+ utterances   frustrated   0        7          0.0%
+
+
+Using checkpoint: preds_for_eval.text (Acc: 39.74%)
+
+################################################################################
+# EXPERIMENT: LLaMA3.1-8B Zero-Shot (audio)
+################################################################################
+Total samples: 1623
+Overall Accuracy: 39.74%
+
+================================================================================
+Confusion Matrix
+================================================================================
+True\Pred   happy     sad       neutral   angry     excited   frustrated
+------------------------------------------------------------------------
+happy       106       1         35        0         2         0         
+sad         14        124       107       0         0         0         
+neutral     25        6         352       0         0         1         
+angry       12        19        102       21        0         16        
+excited     201       7         81        0         10        0         
+frustrated  14        48        283       4         0         32        
+
+================================================================================
+SPECIFIC CONFUSION ANALYSIS
+================================================================================
+
+1. Happy <-> Excited Confusion:
+   Happy predicted as Excited: 2/144 (1.4%)
+   Excited predicted as Happy: 201/299 (67.2%)
+
+2. Frustrated <-> Sad Confusion:
+   Frustrated predicted as Sad: 48/381 (12.6%)
+   Sad predicted as Frustrated: 0/245 (0.0%)
+
+3. Frustrated <-> Angry Confusion:
+   Frustrated predicted as Angry: 4/381 (1.0%)
+   Angry predicted as Frustrated: 16/170 (9.4%)
+
+4. Neutral Misclassifications:
+   Neutral predicted as happy: 25/384 (6.5%)
+   Neutral predicted as sad: 6/384 (1.6%)
+   Neutral predicted as frustrated: 1/384 (0.3%)
+
+5. Predictions as Neutral (when it shouldn't be):
+   happy predicted as Neutral: 35/144 (24.3%)
+   sad predicted as Neutral: 107/245 (43.7%)
+   angry predicted as Neutral: 102/170 (60.0%)
+   excited predicted as Neutral: 81/299 (27.1%)
+   frustrated predicted as Neutral: 283/381 (74.3%)
+
+================================================================================
+UTTERANCE LENGTH ANALYSIS
+================================================================================
+
+Length Category           Correct    Total      Accuracy  
+-------------------------------------------------------
+Very Short (1-20 chars)   169        394        42.9%
+Short (21-50 chars)       184        484        38.0%
+Medium (51-100 chars)     177        403        43.9%
+Long (101-200 chars)      93         289        32.2%
+Very Long (200+ chars)    21         52         40.4%
+
+================================================================================
+CONVERSATION HISTORY ANALYSIS
+================================================================================
+
+Context History      Correct    Total      Accuracy  
+--------------------------------------------------
+1 utterances         15         31         48.4%
+2 utterances         15         31         48.4%
+3+ utterances        615        1561       39.4%
+
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        1        1          18.2%
+1 utterances    sad          3        7          54.5%
+1 utterances    neutral      11       12         75.9%
+1 utterances    excited      0        10         0.0%
+1 utterances    frustrated   0        1          0.0%
+2 utterances    happy        1        2          40.0%
+2 utterances    sad          3        8          50.0%
+2 utterances    neutral      10       11         58.8%
+2 utterances    excited      0        6          0.0%
+2 utterances    frustrated   1        4          40.0%
+3+ utterances   happy        104      141        41.6%
+3+ utterances   sad          118      230        55.3%
+3+ utterances   neutral      331      361        51.7%
+3+ utterances   angry        21       170        21.5%
+3+ utterances   excited      10       283        6.8%
+3+ utterances   frustrated   31       376        14.6%
+
+
+Using checkpoint: preds_for_eval.text (Acc: 43.69%)
+
+################################################################################
+# EXPERIMENT: LLaMA3.1-8B Few-Shot (audio)
+################################################################################
+Total samples: 1623
+Overall Accuracy: 43.68%
+
+================================================================================
+Confusion Matrix
+================================================================================
+True\Pred   happy     sad       neutral   angry     excited   frustrated
+------------------------------------------------------------------------
+happy       105       0         30        0         7         2         
+sad         24        76        126       3         1         15        
+neutral     34        1         337       0         0         12        
+angry       3         9         72        46        2         38        
+excited     158       6         86        1         43        5         
+frustrated  14        26        218       20        1         102       
+
+================================================================================
+SPECIFIC CONFUSION ANALYSIS
+================================================================================
+
+1. Happy <-> Excited Confusion:
+   Happy predicted as Excited: 7/144 (4.9%)
+   Excited predicted as Happy: 158/299 (52.8%)
+
+2. Frustrated <-> Sad Confusion:
+   Frustrated predicted as Sad: 26/381 (6.8%)
+   Sad predicted as Frustrated: 15/245 (6.1%)
+
+3. Frustrated <-> Angry Confusion:
+   Frustrated predicted as Angry: 20/381 (5.2%)
+   Angry predicted as Frustrated: 38/170 (22.4%)
+
+4. Neutral Misclassifications:
+   Neutral predicted as happy: 34/384 (8.9%)
+   Neutral predicted as sad: 1/384 (0.3%)
+   Neutral predicted as frustrated: 12/384 (3.1%)
+
+5. Predictions as Neutral (when it shouldn't be):
+   happy predicted as Neutral: 30/144 (20.8%)
+   sad predicted as Neutral: 126/245 (51.4%)
+   angry predicted as Neutral: 72/170 (42.4%)
+   excited predicted as Neutral: 86/299 (28.8%)
+   frustrated predicted as Neutral: 218/381 (57.2%)
+
+================================================================================
+UTTERANCE LENGTH ANALYSIS
+================================================================================
+
+Length Category           Correct    Total      Accuracy  
+-------------------------------------------------------
+Very Short (1-20 chars)   146        394        37.1%
+Short (21-50 chars)       210        484        43.4%
+Medium (51-100 chars)     201        403        49.9%
+Long (101-200 chars)      128        289        44.3%
+Very Long (200+ chars)    24         52         46.2%
+
+================================================================================
+CONVERSATION HISTORY ANALYSIS
+================================================================================
+
+Context History      Correct    Total      Accuracy  
+--------------------------------------------------
+3+ utterances        709        1623       43.7%
+
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+3+ utterances   happy        105      144        43.6%
+3+ utterances   sad          76       245        41.9%
+3+ utterances   neutral      337      384        53.8%
+3+ utterances   angry        46       170        38.3%
+3+ utterances   excited      43       299        24.4%
+3+ utterances   frustrated   102      381        36.8%
+
+
+Using checkpoint: preds_for_eval.text (Acc: 61.43%)
+
+################################################################################
+# EXPERIMENT: LLaMA3.3-70B Zero-Shot (audio)
+################################################################################
+Total samples: 1623
+Overall Accuracy: 24.95%
+
+================================================================================
+Confusion Matrix
+================================================================================
+True\Pred   happy     sad       neutral   angry     excited   frustrated
+------------------------------------------------------------------------
+happy       37        10        2         1         27        2         
+sad         0         179       0         1         1         8         
+neutral     3         35        15        4         4         14        
+angry       0         3         1         44        2         10        
+excited     29        18        4         3         101       8         
+frustrated  0         27        1         13        4         29        
+
+================================================================================
+SPECIFIC CONFUSION ANALYSIS
+================================================================================
+
+1. Happy <-> Excited Confusion:
+   Happy predicted as Excited: 27/79 (34.2%)
+   Excited predicted as Happy: 29/163 (17.8%)
+
+2. Frustrated <-> Sad Confusion:
+   Frustrated predicted as Sad: 27/74 (36.5%)
+   Sad predicted as Frustrated: 8/189 (4.2%)
+
+3. Frustrated <-> Angry Confusion:
+   Frustrated predicted as Angry: 13/74 (17.6%)
+   Angry predicted as Frustrated: 10/60 (16.7%)
+
+4. Neutral Misclassifications:
+   Neutral predicted as happy: 3/75 (4.0%)
+   Neutral predicted as sad: 35/75 (46.7%)
+   Neutral predicted as angry: 4/75 (5.3%)
+   Neutral predicted as excited: 4/75 (5.3%)
+   Neutral predicted as frustrated: 14/75 (18.7%)
+
+5. Predictions as Neutral (when it shouldn't be):
+   happy predicted as Neutral: 2/79 (2.5%)
+   angry predicted as Neutral: 1/60 (1.7%)
+   excited predicted as Neutral: 4/163 (2.5%)
+   frustrated predicted as Neutral: 1/74 (1.4%)
+
+================================================================================
+UTTERANCE LENGTH ANALYSIS
+================================================================================
+
+Length Category           Correct    Total      Accuracy  
+-------------------------------------------------------
+Very Short (1-20 chars)   110        161        68.3%
+Short (21-50 chars)       100        180        55.6%
+Medium (51-100 chars)     113        169        66.9%
+Long (101-200 chars)      71         105        67.6%
+Very Long (200+ chars)    10         24         41.7%
+
+================================================================================
+CONVERSATION HISTORY ANALYSIS
+================================================================================
+
+Context History      Correct    Total      Accuracy  
+--------------------------------------------------
+1 utterances         6          7          85.7%
+2 utterances         3          6          50.0%
+3+ utterances        396        627        63.2%
+
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    sad          2        2          80.0%
+1 utterances    excited      4        5          88.9%
+2 utterances    sad          2        2          80.0%
+2 utterances    neutral      0        1          0.0%
+2 utterances    excited      1        3          50.0%
+3+ utterances   happy        37       79         50.0%
+3+ utterances   sad          175      185        77.6%
+3+ utterances   neutral      15       74         31.6%
+3+ utterances   angry        44       60         69.8%
+3+ utterances   excited      96       155        66.4%
+3+ utterances   frustrated   29       74         40.0%
+
+
+Using checkpoint: preds_for_eval.text (Acc: 59.34%)
+
+################################################################################
+# EXPERIMENT: LLaMA3.3-70B Few-Shot (audio)
+################################################################################
+Total samples: 1623
+Overall Accuracy: 49.54%
+
+================================================================================
+Confusion Matrix
+================================================================================
+True\Pred   happy     sad       neutral   angry     excited   frustrated
+------------------------------------------------------------------------
+happy       51        5         52        0         26        5         
+sad         1         168       25        0         1         36        
+neutral     5         16        216       2         4         51        
+angry       0         5         12        47        0         84        
+excited     48        15        72        1         125       22        
+frustrated  0         17        76        18        2         197       
+
+================================================================================
+SPECIFIC CONFUSION ANALYSIS
+================================================================================
+
+1. Happy <-> Excited Confusion:
+   Happy predicted as Excited: 26/139 (18.7%)
+   Excited predicted as Happy: 48/283 (17.0%)
+
+2. Frustrated <-> Sad Confusion:
+   Frustrated predicted as Sad: 17/310 (5.5%)
+   Sad predicted as Frustrated: 36/231 (15.6%)
+
+3. Frustrated <-> Angry Confusion:
+   Frustrated predicted as Angry: 18/310 (5.8%)
+   Angry predicted as Frustrated: 84/148 (56.8%)
+
+4. Neutral Misclassifications:
+   Neutral predicted as happy: 5/294 (1.7%)
+   Neutral predicted as sad: 16/294 (5.4%)
+   Neutral predicted as angry: 2/294 (0.7%)
+   Neutral predicted as excited: 4/294 (1.4%)
+   Neutral predicted as frustrated: 51/294 (17.3%)
+
+5. Predictions as Neutral (when it shouldn't be):
+   happy predicted as Neutral: 52/139 (37.4%)
+   sad predicted as Neutral: 25/231 (10.8%)
+   angry predicted as Neutral: 12/148 (8.1%)
+   excited predicted as Neutral: 72/283 (25.4%)
+   frustrated predicted as Neutral: 76/310 (24.5%)
+
+================================================================================
+UTTERANCE LENGTH ANALYSIS
+================================================================================
+
+Length Category           Correct    Total      Accuracy  
+-------------------------------------------------------
+Very Short (1-20 chars)   228        380        60.0%
+Short (21-50 chars)       235        427        55.0%
+Medium (51-100 chars)     194        336        57.7%
+Long (101-200 chars)      123        219        56.2%
+Very Long (200+ chars)    23         42         54.8%
+
+================================================================================
+CONVERSATION HISTORY ANALYSIS
+================================================================================
+
+Context History      Correct    Total      Accuracy  
+--------------------------------------------------
+3+ utterances        804        1405       57.2%
+
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+3+ utterances   happy        51       139        41.8%
+3+ utterances   sad          168      231        73.5%
+3+ utterances   neutral      216      294        57.8%
+3+ utterances   angry        47       148        43.5%
+3+ utterances   excited      125      283        56.7%
+3+ utterances   frustrated   197      310        55.9%
 
 
 Using checkpoint: preds_for_eval.text (Acc: 55.95%)
@@ -348,24 +832,24 @@ Context History      Correct    Total      Accuracy
 2 utterances         13         31         41.9%
 3+ utterances        879        1561       56.3%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        0          1          0.0%
-1 utterances    sad          3          7          42.9%
-1 utterances    neutral      7          12         58.3%
-1 utterances    excited      5          10         50.0%
-1 utterances    frustrated   1          1          100.0%
-2 utterances    happy        0          2          0.0%
-2 utterances    sad          3          8          37.5%
-2 utterances    neutral      5          11         45.5%
-2 utterances    excited      1          6          16.7%
-2 utterances    frustrated   4          4          100.0%
-3+ utterances   happy        82         141        58.2%
-3+ utterances   sad          151        230        65.7%
-3+ utterances   neutral      168        361        46.5%
-3+ utterances   angry        35         170        20.6%
-3+ utterances   excited      111        283        39.2%
-3+ utterances   frustrated   332        376        88.3%
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        0        1          0.0%
+1 utterances    sad          3        7          60.0%
+1 utterances    neutral      7        12         51.9%
+1 utterances    excited      5        10         66.7%
+1 utterances    frustrated   1        1          22.2%
+2 utterances    happy        0        2          0.0%
+2 utterances    sad          3        8          54.5%
+2 utterances    neutral      5        11         40.0%
+2 utterances    excited      1        6          28.6%
+2 utterances    frustrated   4        4          50.0%
+3+ utterances   happy        82       141        49.4%
+3+ utterances   sad          151      230        70.6%
+3+ utterances   neutral      168      361        53.9%
+3+ utterances   angry        35       170        32.0%
+3+ utterances   excited      111      283        53.2%
+3+ utterances   frustrated   332      376        60.2%
 
 
 Using checkpoint: preds_for_eval.text (Acc: 57.55%)
@@ -438,14 +922,14 @@ Context History      Correct    Total      Accuracy
 --------------------------------------------------
 3+ utterances        934        1623       57.5%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-3+ utterances   happy        68         144        47.2%
-3+ utterances   sad          175        245        71.4%
-3+ utterances   neutral      201        384        52.3%
-3+ utterances   angry        50         170        29.4%
-3+ utterances   excited      127        299        42.5%
-3+ utterances   frustrated   313        381        82.2%
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+3+ utterances   happy        68       144        46.3%
+3+ utterances   sad          175      245        73.5%
+3+ utterances   neutral      201      384        54.7%
+3+ utterances   angry        50       170        39.5%
+3+ utterances   excited      127      299        56.2%
+3+ utterances   frustrated   313      381        60.4%
 
 
 Using checkpoint: preds_for_eval.text (Acc: 59.15%)
@@ -520,24 +1004,24 @@ Context History      Correct    Total      Accuracy
 2 utterances         16         31         51.6%
 3+ utterances        932        1561       59.7%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        0          1          0.0%
-1 utterances    sad          4          7          57.1%
-1 utterances    neutral      4          12         33.3%
-1 utterances    excited      4          10         40.0%
-1 utterances    frustrated   0          1          0.0%
-2 utterances    happy        1          2          50.0%
-2 utterances    sad          5          8          62.5%
-2 utterances    neutral      5          11         45.5%
-2 utterances    excited      1          6          16.7%
-2 utterances    frustrated   4          4          100.0%
-3+ utterances   happy        57         141        40.4%
-3+ utterances   sad          168        230        73.0%
-3+ utterances   neutral      173        361        47.9%
-3+ utterances   angry        59         170        34.7%
-3+ utterances   excited      162        283        57.2%
-3+ utterances   frustrated   313        376        83.2%
+Context         Emotion      TP       Total      F1        
+-------------------------------------------------------
+1 utterances    happy        0        1          0.0%
+1 utterances    sad          4        7          53.3%
+1 utterances    neutral      4        12         34.8%
+1 utterances    excited      4        10         57.1%
+1 utterances    frustrated   0        1          0.0%
+2 utterances    happy        1        2          50.0%
+2 utterances    sad          5        8          66.7%
+2 utterances    neutral      5        11         50.0%
+2 utterances    excited      1        6          28.6%
+2 utterances    frustrated   4        4          50.0%
+3+ utterances   happy        57       141        41.9%
+3+ utterances   sad          168      230        70.1%
+3+ utterances   neutral      173      361        58.3%
+3+ utterances   angry        59       170        45.2%
+3+ utterances   excited      162      283        63.4%
+3+ utterances   frustrated   313      376        62.2%
 
 
 Using checkpoint: preds_for_eval.text (Acc: 59.83%)
@@ -610,198 +1094,14 @@ Context History      Correct    Total      Accuracy
 --------------------------------------------------
 3+ utterances        971        1623       59.8%
 
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-3+ utterances   happy        64         144        44.4%
-3+ utterances   sad          193        245        78.8%
-3+ utterances   neutral      195        384        50.8%
-3+ utterances   angry        82         170        48.2%
-3+ utterances   excited      158        299        52.8%
-3+ utterances   frustrated   279        381        73.2%
-
-
-Using checkpoint: preds_for_eval_5.text (Acc: 69.56%)
-
-################################################################################
-# EXPERIMENT: LLaMA2-7B LoRA (text only)
-################################################################################
-Total samples: 1623
-Overall Accuracy: 69.56%
-
-================================================================================
-Confusion Matrix
-================================================================================
-True\Pred   happy     sad       neutral   angry     excited   frustrated
-------------------------------------------------------------------------
-happy       74        0         16        1         53        0         
-sad         11        167       21        0         0         46        
-neutral     13        5         295       3         13        55        
-angry       0         0         9         93        0         68        
-excited     40        3         49        0         204       3         
-frustrated  0         8         41        34        2         296       
-
-================================================================================
-SPECIFIC CONFUSION ANALYSIS
-================================================================================
-
-1. Happy <-> Excited Confusion:
-   Happy predicted as Excited: 53/144 (36.8%)
-   Excited predicted as Happy: 40/299 (13.4%)
-
-2. Frustrated <-> Sad Confusion:
-   Frustrated predicted as Sad: 8/381 (2.1%)
-   Sad predicted as Frustrated: 46/245 (18.8%)
-
-3. Frustrated <-> Angry Confusion:
-   Frustrated predicted as Angry: 34/381 (8.9%)
-   Angry predicted as Frustrated: 68/170 (40.0%)
-
-4. Neutral Misclassifications:
-   Neutral predicted as happy: 13/384 (3.4%)
-   Neutral predicted as sad: 5/384 (1.3%)
-   Neutral predicted as angry: 3/384 (0.8%)
-   Neutral predicted as excited: 13/384 (3.4%)
-   Neutral predicted as frustrated: 55/384 (14.3%)
-
-5. Predictions as Neutral (when it shouldn't be):
-   happy predicted as Neutral: 16/144 (11.1%)
-   sad predicted as Neutral: 21/245 (8.6%)
-   angry predicted as Neutral: 9/170 (5.3%)
-   excited predicted as Neutral: 49/299 (16.4%)
-   frustrated predicted as Neutral: 41/381 (10.8%)
-
-================================================================================
-UTTERANCE LENGTH ANALYSIS
-================================================================================
-
-Length Category           Correct    Total      Accuracy  
+Context         Emotion      TP       Total      F1        
 -------------------------------------------------------
-Very Short (1-20 chars)   286        394        72.6%
-Short (21-50 chars)       328        484        67.8%
-Medium (51-100 chars)     270        403        67.0%
-Long (101-200 chars)      206        289        71.3%
-Very Long (200+ chars)    38         52         73.1%
-
-================================================================================
-CONVERSATION HISTORY ANALYSIS
-================================================================================
-
-Context History      Correct    Total      Accuracy  
---------------------------------------------------
-1 utterances         22         31         71.0%
-2 utterances         18         31         58.1%
-3+ utterances        1089       1561       69.8%
-
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        0          1          0.0%
-1 utterances    sad          3          7          42.9%
-1 utterances    neutral      11         12         91.7%
-1 utterances    excited      7          10         70.0%
-1 utterances    frustrated   1          1          100.0%
-2 utterances    happy        1          2          50.0%
-2 utterances    sad          3          8          37.5%
-2 utterances    neutral      9          11         81.8%
-2 utterances    excited      2          6          33.3%
-2 utterances    frustrated   3          4          75.0%
-3+ utterances   happy        73         141        51.8%
-3+ utterances   sad          161        230        70.0%
-3+ utterances   neutral      275        361        76.2%
-3+ utterances   angry        93         170        54.7%
-3+ utterances   excited      195        283        68.9%
-3+ utterances   frustrated   292        376        77.7%
-
-
-Using checkpoint: preds_for_eval_8.text (Acc: 68.70%)
-
-################################################################################
-# EXPERIMENT: LLaMA3.1-8B LoRA (text only)
-################################################################################
-Total samples: 1623
-Overall Accuracy: 68.70%
-
-================================================================================
-Confusion Matrix
-================================================================================
-True\Pred   happy     sad       neutral   angry     excited   frustrated
-------------------------------------------------------------------------
-happy       42        1         16        0         84        1         
-sad         1         171       24        1         3         45        
-neutral     3         8         291       6         26        50        
-angry       0         1         13        102       0         54        
-excited     11        4         29        1         253       1         
-frustrated  0         13        56        51        5         256       
-
-================================================================================
-SPECIFIC CONFUSION ANALYSIS
-================================================================================
-
-1. Happy <-> Excited Confusion:
-   Happy predicted as Excited: 84/144 (58.3%)
-   Excited predicted as Happy: 11/299 (3.7%)
-
-2. Frustrated <-> Sad Confusion:
-   Frustrated predicted as Sad: 13/381 (3.4%)
-   Sad predicted as Frustrated: 45/245 (18.4%)
-
-3. Frustrated <-> Angry Confusion:
-   Frustrated predicted as Angry: 51/381 (13.4%)
-   Angry predicted as Frustrated: 54/170 (31.8%)
-
-4. Neutral Misclassifications:
-   Neutral predicted as happy: 3/384 (0.8%)
-   Neutral predicted as sad: 8/384 (2.1%)
-   Neutral predicted as angry: 6/384 (1.6%)
-   Neutral predicted as excited: 26/384 (6.8%)
-   Neutral predicted as frustrated: 50/384 (13.0%)
-
-5. Predictions as Neutral (when it shouldn't be):
-   happy predicted as Neutral: 16/144 (11.1%)
-   sad predicted as Neutral: 24/245 (9.8%)
-   angry predicted as Neutral: 13/170 (7.6%)
-   excited predicted as Neutral: 29/299 (9.7%)
-   frustrated predicted as Neutral: 56/381 (14.7%)
-
-================================================================================
-UTTERANCE LENGTH ANALYSIS
-================================================================================
-
-Length Category           Correct    Total      Accuracy  
--------------------------------------------------------
-Very Short (1-20 chars)   278        394        70.6%
-Short (21-50 chars)       321        484        66.3%
-Medium (51-100 chars)     274        403        68.0%
-Long (101-200 chars)      205        289        70.9%
-Very Long (200+ chars)    36         52         69.2%
-
-================================================================================
-CONVERSATION HISTORY ANALYSIS
-================================================================================
-
-Context History      Correct    Total      Accuracy  
---------------------------------------------------
-1 utterances         25         31         80.6%
-2 utterances         21         31         67.7%
-3+ utterances        1069       1561       68.5%
-
-Context         Emotion      Correct    Total      Accuracy  
----------------------------------------------------------
-1 utterances    happy        0          1          0.0%
-1 utterances    sad          4          7          57.1%
-1 utterances    neutral      12         12         100.0%
-1 utterances    excited      8          10         80.0%
-1 utterances    frustrated   1          1          100.0%
-2 utterances    happy        1          2          50.0%
-2 utterances    sad          3          8          37.5%
-2 utterances    neutral      10         11         90.9%
-2 utterances    excited      4          6          66.7%
-2 utterances    frustrated   3          4          75.0%
-3+ utterances   happy        41         141        29.1%
-3+ utterances   sad          164        230        71.3%
-3+ utterances   neutral      269        361        74.5%
-3+ utterances   angry        102        170        60.0%
-3+ utterances   excited      241        283        85.2%
-3+ utterances   frustrated   252        376        67.0%
+3+ utterances   happy        64       144        43.4%
+3+ utterances   sad          193      245        69.5%
+3+ utterances   neutral      195      384        60.4%
+3+ utterances   angry        82       170        52.7%
+3+ utterances   excited      158      299        60.7%
+3+ utterances   frustrated   279      381        60.8%
 
 ====================================================================================================
 COMPARATIVE SUMMARY
@@ -814,11 +1114,15 @@ GPT-4o-mini Few-Shot (audio)                  57.55%
 GPT-4o-mini Zero-Shot (audio)                 55.95%
 GPT-5-mini Few-Shot (audio)                   59.83%
 GPT-5-mini Zero-Shot (audio)                  59.15%
+LLaMA2-7B Few-Shot (audio)                    3.27%
 LLaMA2-7B LoRA (audio)                        73.07%
-LLaMA2-7B LoRA (text only)                    69.56%
+LLaMA2-7B Zero-Shot (audio)                   6.90%
+LLaMA3.1-8B Few-Shot (audio)                  43.68%
 LLaMA3.1-8B LoRA (audio)                      71.90%
-LLaMA3.1-8B LoRA (text only)                  68.70%
+LLaMA3.1-8B Zero-Shot (audio)                 39.74%
+LLaMA3.3-70B Few-Shot (audio)                 49.54%
 LLaMA3.3-70B LoRA (audio)                     71.84%
+LLaMA3.3-70B Zero-Shot (audio)                24.95%
 
 --- Happy <-> Excited Confusion Rate ---
 Experiment                                    Hap→Exc      Exc→Hap     
@@ -827,11 +1131,15 @@ GPT-4o-mini Few-Shot (audio)                  12.5%        22.7%
 GPT-4o-mini Zero-Shot (audio)                 7.6%         29.8%       
 GPT-5-mini Few-Shot (audio)                   29.2%        22.1%       
 GPT-5-mini Zero-Shot (audio)                  30.6%        18.4%       
+LLaMA2-7B Few-Shot (audio)                    0.0%         100.0%      
 LLaMA2-7B LoRA (audio)                        21.5%        17.7%       
-LLaMA2-7B LoRA (text only)                    36.8%        13.4%       
+LLaMA2-7B Zero-Shot (audio)                   0.0%         97.5%       
+LLaMA3.1-8B Few-Shot (audio)                  4.9%         52.8%       
 LLaMA3.1-8B LoRA (audio)                      11.8%        20.7%       
-LLaMA3.1-8B LoRA (text only)                  58.3%        3.7%        
+LLaMA3.1-8B Zero-Shot (audio)                 1.4%         67.2%       
+LLaMA3.3-70B Few-Shot (audio)                 18.7%        17.0%       
 LLaMA3.3-70B LoRA (audio)                     34.0%        10.7%       
+LLaMA3.3-70B Zero-Shot (audio)                34.2%        17.8%       
 
 --- Frustrated <-> Angry Confusion Rate ---
 Experiment                                    Fru→Ang      Ang→Fru     
@@ -840,11 +1148,15 @@ GPT-4o-mini Few-Shot (audio)                  6.3%         65.9%
 GPT-4o-mini Zero-Shot (audio)                 3.1%         75.3%       
 GPT-5-mini Few-Shot (audio)                   12.1%        46.5%       
 GPT-5-mini Zero-Shot (audio)                  6.3%         60.0%       
+LLaMA2-7B Few-Shot (audio)                    0.0%         0.0%        
 LLaMA2-7B LoRA (audio)                        12.1%        27.6%       
-LLaMA2-7B LoRA (text only)                    8.9%         40.0%       
+LLaMA2-7B Zero-Shot (audio)                   0.0%         0.0%        
+LLaMA3.1-8B Few-Shot (audio)                  5.2%         22.4%       
 LLaMA3.1-8B LoRA (audio)                      10.0%        37.1%       
-LLaMA3.1-8B LoRA (text only)                  13.4%        31.8%       
+LLaMA3.1-8B Zero-Shot (audio)                 1.0%         9.4%        
+LLaMA3.3-70B Few-Shot (audio)                 5.8%         56.8%       
 LLaMA3.3-70B LoRA (audio)                     14.7%        30.0%       
+LLaMA3.3-70B Zero-Shot (audio)                17.6%        16.7%       
 
 --- Sad <-> Frustrated Confusion Rate ---
 Experiment                                    Sad→Fru      Fru→Sad     
@@ -853,21 +1165,29 @@ GPT-4o-mini Few-Shot (audio)                  15.1%        6.0%
 GPT-4o-mini Zero-Shot (audio)                 22.0%        3.4%        
 GPT-5-mini Few-Shot (audio)                   11.0%        8.7%        
 GPT-5-mini Zero-Shot (audio)                  18.8%        4.5%        
+LLaMA2-7B Few-Shot (audio)                    0.0%         0.0%        
 LLaMA2-7B LoRA (audio)                        13.1%        1.8%        
-LLaMA2-7B LoRA (text only)                    18.8%        2.1%        
+LLaMA2-7B Zero-Shot (audio)                   0.0%         0.0%        
+LLaMA3.1-8B Few-Shot (audio)                  6.1%         6.8%        
 LLaMA3.1-8B LoRA (audio)                      9.4%         3.9%        
-LLaMA3.1-8B LoRA (text only)                  18.4%        3.4%        
+LLaMA3.1-8B Zero-Shot (audio)                 0.0%         12.6%       
+LLaMA3.3-70B Few-Shot (audio)                 15.6%        5.5%        
 LLaMA3.3-70B LoRA (audio)                     12.2%        2.1%        
+LLaMA3.3-70B Zero-Shot (audio)                4.2%         36.5%       
 
---- Per-Emotion Accuracy ---
+--- Per-Emotion F1 Score ---
 Experiment                              hap     sad     neu     ang     exc     fru     
 ----------------------------------------------------------------------------------------
-GPT-4o-mini Few-Shot (audio)            47%     71%     52%     29%     42%     82%     
-GPT-4o-mini Zero-Shot (audio)           57%     64%     47%     21%     39%     88%     
-GPT-5-mini Few-Shot (audio)             44%     79%     51%     48%     53%     73%     
-GPT-5-mini Zero-Shot (audio)            40%     72%     47%     35%     56%     83%     
-LLaMA2-7B LoRA (audio)                  67%     78%     79%     68%     65%     76%     
-LLaMA2-7B LoRA (text only)              51%     68%     77%     55%     68%     78%     
-LLaMA3.1-8B LoRA (audio)                78%     87%     76%     56%     61%     72%     
-LLaMA3.1-8B LoRA (text only)            29%     70%     76%     60%     85%     67%     
-LLaMA3.3-70B LoRA (audio)               56%     73%     74%     66%     78%     73%     
+GPT-4o-mini Few-Shot (audio)            46%     74%     55%     40%     56%     60%     
+GPT-4o-mini Zero-Shot (audio)           49%     70%     53%     32%     53%     60%     
+GPT-5-mini Few-Shot (audio)             43%     70%     60%     53%     61%     61%     
+GPT-5-mini Zero-Shot (audio)            42%     70%     57%     45%     63%     61%     
+LLaMA2-7B Few-Shot (audio)              40%     0%      0%      0%      0%      0%      
+LLaMA2-7B LoRA (audio)                  63%     83%     75%     69%     72%     72%     
+LLaMA2-7B Zero-Shot (audio)             28%     0%      0%      0%      5%      8%      
+LLaMA3.1-8B Few-Shot (audio)            44%     42%     54%     38%     24%     37%     
+LLaMA3.1-8B LoRA (audio)                66%     84%     74%     61%     71%     69%     
+LLaMA3.1-8B Zero-Shot (audio)           41%     55%     52%     22%     6%      15%     
+LLaMA3.3-70B Few-Shot (audio)           42%     74%     58%     44%     57%     56%     
+LLaMA3.3-70B LoRA (audio)               61%     80%     73%     65%     78%     69%     
+LLaMA3.3-70B Zero-Shot (audio)          50%     78%     31%     70%     67%     40%     

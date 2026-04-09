@@ -230,7 +230,7 @@ def analyze_context_history(samples):
     print("CONVERSATION HISTORY ANALYSIS")
     print("="*80)
 
-    context_results = defaultdict(lambda: {'correct': 0, 'total': 0, 'by_emotion': defaultdict(lambda: {'correct': 0, 'total': 0})})
+    context_results = defaultdict(lambda: {'correct': 0, 'total': 0, 'by_emotion': defaultdict(lambda: {'correct': 0, 'total': 0, 'predicted': 0})})
 
     for sample in samples:
         target = sample.get('target', '').strip().lower()
@@ -250,6 +250,7 @@ def analyze_context_history(samples):
 
         context_results[context_key]['total'] += 1
         context_results[context_key]['by_emotion'][target]['total'] += 1
+        context_results[context_key]['by_emotion'][pred]['predicted'] += 1
 
         if target == pred:
             context_results[context_key]['correct'] += 1
@@ -265,16 +266,21 @@ def analyze_context_history(samples):
             print(f"{key:<20} {data['correct']:<10} {data['total']:<10} {acc:.1f}%")
 
     # Breakdown by emotion for each context level
-    print(f"\n{'Context':<15} {'Emotion':<12} {'Correct':<10} {'Total':<10} {'Accuracy':<10}")
-    print("-" * 57)
+    print(f"\n{'Context':<15} {'Emotion':<12} {'TP':<8} {'Total':<10} {'F1':<10}")
+    print("-" * 55)
 
     for key in ["0 utterances", "1 utterances", "2 utterances", "3+ utterances"]:
         if key in context_results:
             for emotion in EMOTIONS:
                 data = context_results[key]['by_emotion'][emotion]
                 if data['total'] > 0:
-                    acc = 100 * data['correct'] / data['total']
-                    print(f"{key:<15} {emotion:<12} {data['correct']:<10} {data['total']:<10} {acc:.1f}%")
+                    tp = data['correct']
+                    fp = data['predicted'] - tp
+                    fn = data['total'] - tp
+                    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+                    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+                    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+                    print(f"{key:<15} {emotion:<12} {tp:<8} {data['total']:<10} {100*f1:.1f}%")
 
     return context_results
 
@@ -383,6 +389,34 @@ def get_experiments(base_dir, include_pure_text=False, pure_text_only=False):
             ),
         })
 
+        # LLaMA zero-shot and few-shot experiments
+        experiments.update({
+            "LLaMA2-7B Zero-Shot (audio)": (
+                base_dir / "experiments/LLaMA2/zero_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11",
+                "single"
+            ),
+            "LLaMA2-7B Few-Shot (audio)": (
+                base_dir / "experiments/LLaMA2/few_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11",
+                "single"
+            ),
+            "LLaMA3.1-8B Zero-Shot (audio)": (
+                base_dir / "experiments/LLaMA3-instruct/zero_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11",
+                "single"
+            ),
+            "LLaMA3.1-8B Few-Shot (audio)": (
+                base_dir / "experiments/LLaMA3-instruct/few_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11",
+                "single"
+            ),
+            "LLaMA3.3-70B Zero-Shot (audio)": (
+                base_dir / "experiments/LLaMA3-instruct-70b/zero_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11",
+                "single"
+            ),
+            "LLaMA3.3-70B Few-Shot (audio)": (
+                base_dir / "experiments/LLaMA3-instruct-70b/few_shot/iemocap/window_12/LR_0_BS_8_per_1.0_des_context_class5_11",
+                "single"
+            ),
+        })
+
         # GPT zero-shot experiments
         experiments.update({
             "GPT-4o-mini Zero-Shot (audio)": (
@@ -478,8 +512,8 @@ def print_comparative_summary(all_results):
         fru_sad_rate = f"{100*fru_as_sad/fru_total:.1f}%" if fru_total > 0 else "N/A"
         print(f"{exp_name:<45} {sad_fru_rate:<12} {fru_sad_rate:<12}")
 
-    # Per-emotion accuracy comparison
-    print("\n--- Per-Emotion Accuracy ---")
+    # Per-emotion F1 score comparison
+    print("\n--- Per-Emotion F1 Score ---")
     header = f"{'Experiment':<40}"
     for emotion in EMOTIONS:
         header += f"{emotion[:3]:<8}"
@@ -490,10 +524,14 @@ def print_comparative_summary(all_results):
         confusion = all_results[exp_name]['confusion']
         row = f"{exp_name:<40}"
         for emotion in EMOTIONS:
-            total = sum(confusion[emotion].values())
-            correct = confusion[emotion][emotion]
-            acc = f"{100*correct/total:.0f}%" if total > 0 else "N/A"
-            row += f"{acc:<8}"
+            tp = confusion[emotion][emotion]
+            fn = sum(confusion[emotion].values()) - tp
+            fp = sum(confusion[other][emotion] for other in EMOTIONS if other != emotion)
+            precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+            recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+            f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+            f1_str = f"{100*f1:.0f}%" if (tp + fn) > 0 else "N/A"
+            row += f"{f1_str:<8}"
         print(row)
 
 

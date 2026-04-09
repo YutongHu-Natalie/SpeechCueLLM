@@ -800,18 +800,22 @@ def main():
                     f"Expected mp_rank_*_model_states.pt or zero_pp_rank_*_optim_states.pt"
                 )
 
-        # Initialize for inference
-        # replace_with_kernel_inject=False required for LoRA models: the kernel injector
-        # tries to merge separate Q/K/V projections into a fused QKV tensor, which fails
-        # when LoRA adapter weights are attached to those projections.
-        dtype = torch.half
-        model_engine = deepspeed.init_inference(
-            model,
-            mp_size=world_size,
-            replace_with_kernel_inject=False,
-            dtype=dtype,
-        )
-        model = model_engine.module
+        # For eval-only (no training in this run): merge LoRA weights into base model
+        # before DeepSpeed inference init. deepspeed.init_inference's AutoTP parser cannot
+        # handle PeftModel's lora.Linear modules on a fresh model. Merging unloads PEFT
+        # and returns a plain LlamaForCausalLM that DeepSpeed recognizes.
+        # Skip when training was done in the same run: deepspeed.initialize() already
+        # modified the model's modules in a way that init_inference can handle.
+        if args.lora and not args.do_train and hasattr(model, 'merge_and_unload'):
+            model = model.merge_and_unload()
+            print("LoRA weights merged into base model for inference")
+
+        # Skip deepspeed.init_inference: its AutoTP.tp_parser is called
+        # unconditionally and fails on models it doesn't recognise (e.g. after
+        # resize_token_embeddings or LoRA merge). For single-process evaluation
+        # just move the model to the device directly; training is unaffected
+        # because it uses deepspeed.initialize, not init_inference.
+        model = model.to(device).half()
 
         eval_collator = VADCollator(tokenizer, args.max_length, mode='eval')
         eval_sampler = SequentialSampler(eval_dataset)
