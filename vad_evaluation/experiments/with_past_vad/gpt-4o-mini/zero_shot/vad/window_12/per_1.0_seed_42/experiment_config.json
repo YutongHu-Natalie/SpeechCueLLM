@@ -1,6 +1,6 @@
 {
-  "model_name": "gpt-5-mini",
-  "experiments_setting": "few_shot",
+  "model_name": "gpt-4o-mini",
+  "experiments_setting": "zero_shot",
   "data_file": "./data/vad_full_dataset.csv",
   "data_percent": 1.0,
   "window_size": 12,
@@ -8,5 +8,5 @@
   "test_session": 5,
   "include_history_vad": true,
   "num_samples": 2170,
-  "num_failed": 13
+  "num_failed": 0
 }
