@@ -64,8 +64,19 @@ QWEN_REMOTE_MODEL='Qwen/Qwen3.5-35B-A3B'
 QWEN_THINKING=''
 # dtype for local inference: auto, bfloat16, float16, float32
 QWEN_DTYPE='bfloat16'
-# Max new tokens to generate per sample (local inference)
+# Max new tokens to generate per sample (inference)
 QWEN_MAX_NEW_TOKENS=512
+# LoRA hyperparameters (used when Experiments_setting='lora' and MODEL_NAME='Qwen-local')
+QWEN_LORA_R=16
+QWEN_LORA_ALPHA=32
+QWEN_LORA_DROPOUT=0.05
+QWEN_LORA_LR=3e-4
+QWEN_LORA_EPOCHS=3
+QWEN_LORA_BATCH_SIZE=1
+QWEN_LORA_GRAD_ACCUM=8
+# Optional: path to a saved LoRA adapter to skip training and go straight to eval
+# Leave empty to run full training
+QWEN_LORA_ADAPTER_PATH=''
 
 
 #  ------ select the historical window for dataset ------ 
@@ -110,24 +121,30 @@ case ${MODEL_NAME} in
     ;;
 'Qwen-local'|'Qwen-remote')
     case ${Experiments_setting} in
-    'zero_shot'|'few_shot')
-        case ${dataset} in
-        'iemocap'|'meld')
-            echo "******************************************************************************************"
-            echo "All parameters are valid."
-            echo "The dataset you have selected is: ${dataset} !"
-            echo "The base model you have selected is ${MODEL_NAME}!"
-            echo "The model's SFT method you have selected: ${Experiments_setting}!"
-            echo "******************************************************************************************"
-            ;;
-        *)
-            echo "The dataset parameter is invalid. CHECK IT OUT!"
+    'zero_shot'|'few_shot'|'lora')
+        # Qwen-remote does not support lora (API only)
+        if [ ${MODEL_NAME} = 'Qwen-remote' ] && [ ${Experiments_setting} = 'lora' ]; then
+            echo "Qwen-remote does not support lora. Use Qwen-local for LoRA fine-tuning."
             FLAG=0
-            ;;
-        esac
+        else
+            case ${dataset} in
+            'iemocap'|'meld')
+                echo "******************************************************************************************"
+                echo "All parameters are valid."
+                echo "The dataset you have selected is: ${dataset} !"
+                echo "The base model you have selected is ${MODEL_NAME}!"
+                echo "The model's SFT method you have selected: ${Experiments_setting}!"
+                echo "******************************************************************************************"
+                ;;
+            *)
+                echo "The dataset parameter is invalid. CHECK IT OUT!"
+                FLAG=0
+                ;;
+            esac
+        fi
         ;;
     *)
-        echo "Qwen models only support zero_shot and few_shot. CHECK Experiments_setting!"
+        echo "Qwen models support zero_shot, few_shot, and lora (local only). CHECK Experiments_setting!"
         FLAG=0
         ;;
     esac
@@ -279,6 +296,12 @@ then
         echo "Processed Data_Path: $DATA_PATH"
         echo "******************************************************************************************"
 
+        # Build optional adapter path flag
+        QWEN_ADAPTER_FLAG=""
+        if [ -n "${QWEN_LORA_ADAPTER_PATH}" ]; then
+            QWEN_ADAPTER_FLAG="--lora_adapter_path ${QWEN_LORA_ADAPTER_PATH}"
+        fi
+
         python main_qwen_local.py \
             --dataset ${dataset} \
             --data_dir ${DATA_PATH} \
@@ -287,9 +310,17 @@ then
             --experiments_setting ${Experiments_setting} \
             --dtype ${QWEN_DTYPE} \
             --max_new_tokens ${QWEN_MAX_NEW_TOKENS} \
+            --lora_r ${QWEN_LORA_R} \
+            --lora_alpha ${QWEN_LORA_ALPHA} \
+            --lora_dropout ${QWEN_LORA_DROPOUT} \
+            --lora_lr ${QWEN_LORA_LR} \
+            --num_train_epochs ${QWEN_LORA_EPOCHS} \
+            --train_batch_size ${QWEN_LORA_BATCH_SIZE} \
+            --gradient_accumulation_steps ${QWEN_LORA_GRAD_ACCUM} \
             --data_percent ${data_percent} \
             --seed ${SEED} \
-            ${QWEN_THINKING}
+            ${QWEN_THINKING} \
+            ${QWEN_ADAPTER_FLAG}
 
     elif [ ${MODEL_NAME} = 'Qwen-remote' ]
     then
