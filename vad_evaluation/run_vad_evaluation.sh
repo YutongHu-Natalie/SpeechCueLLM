@@ -4,12 +4,13 @@
 # VAD Evaluation Script
 # Supports: Zero-shot, Few-shot, and LoRA fine-tuning for LLaMA models
 #          Zero-shot and Few-shot for OpenAI models
+#          Zero-shot, Few-shot, and LoRA for local Qwen models
 # =============================================================================
 
 # Default settings
-MODEL_TYPE="openai"  # openai or llama
+MODEL_TYPE="openai"  # openai, llama, or qwen-local
 EXPERIMENT="few_shot"  # zero_shot, few_shot, lora
-MODEL_NAME="gpt-5-mini"  # OpenAI model name or path to LLaMA model
+MODEL_NAME="gpt-5-mini"  # OpenAI model name, path to LLaMA model, or path to local Qwen model
 DATA_FILE="./data/vad_full_dataset.csv"
 OUTPUT_BASE="./experiments"
 WINDOW_SIZE=12
@@ -18,6 +19,20 @@ SEED=42
 TEST_SESSION=5  # Session to use as test set (1-5), matches emotion recognition split
 USE_FILTERED_DATA="False"  # For LoRA only: use filtered dataset for training (test set always uses full dataset)
 INCLUDE_HISTORY_VAD="False"  # Include VAD values for conversation history utterances
+
+# Qwen-local specific settings
+QWEN_MODEL_PATH='/local/scratch/yhu383/models/Qwen3.5-35B'
+QWEN_THINKING=''           # Set to '--enable_thinking' to enable chain-of-thought
+QWEN_DTYPE='bfloat16'      # auto, bfloat16, float16, float32
+QWEN_MAX_NEW_TOKENS=512
+QWEN_LORA_R=16
+QWEN_LORA_ALPHA=32
+QWEN_LORA_DROPOUT=0.05
+QWEN_LORA_LR=3e-4
+QWEN_LORA_EPOCHS=3
+QWEN_LORA_BATCH_SIZE=1
+QWEN_LORA_GRAD_ACCUM=8
+QWEN_LORA_ADAPTER_PATH=''  # Leave empty to run full LoRA training; set to load a saved adapter
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -66,6 +81,26 @@ while [[ $# -gt 0 ]]; do
             INCLUDE_HISTORY_VAD="$2"
             shift 2
             ;;
+        --qwen_model_path)
+            QWEN_MODEL_PATH="$2"
+            shift 2
+            ;;
+        --qwen_thinking)
+            QWEN_THINKING="$2"
+            shift 2
+            ;;
+        --qwen_dtype)
+            QWEN_DTYPE="$2"
+            shift 2
+            ;;
+        --qwen_max_new_tokens)
+            QWEN_MAX_NEW_TOKENS="$2"
+            shift 2
+            ;;
+        --qwen_lora_adapter_path)
+            QWEN_LORA_ADAPTER_PATH="$2"
+            shift 2
+            ;;
         *)
             echo "Unknown option: $1"
             exit 1
@@ -94,6 +129,14 @@ if [ "$EXPERIMENT" == "lora" ]; then
     echo "Use Filtered Data (training only): $USE_FILTERED_DATA"
 fi
 echo "Include History VAD: $INCLUDE_HISTORY_VAD"
+if [ "$MODEL_TYPE" == "qwen-local" ]; then
+    echo "Qwen Model Path: $QWEN_MODEL_PATH"
+    echo "Qwen Dtype: $QWEN_DTYPE"
+    echo "Qwen Thinking: ${QWEN_THINKING:-disabled}"
+    if [ -n "$QWEN_LORA_ADAPTER_PATH" ]; then
+        echo "Qwen LoRA Adapter: $QWEN_LORA_ADAPTER_PATH"
+    fi
+fi
 echo "=========================================="
 
 # Run based on model type
@@ -189,6 +232,38 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
         echo "Unknown experiment type: $EXPERIMENT"
         exit 1
     fi
+elif [ "$MODEL_TYPE" == "qwen-local" ]; then
+    echo "Running local Qwen VAD evaluation..."
+
+    QWEN_EXTRA_ARGS=""
+    if [ "$INCLUDE_HISTORY_VAD" == "True" ]; then
+        QWEN_EXTRA_ARGS="$QWEN_EXTRA_ARGS --include_history_vad"
+    fi
+    if [ -n "$QWEN_LORA_ADAPTER_PATH" ]; then
+        QWEN_EXTRA_ARGS="$QWEN_EXTRA_ARGS --lora_adapter_path $QWEN_LORA_ADAPTER_PATH"
+    fi
+
+    python main_vad_qwen_local.py \
+        --data_file "$DATA_FILE" \
+        --output_dir "$OUTPUT_DIR" \
+        --model_path "$QWEN_MODEL_PATH" \
+        --experiments_setting "$EXPERIMENT" \
+        --window_size "$WINDOW_SIZE" \
+        --data_percent "$DATA_PERCENT" \
+        --seed "$SEED" \
+        --test_session "$TEST_SESSION" \
+        --dtype "$QWEN_DTYPE" \
+        --max_new_tokens "$QWEN_MAX_NEW_TOKENS" \
+        --lora_r "$QWEN_LORA_R" \
+        --lora_alpha "$QWEN_LORA_ALPHA" \
+        --lora_dropout "$QWEN_LORA_DROPOUT" \
+        --lora_lr "$QWEN_LORA_LR" \
+        --num_train_epochs "$QWEN_LORA_EPOCHS" \
+        --train_batch_size "$QWEN_LORA_BATCH_SIZE" \
+        --gradient_accumulation_steps "$QWEN_LORA_GRAD_ACCUM" \
+        $QWEN_THINKING \
+        $QWEN_EXTRA_ARGS
+
 else
     echo "Unknown model type: $MODEL_TYPE"
     exit 1
