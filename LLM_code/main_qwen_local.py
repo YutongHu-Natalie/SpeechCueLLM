@@ -437,6 +437,12 @@ def train_lora(model, tokenizer, train_data, dev_data, args,
     label_set = list(emotional_label_dict.keys())
 
     # Wrap model with LoRA
+    # enable_input_require_grads() is required when device_map='auto' so that
+    # gradients can flow into the input embeddings through the dispatched model.
+    model.enable_input_require_grads()
+    # Disable KV-cache during training (incompatible with gradient checkpointing)
+    model.config.use_cache = False
+
     lora_config = LoraConfig(
         task_type="CAUSAL_LM",
         r=args.lora_r,
@@ -525,6 +531,8 @@ def train_lora(model, tokenizer, train_data, dev_data, args,
         tokenizer.save_pretrained(adapter_save_path)
         print(f"Adapter saved to {adapter_save_path}")
 
+    # Restore cache for inference
+    model.config.use_cache = True
     print(f"\nLoRA training complete. Best dev F1: {best_f1:.3f}")
     return model, adapter_save_path
 
@@ -633,8 +641,10 @@ def main():
     parser.add_argument('--lora_dropout', type=float, default=0.05,
                         help='LoRA dropout')
     parser.add_argument('--lora_target_modules', type=str,
-                        default='q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj',
-                        help='Comma-separated list of module names to apply LoRA to')
+                        default='q_proj,k_proj,v_proj,o_proj',
+                        help='Comma-separated list of module names to apply LoRA to. '
+                             'Defaults to attention layers only, which is safe for Qwen3.5 MoE. '
+                             'Add gate_proj,up_proj,down_proj to also target FFN layers.')
     parser.add_argument('--lora_lr', type=float, default=3e-4,
                         help='Learning rate for LoRA training')
     parser.add_argument('--num_train_epochs', type=int, default=3,
@@ -678,8 +688,19 @@ def main():
     # ------------------------------------------------------------------
     # Load model
     # ------------------------------------------------------------------
+    # Use local_files_only=True when path exists locally to avoid huggingface_hub
+    # trying to validate the local path as a Hub repo ID (causes errors in newer versions)
+    is_local = os.path.isdir(args.model_path)
+    load_kwargs = dict(
+        dtype=torch_dtype,
+        device_map=args.device_map,
+        local_files_only=is_local,
+    )
+
     print(f"Loading tokenizer from: {args.model_path}")
-    tokenizer = AutoTokenizer.from_pretrained(args.model_path)
+    tokenizer = AutoTokenizer.from_pretrained(
+        args.model_path, local_files_only=is_local,
+    )
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
 
@@ -687,15 +708,11 @@ def main():
         # Load base model + pre-trained LoRA adapter (inference only)
         print(f"Loading base model from: {args.model_path}")
         print(f"Loading LoRA adapter from: {args.lora_adapter_path}")
-        base_model = AutoModelForCausalLM.from_pretrained(
-            args.model_path, dtype=torch_dtype, device_map=args.device_map,
-        )
+        base_model = AutoModelForCausalLM.from_pretrained(args.model_path, **load_kwargs)
         model = PeftModel.from_pretrained(base_model, args.lora_adapter_path)
     else:
         print(f"Loading model from: {args.model_path}  (dtype={args.dtype}, device_map={args.device_map})")
-        model = AutoModelForCausalLM.from_pretrained(
-            args.model_path, dtype=torch_dtype, device_map=args.device_map,
-        )
+        model = AutoModelForCausalLM.from_pretrained(args.model_path, **load_kwargs)
 
     model.eval()
     print("Model loaded.")

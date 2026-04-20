@@ -54,7 +54,7 @@ emotion_prediction='False'
 
 # ------  Qwen-specific settings ------
 # Path to the locally downloaded Qwen model directory (used when MODEL_NAME='Qwen-local')
-QWEN_MODEL_PATH='/local/scratch/yhu383/models/Qwen3.5-35B'
+QWEN_MODEL_PATH='/local/scratch/yhu383/models/Qwen3.5-35B-A3B'
 # Base URL of the remote Qwen server (used when MODEL_NAME='Qwen-remote')
 # Can also be set via the QWEN_BASE_URL environment variable
 QWEN_BASE_URL='http://localhost:8000/v1'
@@ -158,22 +158,24 @@ esac
 
 if [ ${FLAG} = 1 ]
 then
-    DATA_PATH=$(python data_process.py --dataset ${dataset} \
+    DATA_PATH=$(python data_process.py \
+        --dataset ${dataset} \
         --historical_window ${historical_window} \
         --audio_description ${audio_description} \
         --audio_impression ${audio_impression} \
-        --audio_only ${audio_only}\
-        --audio_context ${audio_context}\
-        --experiments_setting ${Experiments_setting}) \
+        --audio_only ${audio_only} \
+        --audio_context ${audio_context} \
+        --experiments_setting ${Experiments_setting})
+    DATA_PROCESS_EXIT=$?
 
-
-    if [ $? -eq 0 ]; then
+    if [ ${DATA_PROCESS_EXIT} -eq 0 ] && [ -n "${DATA_PATH}" ]; then
         echo "******************************************************************************************"
         echo -e "Data procession has executed successfully !"
+        echo "Processed Data_Path: ${DATA_PATH}"
         echo "******************************************************************************************"
-
     else
-        echo "Data procession script encountered an error."
+        echo "Data procession script encountered an error (exit code: ${DATA_PROCESS_EXIT}). Aborting."
+        exit 1
     fi
 
     if [ ${dataset} = 'iemocap' ]
@@ -291,9 +293,15 @@ then
 
     elif [ ${MODEL_NAME} = 'Qwen-local' ]
     then
+        # Verify model path exists before launching
+        if [ ! -d "${QWEN_MODEL_PATH}" ]; then
+            echo "ERROR: Qwen model directory not found: ${QWEN_MODEL_PATH}"
+            echo "Please update QWEN_MODEL_PATH in this script."
+            exit 1
+        fi
+
         echo "******************************************************************************************"
         echo "Using local Qwen model: ${QWEN_MODEL_PATH}"
-        echo "Processed Data_Path: $DATA_PATH"
         echo "******************************************************************************************"
 
         # Build optional adapter path flag
@@ -326,7 +334,6 @@ then
     then
         echo "******************************************************************************************"
         echo "Using remote Qwen server: ${QWEN_BASE_URL}  model: ${QWEN_REMOTE_MODEL}"
-        echo "Processed Data_Path: $DATA_PATH"
         echo "******************************************************************************************"
 
         python main_qwen.py \
