@@ -235,6 +235,18 @@ elif [ "$MODEL_TYPE" == "llama" ]; then
 elif [ "$MODEL_TYPE" == "qwen-local" ]; then
     echo "Running local Qwen VAD evaluation..."
 
+    # Apply defaults in case variables were not set (e.g. missing from remote copy of script)
+    QWEN_MODEL_PATH="${QWEN_MODEL_PATH:-/local/scratch/yhu383/models/Qwen3.5-35B}"
+    QWEN_DTYPE="${QWEN_DTYPE:-bfloat16}"
+    QWEN_MAX_NEW_TOKENS="${QWEN_MAX_NEW_TOKENS:-512}"
+    QWEN_LORA_R="${QWEN_LORA_R:-16}"
+    QWEN_LORA_ALPHA="${QWEN_LORA_ALPHA:-32}"
+    QWEN_LORA_DROPOUT="${QWEN_LORA_DROPOUT:-0.05}"
+    QWEN_LORA_LR="${QWEN_LORA_LR:-3e-4}"
+    QWEN_LORA_EPOCHS="${QWEN_LORA_EPOCHS:-3}"
+    QWEN_LORA_BATCH_SIZE="${QWEN_LORA_BATCH_SIZE:-1}"
+    QWEN_LORA_GRAD_ACCUM="${QWEN_LORA_GRAD_ACCUM:-8}"
+
     QWEN_EXTRA_ARGS=""
     if [ "$INCLUDE_HISTORY_VAD" == "True" ]; then
         QWEN_EXTRA_ARGS="$QWEN_EXTRA_ARGS --include_history_vad"
