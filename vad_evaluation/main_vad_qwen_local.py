@@ -19,11 +19,7 @@ import pandas as pd
 from tqdm import tqdm
 import torch
 from torch.utils.data import Dataset, DataLoader
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    get_linear_schedule_with_warmup,
-)
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import LoraConfig, get_peft_model, PeftModel
 from scipy.stats import pearsonr
 from sklearn.metrics import mean_squared_error, mean_absolute_error
@@ -31,6 +27,18 @@ import re
 from dotenv import load_dotenv
 
 load_dotenv(override=True)
+
+
+def get_linear_schedule_with_warmup(optimizer, num_warmup_steps, num_training_steps, last_epoch=-1):
+    """Linear warmup then linear decay scheduler (avoids importing from transformers)."""
+    def lr_lambda(current_step):
+        if current_step < num_warmup_steps:
+            return float(current_step) / float(max(1, num_warmup_steps))
+        return max(
+            0.0,
+            float(num_training_steps - current_step) / float(max(1, num_training_steps - num_warmup_steps)),
+        )
+    return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda, last_epoch)
 
 
 # ---------------------------------------------------------------------------
