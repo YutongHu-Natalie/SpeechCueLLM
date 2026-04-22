@@ -200,8 +200,9 @@ def extract_vad_from_output(output):
     if not output or output.strip() == '':
         return None, None, None
 
-    # Strip Qwen thinking block
+    # Strip Qwen <think> block and any free-form "Thinking Process:" preamble
     output = re.sub(r'<think>.*?</think>', '', output, flags=re.DOTALL).strip()
+    output = re.sub(r'^(Thinking Process|thinking process|Let me|I need to|First,).*?(?=<answer>|\{)', '', output, flags=re.DOTALL).strip()
 
     # Strategy 1: <answer> tags (use last match to skip few-shot examples)
     answer_matches = re.findall(r'<answer>\s*(.*?)\s*</answer>', output, re.DOTALL)
@@ -267,30 +268,24 @@ def _user_message_body(conversation_history, target_utterance, audio_features,
         "\nNote: VAD ratings [V=Valence, A=Arousal, D=Dominance] are provided for context utterances."
         if include_history_vad else ""
     )
-    return f"""You will be analyzing a dialogue to evaluate the emotion expressed in a specific target utterance using the Valence-Arousal-Dominance (VAD) Model. The VAD model measures emotion across three dimensions:
-* Valence: How positive or negative the emotion is (1 = very negative, 5 = very positive)
-* Arousal: The intensity or energy level of the emotion (1 = very calm/passive, 5 = very excited/active)
-* Dominance: The degree of control or power expressed (1 = very submissive/controlled, 5 = very dominant/in-control)
+    return f"""Rate the emotion in the target utterance using the VAD model. Output ONLY the answer JSON inside <answer> tags — no preamble, no explanation.
+
+VAD dimensions (integer 1-5):
+* Valence: 1 = very negative, 5 = very positive
+* Arousal: 1 = very calm, 5 = very excited/active
+* Dominance: 1 = very submissive, 5 = very dominant/in-control
 {examples_text}
-Input:
-The conversation history leading up to the target utterance:{history_vad_note}
+Conversation history:{history_vad_note}
 {conversation_history}
 
-Here is the target utterance you need to analyze:
-{target_utterance}
+Target utterance: {target_utterance}
 
-Here are the audio features (if available) for the last three utterances in the conversation:
-{audio_features}
+Audio features: {audio_features}
 
-Your task is to rate the emotion expressed in the target utterance on a scale of 1-5 for each of the three VAD dimensions. You must provide integer values only (no decimals).
-
-Provide your final ratings in valid JSON format inside <answer> tags. The JSON must have exactly this structure:
-{{ "v_value": "your integer rating for valence", "a_value": "your integer rating for arousal", "d_value": "your integer rating for dominance" }}
-
-Remember:
-* All ratings must be integers from 1 to 5
-* Consider both conversational context and audio features (when available)
-* The ratings should reflect the emotion in the target utterance specifically, not the overall conversation"""
+Respond with ONLY this JSON inside <answer> tags:
+<answer>
+{{ "v_value": "1-5", "a_value": "1-5", "d_value": "1-5" }}
+</answer>"""
 
 
 def build_messages_zero_shot(conversation_history, target_utterance, audio_features,
@@ -344,7 +339,7 @@ def apply_chat_template(tokenizer, messages, enable_thinking=False):
 
 
 def run_local_inference(model, tokenizer, messages, enable_thinking=False,
-                        max_new_tokens=512, device="cuda"):
+                        max_new_tokens=256, device="cuda"):
     text = apply_chat_template(tokenizer, messages, enable_thinking)
     model_inputs = tokenizer([text], return_tensors="pt").to(device)
 
@@ -352,11 +347,7 @@ def run_local_inference(model, tokenizer, messages, enable_thinking=False,
         generated_ids = model.generate(
             **model_inputs,
             max_new_tokens=max_new_tokens,
-            do_sample=True,
-            temperature=1.0,
-            top_p=0.95,
-            top_k=20,
-            repetition_penalty=1.5,
+            do_sample=False,  # greedy — VAD ratings need precision, not diversity
         )
 
     new_tokens = generated_ids[0][model_inputs.input_ids.shape[1]:]
